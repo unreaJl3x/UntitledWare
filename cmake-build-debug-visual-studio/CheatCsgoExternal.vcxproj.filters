@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\bunnyhope.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\local.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\csgo_signatures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\bunnyhope.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{561622F4-A2F1-32BB-82B0-715B076E1D3E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{FE2CEA40-8D5C-32EF-B08A-DA43F3AD62AF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

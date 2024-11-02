@@ -1,0 +1,3 @@
+C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-debug/CMakeFiles/CheatCsgoExternal.dir
+C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-debug/CMakeFiles/rebuild_cache.dir

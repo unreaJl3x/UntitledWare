@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\cmake-build-debug-visual-studio\CMakeFiles\7c588e70962aa98229a659e237329457\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{201C10E5-FEB3-3D78-9D9A-CC81CA9F472F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
