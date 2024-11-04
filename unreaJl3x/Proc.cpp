@@ -28,7 +28,6 @@ uintptr_t Proc::GetModuleAddress(const char* mName) {
 
     if (Module32First(snap, &mEntry)) {
         do {
-            cout << mEntry.szModule <<endl;
             if (!strcmp(mName, mEntry.szModule)) {CloseHandle(snap);return (uintptr_t)mEntry.modBaseAddr;}
         }while (Module32Next(snap, &mEntry)) ;
     }

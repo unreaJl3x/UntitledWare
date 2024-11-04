@@ -22,4 +22,7 @@ add_executable(${PROJECT_NAME} main.cpp
         unreaJl3x/globals.cpp
         unreaJl3x/output.h
         unreaJl3x/output.cpp
+        csgo/funcs/iFovChanger.h
+        csgo/Player.cpp
+        csgo/Player.h
 )

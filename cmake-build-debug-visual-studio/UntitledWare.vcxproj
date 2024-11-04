@@ -326,6 +326,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp" />
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\iFovChanger.h" />
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp" />
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\cmake-build-debug-visual-studio\ZERO_CHECK.vcxproj">

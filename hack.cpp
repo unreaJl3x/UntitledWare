@@ -1,21 +1,29 @@
 #include "hack.h"
 
 #include <string>
+#include <thread>
 
 #include "csgo_signatures.h"
+#include "funcs/iFovChanger.h"
 
 void hackIt(HANDLE handle) {
-    static uintptr_t clientDll = Proc::GetModuleAddress("client.dll");
-    if (clientDll<=1) {return;}
+    Global::signatures::client = Proc::GetModuleAddress("client.dll");
+    if (Global::signatures::client<=1) {return;}
+
+    Global::signatures::localPlayer = Read<uintptr_t>(Global::signatures::client+hazedumper::signatures::dwLocalPlayer);
+
+    thread FovChanger(iFovChanger);
 
     while(csgo.CheckValidApp())
     {
-        static uintptr_t localAddr = Read<uintptr_t>(clientDll+0x00DEF97C);
-        if (localAddr!=0)
+
+        /*if (localAddr!=0)
         {
             static int health = Read<int>(localAddr+0x100);
-            Write<int>(clientDll+, 1);
-        }
+
+        }*/
+
+
     }
 
     return;

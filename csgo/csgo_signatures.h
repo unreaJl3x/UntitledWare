@@ -119,7 +119,7 @@ namespace hazedumper {
         constexpr ptrdiff_t dwClientState_PlayerInfo = 0x52C0;
         constexpr ptrdiff_t dwClientState_State = 0x108;
         constexpr ptrdiff_t dwClientState_ViewAngles = 0x4D90;
-        constexpr ptrdiff_t dwEntityList = 0x4E0102C;
+        constexpr ptrdiff_t dwEntityList = 0x04E051DC;//0x4E0102C
         constexpr ptrdiff_t dwForceAttack = 0x322EE98;
         constexpr ptrdiff_t dwForceAttack2 = 0x322EEA4;
         constexpr ptrdiff_t dwForceBackward = 0x322EEE0;
@@ -134,7 +134,7 @@ namespace hazedumper {
         constexpr ptrdiff_t dwGlowObjectManager = 0x535BAD0;
         constexpr ptrdiff_t dwInput = 0x525E600;
         constexpr ptrdiff_t dwInterfaceLinkList = 0x99CF84;
-        constexpr ptrdiff_t dwLocalPlayer = 0x052BF6D8; //0x00DEF97C
+        constexpr ptrdiff_t dwLocalPlayer = 0x00DEF97C; //0x00DEF97C
         constexpr ptrdiff_t dwMouseEnable = 0x523A260;
         constexpr ptrdiff_t dwMouseEnablePtr = 0x523A230;
         constexpr ptrdiff_t dwPlayerResource = 0x322D1D0;
