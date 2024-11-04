@@ -51,6 +51,9 @@
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\AntiFlash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\CMakeLists.txt" />

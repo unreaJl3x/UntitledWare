@@ -1,20 +1,22 @@
 #ifndef IFOVCHANGER_H
 #define IFOVCHANGER_H
-#include "csgo_signatures.h"
-#include "Player.h"
-#include "globals.h"
 
-bool iFovChanger() {
-    Player local;
+#include "funcs.h"
 
-    while (true)
-    {
-        if (local.isAlive)
+namespace FovChanger
+{
+    bool main() {
+        Player pl;
+
+        while (true)
         {
-            Write<int>(Global::signatures::localPlayer+hazedumper::netvars::m_iDefaultFOV, 130);
-            Write<int>(Global::signatures::localPlayer+hazedumper::netvars::m_bIsScoped, -9);
+            if (pl.isAlive)
+            {
+                Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 130);
+            }
+            this_thread::sleep_for(chrono::milliseconds(10));
         }
     }
+    void returned(){ Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 90); }
 }
-
 #endif //IFOVCHANGER_H

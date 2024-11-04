@@ -1,9 +1,9 @@
 #include "hack.h"
 
-#include <string>
 #include <thread>
 
 #include "csgo_signatures.h"
+#include "funcs/AntiFlash.h"
 #include "funcs/iFovChanger.h"
 
 void hackIt(HANDLE handle) {
@@ -12,17 +12,11 @@ void hackIt(HANDLE handle) {
 
     Global::signatures::localPlayer = Read<uintptr_t>(Global::signatures::client+hazedumper::signatures::dwLocalPlayer);
 
-    thread FovChanger(iFovChanger);
+    thread FovChanger(FovChanger::main);
+    thread AntiFlashs(AntiFlash::main);
 
     while(csgo.CheckValidApp())
     {
-
-        /*if (localAddr!=0)
-        {
-            static int health = Read<int>(localAddr+0x100);
-
-        }*/
-
 
     }
 

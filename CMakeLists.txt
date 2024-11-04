@@ -25,4 +25,5 @@ add_executable(${PROJECT_NAME} main.cpp
         csgo/funcs/iFovChanger.h
         csgo/Player.cpp
         csgo/Player.h
+        csgo/funcs/AntiFlash.h
 )
