@@ -4,7 +4,6 @@
 #include "globals.h"
 #include "mem.h"
 #include "csgo_signatures.h"
-using namespace Memory;
 
 class Player {
 private:

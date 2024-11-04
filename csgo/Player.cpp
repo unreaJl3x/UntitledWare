@@ -1,10 +1,9 @@
 #include "Player.h"
-
+using namespace Memory;
 Player::Player(uintptr_t addr)
 {
     this->addr = addr;
     Player::updateDate();
-    return;
 }
 
 bool Player::updateDate()

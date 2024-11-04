@@ -314,22 +314,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\main.cpp" />
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.cpp" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.h" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.h" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\csgo_signatures.h" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\iFovChanger.h" />
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\AntiFlash.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\cmake-build-debug-visual-studio\ZERO_CHECK.vcxproj">

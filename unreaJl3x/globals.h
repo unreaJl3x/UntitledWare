@@ -2,7 +2,6 @@
 #define CHEATCSGOEXTERNAL_GLOBALS_H
 
 #include "game.h"
-#include "Player.h"
 
 extern Game csgo;
 namespace Global{
