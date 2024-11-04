@@ -113,6 +113,7 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\ctype.h",
             "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\clocale",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\ucrt\\locale.h",
+            "c:\\program files\\microsoft visual studio\\2022\\community\\vc\\tools\\msvc\\14.41.34120\\include\\string",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\um\\windows.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\shared\\winapifamily.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\shared\\winpackagefamily.h",
@@ -325,14 +326,13 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\um\\mcx.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\um\\imm.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\um\\ime_cmodes.h",
+            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\hack.h",
             "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\unreajl3x\\proc.h",
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.22621.0\\um\\tlhelp32.h",
-            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\hack.h",
-            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\csgo\\functions\\functions.h",
-            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\csgo\\csgo_signatures.h",
-            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\unreajl3x\\mem.h",
             "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\unreajl3x\\globals.h",
-            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\csgo\\game.h"
+            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\csgo\\game.h",
+            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\unreajl3x\\output.h",
+            "c:\\users\\unreal\\c++projects\\cheatcsgoexternal\\unreajl3x\\mem.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

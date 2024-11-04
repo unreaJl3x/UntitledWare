@@ -318,17 +318,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.h" />
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.h" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\csgo_signatures.h" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\functions.h" />
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\bunnyhope.cpp" />
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\bunnyhope.h" />
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\functions\local.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp" />
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h" />
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\cmake-build-debug-visual-studio\ZERO_CHECK.vcxproj">

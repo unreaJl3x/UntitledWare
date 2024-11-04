@@ -1,6 +1,0 @@
-#ifndef CHEATCSGOEXTERNAL_LOCAL_H
-#define CHEATCSGOEXTERNAL_LOCAL_H
-
-#include "functions.h"
-
-#endif //CHEATCSGOEXTERNAL_LOCAL_H

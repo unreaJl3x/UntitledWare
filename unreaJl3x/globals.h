@@ -5,6 +5,6 @@
 
 extern Game csgo;
 namespace Global{
-    void Init(HANDLE,DWORD,uintptr_t);
+    void Init(string,string);
 }
 #endif //CHEATCSGOEXTERNAL_GLOBALS_H

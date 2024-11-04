@@ -1,13 +1,22 @@
 #include "hack.h"
-#include "globals.h"
 
-void hack(HANDLE h, DWORD pID) {
-    const uintptr_t clientDllAddress= Proc::GetModuleAddress(pID,(char*)"client.dll");
-    const uintptr_t localAddr = Read<uintptr_t>(h, clientDllAddress+hazedumper::signatures::dwLocalPlayer);
-    Global::Init(h,pID,clientDllAddress);
+#include <string>
 
-    UntitledWare::Misc::Bunnyhope();
-    UntitledWare::Test::local();
+#include "csgo_signatures.h"
+
+void hackIt(HANDLE handle) {
+    static uintptr_t clientDll = Proc::GetModuleAddress("client.dll");
+    if (clientDll<=1) {return;}
+
+    while(csgo.CheckValidApp())
+    {
+        static uintptr_t localAddr = Read<uintptr_t>(clientDll+0x00DEF97C);
+        if (localAddr!=0)
+        {
+            static int health = Read<int>(localAddr+0x100);
+            Write<int>(clientDll+, 1);
+        }
+    }
 
     return;
 }

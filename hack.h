@@ -3,9 +3,10 @@
 #include <iostream>
 
 #include "unreaJl3x/Proc.h"
-#include "csgo/functions/functions.h"
 #include "mem.h"
+#include "globals.h"
+#include "output.h"
 using namespace std;
 using namespace Memory;
 
-void hack(HANDLE,DWORD);
+void hackIt(HANDLE h);

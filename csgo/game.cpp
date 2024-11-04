@@ -1,14 +1,20 @@
 #include "game.h"
+#include "mem.h"
+#include "csgo_signatures.h"
+#include "Proc.h"
+using namespace Memory;
 
 Game::Game() = default;
 
-Game::Game(HANDLE handle, DWORD id, uintptr_t client) {
-    this->pHandle = handle;
-    this->pID = id;
-    this->clientDllAddress = client;
-    this->localPlayerAddress = Read<uintptr_t>(pHandle, client+hazedumper::signatures::dwLocalPlayer);
+Game::Game(string nameexe, string nameapp)
+{
+    this->nameExe = nameexe;
+    this->nameApp = nameapp;
 }
 
-bool Game::isGrounded() {
-    return Read<int>(pHandle, localPlayerAddress) == 257 ? false : true;
+bool Game::CheckValidApp()
+{
+    pHandle = Proc::GetHandle();
+    bool validate = (pID >= 0) && (pID <= 90000) && (pHandle != INVALID_HANDLE_VALUE);
+    return validate;
 }

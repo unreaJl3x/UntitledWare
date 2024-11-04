@@ -134,7 +134,7 @@ namespace hazedumper {
         constexpr ptrdiff_t dwGlowObjectManager = 0x535BAD0;
         constexpr ptrdiff_t dwInput = 0x525E600;
         constexpr ptrdiff_t dwInterfaceLinkList = 0x99CF84;
-        constexpr ptrdiff_t dwLocalPlayer = 0x00DEF97C; //0x00DEB99C
+        constexpr ptrdiff_t dwLocalPlayer = 0x052BF6D8; //0x00DEF97C
         constexpr ptrdiff_t dwMouseEnable = 0x523A260;
         constexpr ptrdiff_t dwMouseEnablePtr = 0x523A230;
         constexpr ptrdiff_t dwPlayerResource = 0x322D1D0;

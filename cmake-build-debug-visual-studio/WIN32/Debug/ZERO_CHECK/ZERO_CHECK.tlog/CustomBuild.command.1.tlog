@@ -1,0 +1,10 @@
+^C:\USERS\UNREAL\C++PROJECTS\CHEATCSGOEXTERNAL\CMAKE-BUILD-DEBUG-VISUAL-STUDIO\CMAKEFILES\7C588E70962AA98229A659E237329457\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\JetBrains\CLion 2024.2.2\bin\cmake\win\x64\bin\cmake.exe" -SC:/Users/unreal/C++Projects/CheatCsgoExternal -BC:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-debug-visual-studio --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-debug-visual-studio/UntitledWare.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

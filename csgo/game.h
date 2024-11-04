@@ -3,23 +3,21 @@
 
 #include <windows.h>
 #include <iostream>
-
-#include "csgo_signatures.h"
-#include "mem.h"
 using namespace std;
-using namespace Memory;
 
 class Game {
 public:
+        string nameExe;
+        string nameApp;
         uintptr_t localPlayerAddress;
         uintptr_t clientDllAddress;
         DWORD pID ;
         HANDLE pHandle;
 
         Game();
-        Game(HANDLE handle, DWORD id, uintptr_t client);
-        bool isGrounded();
-        void GetActiveWeapon();
+        Game(string, string);
+
+        bool CheckValidApp();
 };
 
 #endif //CHEATCSGOEXTERNAL_GAME_H

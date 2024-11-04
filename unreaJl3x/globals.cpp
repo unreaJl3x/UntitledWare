@@ -1,7 +1,14 @@
 #include "globals.h"
 Game csgo;
+
 namespace Global{
-    void Init(HANDLE h, DWORD id, uintptr_t client) {
-        csgo = *(new Game(h, id, client));
+    namespace signatures
+    {
+        uintptr_t client;
+    }
+
+    void Init(string nameexe, string nameapp)
+    {
+        csgo = *(new Game(nameexe,nameapp));
     }
 }
