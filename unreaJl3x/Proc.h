@@ -10,9 +10,24 @@
 using namespace std;
 
 namespace Proc {
+    /*      old
     DWORD GetPid();
-    HANDLE GetHandle();
-    uintptr_t GetModuleAddress(const char*);
     string GetCurrentProcessName();
-    int FindProcess(string);
+    */
+    HANDLE OpenHandle();
+    uintptr_t GetModuleAddress(const char*);
+
+    int GetRunningExempls(char*);
+
+    //test
+    class AppDate {
+    public:
+        char* name{};
+        DWORD id = -1;
+        AppDate(DWORD id, char* name) {this->id = id; this->name = name;}
+        AppDate() = default;
+    };
+
+    AppDate GetAppDate(const char*);
+    AppDate GetAppDate(DWORD);
 }

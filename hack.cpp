@@ -3,12 +3,15 @@
 #include "csgo/funcs/iFovChanger.h"
 #include "csgo/funcs/RadarHack.h"
 
-void hackIt() {
-    Global::signatures::clientAddr = Proc::GetModuleAddress("client.dll");
-    if (Global::signatures::clientAddr<=1) {return;}
+#define cl Global::signatures::clientAddr
+#define lc Global::signatures::localAddr
 
-    Global::signatures::localAddr = Read<uintptr_t>(Global::signatures::clientAddr+hazedumper::signatures::dwLocalPlayer);
-    Global::signatures::Players::localPlayer = Player(Global::signatures::localAddr);
+void hackIt() {
+    cl = Proc::GetModuleAddress("client.dll");
+    if (cl <= 1) {OUTPUT::print("Cannot reading addres for 'client.dll'",2,"hackIT");return;}
+
+    lc = Read<uintptr_t>(cl + hazedumper::signatures::dwLocalPlayer);
+    Global::signatures::Players::localPlayer = Player(lc);
 
     thread FovChanger(FovChanger::main);
     //thread AntiFlashs(AntiFlash::main);
@@ -17,8 +20,8 @@ void hackIt() {
     while(true)
     {
         Global::signatures::Players::localPlayer.updateDate();
+
         this_thread::sleep_for(chrono::milliseconds(100));
     }
-
     return;
 }

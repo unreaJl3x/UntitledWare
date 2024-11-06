@@ -9,8 +9,6 @@ class Game {
 public:
         string nameExe;
         string nameApp;
-        uintptr_t localPlayerAddress;
-        uintptr_t clientDllAddress;
         DWORD pID ;
         HANDLE pHandle;
 
