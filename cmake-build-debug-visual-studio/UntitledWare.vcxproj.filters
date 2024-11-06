@@ -4,6 +4,9 @@
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -14,6 +17,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -31,6 +37,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\RadarHack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\iFovChanger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\AntiFlash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

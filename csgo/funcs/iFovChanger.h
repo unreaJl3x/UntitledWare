@@ -10,13 +10,13 @@ namespace FovChanger
 
         while (true)
         {
-            if (pl.isAlive)
+            if (Global::signatures::Players::localPlayer.isAlive)
             {
                 Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 130);
-            }
+            } else {returned();}
             this_thread::sleep_for(chrono::milliseconds(10));
         }
     }
-    void returned(){ Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 90); }
+    void returned() { Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 90); }
 }
 #endif //IFOVCHANGER_H

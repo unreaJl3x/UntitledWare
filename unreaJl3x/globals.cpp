@@ -4,8 +4,13 @@ Game csgo;
 namespace Global{
     namespace signatures
     {
-        uintptr_t client;
-        uintptr_t localPlayer;
+        uintptr_t clientAddr;
+        uintptr_t localAddr;
+
+        namespace Players
+        {
+            Player localPlayer; // CBasePlayer example
+        }
     }
 
     void Init(string nameexe, string nameapp)

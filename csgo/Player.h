@@ -1,18 +1,18 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "globals.h"
-#include "mem.h"
 #include "csgo_signatures.h"
 
 class Player {
 private:
-    uintptr_t addr;
+
 
 public:
+    uintptr_t CBaseAddress;
     int  iHealth;
     int  iArmor;
     int  fFlags;
+    int  iTeamNum; // 2 - T; 3 - CT
 
     bool flFlashDuration;
     bool isScoped;
@@ -21,6 +21,7 @@ public:
     bool bInReload;
     bool isAlive = true;
     int  iFov;
+    int  spotted;
 
     Player() = default;
     Player(uintptr_t);

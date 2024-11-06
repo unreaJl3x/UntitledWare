@@ -1,7 +1,7 @@
 #ifndef FUNCS_H
 #define FUNCS_H
 
-#define local Global::signatures::localPlayer
+#define local Global::signatures::localAddr
 
 #include "csgo_signatures.h"
 #include "Player.h"
@@ -16,6 +16,12 @@ namespace FovChanger
 }
 
 namespace AntiFlash
+{
+    bool main();
+    void returned();
+}
+
+namespace RadarHack
 {
     bool main();
     void returned();

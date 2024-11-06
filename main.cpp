@@ -17,7 +17,7 @@ int main() {
     if (csgo.CheckValidApp()) {
         if (Proc::FindProcess(Proc::GetCurrentProcessName())>=2) { ShowWindow(GetConsoleWindow(),0);OUTPUT::print_msg("Programm already running.");return 0; }
         // run mainprocess hack
-        //hackIt();
+        hackIt();
     }
 
     OUTPUT::print("Exit programm", 1, "main");
