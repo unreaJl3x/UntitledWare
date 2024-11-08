@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\RadarHack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\iFovChanger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\AntiFlash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{74E4740C-2FD8-36A6-926F-CB930FE70B51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D749E7D1-C258-3A83-8D03-617C3FAFE658}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -11,6 +11,8 @@ public:
         string nameApp;
         DWORD pID ;
         HANDLE pHandle;
+        string username;
+        string pathFolder;
 
         Game();
         Game(string, string);

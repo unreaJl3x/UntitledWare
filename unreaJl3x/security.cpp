@@ -1,5 +1,6 @@
 #include "security.h"
 #include "hack.h"
+#include "globals.h"
 
 bool Security::Check() {
     DecompleKey dec;
@@ -8,9 +9,7 @@ bool Security::Check() {
 
 void Security::Start()
 {
-    char username_ [100]; DWORD len = 100; GetUserName(username_, &len);
-    string username = username_;
-    SetPath("C:\\Users\\"+username+"\\AppData\\Roaming\\UntitledWare\\key.txt");
+    SetPath(csgo.pathFolder+"\\key.txt");
     fstream file(path, ios::in);
     bool setup = false;
 
@@ -19,18 +18,20 @@ void Security::Start()
         char key[100];
         file.getline(key,100,';');
         SetKey(key);
+        OUTPUT::print("Load serial keycode",1,"Security");
         file.close();
     } else
     {
         string key;
         ofstream filed(path,ios::out);
+        OUTPUT::print("Input serial keycode->...",0,"Security");
         getline(cin, key);
         SetKey(key);
         filed << key;
         filed.close();
     }
 
-    if (Check()) {hackIt();}
+    if (Check()) {SetConsoleTitle("UntitledWare | LICENSED");hackIt();}
     else {OUTPUT::print("Invalid key",1,"Security"); remove(path.c_str());}
     return;
 }

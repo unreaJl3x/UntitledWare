@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "UntitledWare.dir\\Release\\main.obj",
+            "outputs": [
+                "UntitledWare.dir\\Release\\"
+            ],
+            "requires": []
+        }
+    ]
+}
