@@ -17,7 +17,7 @@ namespace Proc {
     HANDLE OpenHandle();
     uintptr_t GetModuleAddress(const char*);
 
-    int GetRunningExempls(char*);
+    bool GetRunningExempls(char*);
 
     //test
     class AppDate {

@@ -324,6 +324,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp" />
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.h" />
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.cpp" />
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.h" />
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h" />
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp" />
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs.h" />

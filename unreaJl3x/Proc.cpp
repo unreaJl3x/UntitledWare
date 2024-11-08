@@ -52,7 +52,7 @@ uintptr_t Proc::GetModuleAddress(const char* mName) {
     return 0;
 }
 
-int Proc::GetRunningExempls(char* nameexe, int runs)
+bool Proc::GetRunningExempls(char* nameexe)
 {
     PROCESSENTRY32 pEntry;pEntry.dwSize=sizeof(PROCESSENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
@@ -60,16 +60,17 @@ int Proc::GetRunningExempls(char* nameexe, int runs)
     int appsRuns=0;
     if (Process32First(snap, &pEntry)) {
         while (Process32Next(snap,&pEntry)) {
-            if (!strcmp(nameexe, pEntry.szExeFile)) {appsRuns++;}
+            if (!strcmp(nameexe, pEntry.szExeFile)) {appsRuns++;if(appsRuns>=2){return true;}}
         }
     }
+
     CloseHandle(snap);
-    return appsRuns;
+    return false;
 }
 
 
 // test
-Proc::AppDate Proc::GetAppDate(DWORD)
+Proc::AppDate Proc::GetAppDate(DWORD pId)
 {
     PROCESSENTRY32 pEntry;pEntry.dwSize=sizeof(PROCESSENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
@@ -77,7 +78,7 @@ Proc::AppDate Proc::GetAppDate(DWORD)
 
     if (Process32First(snap,&pEntry)) {
         while (Process32Next(snap,&pEntry)) {
-            if (GetCurrentProcessId() == pEntry.th32ProcessID) { CloseHandle(snap);return *new Proc::AppDate((DWORD)pEntry.th32ProcessID, pEntry.szExeFile); }
+            if (pId == pEntry.th32ProcessID) { CloseHandle(snap);return *new Proc::AppDate((DWORD)pEntry.th32ProcessID, pEntry.szExeFile); }
         }
     }
 

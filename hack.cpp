@@ -2,7 +2,6 @@
 #include "csgo/funcs/AntiFlash.h"
 #include "csgo/funcs/iFovChanger.h"
 #include "csgo/funcs/RadarHack.h"
-
 #define cl Global::signatures::clientAddr
 #define lc Global::signatures::localAddr
 
@@ -14,7 +13,7 @@ void hackIt() {
     Global::signatures::Players::localPlayer = Player(lc);
 
     thread FovChanger(FovChanger::main);
-    //thread AntiFlashs(AntiFlash::main);
+    thread AntiFlashs(AntiFlash::main);
     thread RadarHack(RadarHack::main);
 
     while(true)

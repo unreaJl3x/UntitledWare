@@ -19,6 +19,12 @@
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,6 +43,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h">

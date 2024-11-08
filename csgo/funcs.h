@@ -2,7 +2,7 @@
 #define FUNCS_H
 
 #define local Global::signatures::localAddr
-
+#define client Global::signatures::clientAddr
 #include "csgo_signatures.h"
 #include "Player.h"
 #include "globals.h"
@@ -26,5 +26,4 @@ namespace RadarHack
     bool main();
     void returned();
 }
-
 #endif //FUNCS_H
