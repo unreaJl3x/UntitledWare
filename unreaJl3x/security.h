@@ -13,8 +13,8 @@ private:
     string path = "";
     string key="";
     bool Check();
-public:
     void SetKey(string);
     void SetPath(string);
+public:
     void Start();
 };
