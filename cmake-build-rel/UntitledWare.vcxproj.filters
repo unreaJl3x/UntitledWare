@@ -1,81 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\main.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\hack.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\hack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\Proc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\globals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\output.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\security.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\decomple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\configSys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\Proc.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\Proc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\mem.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\mem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\game.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\globals.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\output.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\security.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\security.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\unreaJl3x\decomple.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\decomple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\Player.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\configSys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\RadarHack.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\iFovChanger.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\RadarHack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\csgo\funcs\AntiFlash.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\iFovChanger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\AntiFlash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\GlowESP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\wssrc\CLionProjects\UntitledWare\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{74E4740C-2FD8-36A6-926F-CB930FE70B51}</UniqueIdentifier>
+      <UniqueIdentifier>{728CE5EF-0A32-34E7-9300-4C6F9BCF2104}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D749E7D1-C258-3A83-8D03-617C3FAFE658}</UniqueIdentifier>
+      <UniqueIdentifier>{0BC67984-A7DE-3ECE-83AB-B0600E371D7B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

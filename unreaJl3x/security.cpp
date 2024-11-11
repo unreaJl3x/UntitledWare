@@ -1,6 +1,5 @@
 #include "security.h"
-#include "hack.h"
-#include "globals.h"
+
 
 bool Security::Check() {
     DecompleKey dec;
@@ -9,26 +8,18 @@ bool Security::Check() {
 
 void Security::Start()
 {
-    SetPath(csgo.pathFolder+"\\key.txt");
-    fstream file(path, ios::in);
-    bool setup = false;
-
-    if(file.is_open())
+    if(configSys.CheckAvailableFile(path))
     {
-        char key[100];
-        file.getline(key,100,';');
-        SetKey(key);
+        SetKey(configSys.ReadFile(path));
         OUTPUT::print("Load serial keycode",1,"Security");
-        file.close();
     } else
     {
         string key;
-        ofstream filed(path,ios::out);
         OUTPUT::print("Input serial keycode->...",0,"Security");
         getline(cin, key);
         SetKey(key);
-        filed << key;
-        filed.close();
+        bool keyWrite =configSys.WriteInFile(configSys.pathToFolder+"key.txt", key);
+        if(!keyWrite) { OUTPUT::print("Cannot write key in file.",2,"Security"); }
     }
 
     if (Check()) {SetConsoleTitle("UntitledWare | LICENSED");hackIt();}
@@ -36,4 +27,6 @@ void Security::Start()
     return;
 }
 void Security::SetKey(string key) { this->key = key; }
-void Security::SetPath(string path) { this->path = path; }
+Security::Security() {
+       path = configSys.pathToFolder+"key.txt";
+}

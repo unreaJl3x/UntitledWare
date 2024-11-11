@@ -5,15 +5,13 @@
 namespace AntiFlash
 {
     bool main() {
-        Player pl;
-
         while (true)
         {
-            if (pl.isAlive)
+            if (configSys.dateAntiFlash.active)
             {
                 Write<int>(local + hazedumper::netvars::m_flFlashMaxAlpha, 0);
             }
-            this_thread::sleep_for(chrono::milliseconds(10));
+            SLEEP
         }
     }
     void returned(){ Write<int>(local + hazedumper::netvars::m_flFlashMaxAlpha, 1132396544); }

@@ -1,3 +1,3 @@
-C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-rel/CMakeFiles/UntitledWare.dir
-C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-rel/CMakeFiles/ALL_BUILD.dir
-C:/Users/unreal/C++Projects/CheatCsgoExternal/cmake-build-rel/CMakeFiles/ZERO_CHECK.dir
+C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/UntitledWare.dir
+C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/ALL_BUILD.dir
+C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/ZERO_CHECK.dir

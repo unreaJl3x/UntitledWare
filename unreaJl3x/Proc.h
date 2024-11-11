@@ -3,17 +3,13 @@
 #include <windows.h>
 #include <TlHelp32.h>
 #include <iostream>
-#include <string>
 
 #include "globals.h"
 #include "output.h"
-using namespace std;
+//using namespace std;
 
 namespace Proc {
-    /*      old
-    DWORD GetPid();
-    string GetCurrentProcessName();
-    */
+    string GetWinUser();
     HANDLE OpenHandle();
     uintptr_t GetModuleAddress(const char*);
 

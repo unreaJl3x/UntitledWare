@@ -12,9 +12,4 @@ Game::Game(string nameexe, string nameapp)
     this->nameApp = nameapp;
 }
 
-bool Game::CheckValidApp()
-{
-    pHandle = Proc::OpenHandle();
-    bool validate = (pID >= 0) && (pID <= 90000) && (pHandle != INVALID_HANDLE_VALUE);
-    return validate;
-}
+bool Game::CheckValidApp() { return (pID >= 0) && (pID <= 90000) && (pHandle != INVALID_HANDLE_VALUE); }

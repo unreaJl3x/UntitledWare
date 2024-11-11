@@ -1,8 +1,9 @@
 #include <iostream>
 #include <fstream>
-//#include <Lmcons.h>
 #include <windows.h>
 
+#include "hack.h"
+#include "globals.h"
 #include "decomple.h"
 #include "unreaJl3x/output.h"
 using namespace std;
@@ -10,11 +11,11 @@ using namespace std;
 class Security
 {
 private:
-    string path = "";
-    string key="";
+    string key= "";
+    string path;
     bool Check();
     void SetKey(string);
-    void SetPath(string);
 public:
+    Security();
     void Start();
 };

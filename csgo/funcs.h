@@ -3,10 +3,12 @@
 
 #define local Global::signatures::localAddr
 #define client Global::signatures::clientAddr
+
 #include "csgo_signatures.h"
 #include "Player.h"
 #include "globals.h"
 #include "mem.h"
+
 using namespace Memory;
 
 namespace FovChanger
@@ -23,6 +25,11 @@ namespace AntiFlash
 
 namespace RadarHack
 {
+    bool main();
+    void returned();
+}
+
+namespace GlowESP {
     bool main();
     void returned();
 }

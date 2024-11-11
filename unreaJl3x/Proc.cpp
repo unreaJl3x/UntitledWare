@@ -1,40 +1,11 @@
 #include "Proc.h"
+#include <string>
 
 HANDLE Proc::OpenHandle() {HANDLE h = OpenProcess(PROCESS_ALL_ACCESS,false, csgo.pID); return (h==INVALID_HANDLE_VALUE) ? ((OUTPUT::print("INVALID HANDLE",2,"GetHandle")) ? (h):h) : (h);}
 
-/*          OLD
-DWORD Proc::GetPid() {
-    PROCESSENTRY32 pEntry;pEntry.dwSize=sizeof(PROCESSENTRY32);
-    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
-    if (snap == INVALID_HANDLE_VALUE) { OUTPUT::print("INVALID HANDLE",2,"GetPid"); return -2; }
-
-    if (Process32First(snap,&pEntry)) {
-        //cout << "Exe file " << pEntry.szExeFile << "     |     Process id " << pEntry.th32ProcessID << endl;
-        while (Process32Next(snap,&pEntry)) {
-            if (!strcmp(csgo.nameExe.c_str(), pEntry.szExeFile)) { CloseHandle(snap);return pEntry.th32ProcessID; }
-        }
-    }
-
-    CloseHandle(snap);
-    //cout << "Pizdec"<<endl;
-    return -1;
+string Proc::GetWinUser() {
+    char username_ [100]; DWORD len = 100; GetUserName(username_, &len); return username_;
 }
-string Proc::GetCurrentProcessName()
-{
-    PROCESSENTRY32 pEntry;pEntry.dwSize=sizeof(PROCESSENTRY32);
-    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
-    if (snap == INVALID_HANDLE_VALUE) {OUTPUT::print("INVALID HANDLE",2,"GetCurrentProcessName"); return ""; }
-
-    if (Process32First(snap,&pEntry)) {
-        while (Process32Next(snap,&pEntry)) {
-            if (GetCurrentProcessId() == pEntry.th32ProcessID) { CloseHandle(snap);return pEntry.szExeFile; }
-        }
-    }
-
-    CloseHandle(snap);
-    return "";
-}
-*/
 
 uintptr_t Proc::GetModuleAddress(const char* mName) {
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE,csgo.pID);
@@ -56,7 +27,7 @@ bool Proc::GetRunningExempls(char* nameexe)
 {
     PROCESSENTRY32 pEntry;pEntry.dwSize=sizeof(PROCESSENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS,0);
-    if (snap==INVALID_HANDLE_VALUE) { OUTPUT::print("INVALID HANDLE",2,"FindProcess");return -1; }
+    if (snap==INVALID_HANDLE_VALUE) { OUTPUT::print("INVALID HANDLE",2,"FindProcess");return false; }
     int appsRuns=0;
     if (Process32First(snap, &pEntry)) {
         while (Process32Next(snap,&pEntry)) {

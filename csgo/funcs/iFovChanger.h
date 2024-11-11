@@ -5,16 +5,16 @@
 
 namespace FovChanger
 {
-    bool main() {
-        Player pl;
-
+    bool main(){
         while (true)
         {
-            if (Global::signatures::Players::localPlayer.isAlive)
+            //cout << "WTF"<<endl;
+            if (configSys.dateFovChanger.active)
             {
-                Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 130);
+                cout << "WTF"<<endl;
+                Write<int>(local+hazedumper::netvars::m_iDefaultFOV, configSys.dateFovChanger.value);
             } else {returned();}
-            this_thread::sleep_for(chrono::milliseconds(10));
+            SLEEP
         }
     }
     void returned() { Write<int>(local+hazedumper::netvars::m_iDefaultFOV, 90); }

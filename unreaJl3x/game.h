@@ -1,7 +1,7 @@
 #ifndef CHEATCSGOEXTERNAL_GAME_H
 #define CHEATCSGOEXTERNAL_GAME_H
 
-#include <windows.h>
+#include <Windows.h>
 #include <iostream>
 using namespace std;
 

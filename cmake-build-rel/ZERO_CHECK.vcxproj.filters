@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\unreal\C++Projects\CheatCsgoExternal\cmake-build-rel\CMakeFiles\2d288b8b24afe4ad3ca2881b78908c33\generate.stamp.rule">
+    <CustomBuild Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\CMakeFiles\30270e158f9608743983b7d84f586549\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{28A9CA17-CE25-39F2-94F7-74D90996FFF4}</UniqueIdentifier>
+      <UniqueIdentifier>{F48DA387-C180-3895-8475-34DA5093FAA5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
