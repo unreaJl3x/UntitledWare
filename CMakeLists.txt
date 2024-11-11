@@ -4,9 +4,14 @@ project(UntitledWare)
 set(CMAKE_CXX_STANDARD 20)
 
 include_directories(.)
-include_directories(csgo)
-include_directories(unreaJl3x)
+
+include_directories(wssrc)
 
 add_executable(${PROJECT_NAME} main.cpp
-        main.cpp
+
+        wssrc/output.cpp
+        wssrc/output.h
+
+        wssrc/app.cpp
+        wssrc/app.h
 )

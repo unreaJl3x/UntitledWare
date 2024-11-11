@@ -4,11 +4,28 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\wssrc\CLionProjects\UntitledWare\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{728CE5EF-0A32-34E7-9300-4C6F9BCF2104}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{0BC67984-A7DE-3ECE-83AB-B0600E371D7B}</UniqueIdentifier>
     </Filter>
