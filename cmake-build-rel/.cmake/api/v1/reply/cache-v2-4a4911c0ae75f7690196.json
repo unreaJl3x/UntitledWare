@@ -135,7 +135,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/bin/clang-cl.exe"
+			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/bin/clang++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",

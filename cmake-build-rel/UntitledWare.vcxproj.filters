@@ -4,85 +4,11 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\hack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\Proc.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\globals.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\output.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\security.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\decomple.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\configSys.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\Proc.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\mem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\output.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\security.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\decomple.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\unreaJl3x\configSys.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\RadarHack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\iFovChanger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\AntiFlash.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\funcs\GlowESP.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\wssrc\CLionProjects\UntitledWare\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{728CE5EF-0A32-34E7-9300-4C6F9BCF2104}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{0BC67984-A7DE-3ECE-83AB-B0600E371D7B}</UniqueIdentifier>
     </Filter>
