@@ -5,6 +5,8 @@
 #include <windows.h>
 
 #include "output.h"
+#include "FileSystemManager.h"
+#include "ProcessManager.h"
 using namespace std;
 
 class App {
@@ -13,7 +15,8 @@ public:
     static string nameApp;
     static string version;
     static bool lisensed;
-
+    const FileSystemManager fm;
+    ProcessManager pm;
     void SetHeader();
     App();
 };

@@ -14,4 +14,8 @@ add_executable(${PROJECT_NAME} main.cpp
 
         wssrc/app.cpp
         wssrc/app.h
+        wssrc/FileSystemManager.cpp
+        wssrc/FileSystemManager.h
+        wssrc/ProcessManager.cpp
+        wssrc/ProcessManager.h
 )

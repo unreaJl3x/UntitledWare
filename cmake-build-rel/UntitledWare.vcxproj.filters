@@ -10,12 +10,24 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

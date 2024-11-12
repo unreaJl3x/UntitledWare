@@ -318,6 +318,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">
