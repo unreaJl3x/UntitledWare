@@ -12,6 +12,7 @@ using namespace std;
 class App {
 private:
 Output* out;
+ProcessManager pm;
 
 public:
     string nameApp;
