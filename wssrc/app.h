@@ -1,5 +1,5 @@
-#ifndef UNTITLEDWARE_APP_H
-#define UNTITLEDWARE_APP_H
+#ifndef UNTITLEDWARE_APP
+#define UNTITLEDWARE_APP
 
 #include <iostream>
 #include <windows.h>
@@ -26,4 +26,4 @@ HWND hwnd;
 };
 
 
-#endif //UNTITLEDWARE_APP_H
+#endif
