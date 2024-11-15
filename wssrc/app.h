@@ -16,13 +16,15 @@ Output* out;
 public:
     string nameApp;
     string version;
-    bool lisensed;
+    string version;
+string nameExe;
 
 DWORD pId;
 HANDLE pHandle;
 HWND hwnd;
+
     void SetHeader();
-    App(string, string, bool, Output*);
+    App(string, string, string, string, Output*);
 };
 
 
