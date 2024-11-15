@@ -18,4 +18,4 @@ public:
 };
 
 
-#endif //UNTITLEDWARE_OUTPUT_H
+#endif
