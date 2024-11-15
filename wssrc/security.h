@@ -12,7 +12,8 @@ class Security {
 private:
 Output* out;
 FileSystemManager*fm;
-bool CheckValid;
+bool CheckValid();
+string key;
 
 public:
 void Start();
