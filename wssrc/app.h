@@ -10,15 +10,19 @@
 using namespace std;
 
 class App {
+private:
+Output* out;
+
 public:
-    const Output out;
-    static string nameApp;
-    static string version;
-    static bool lisensed;
-    const FileSystemManager fm;
-    ProcessManager pm;
+    string nameApp;
+    string version;
+    bool lisensed;
+
+DWORD pId;
+HANDLE pHandle;
+HWND hwnd;
     void SetHeader();
-    App();
+    App(string, string, bool, Output*);
 };
 
 
