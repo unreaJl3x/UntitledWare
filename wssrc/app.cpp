@@ -1,12 +1,12 @@
 #include "app.h"
 
-App::App() {
-    nameApp = "UntitledWare";
-    version = "test00";
-
+App::App(string nameApp, string nameExe, string version) {
+    this->nameApp = nameApp;
+this->nameExe = nameExe;
+    this->version = version;
 }
 
-void App::SetHeader() {
-    SetConsoleTitleA((App::nameApp+" "+App::version+"|"+(lisensed?"Licensed":"UnLicensed")).c_str());
+void App::SetHeader(string text) {
+    SetWindiwTitleA(this->hwnd,text.c_str());
 }
 
