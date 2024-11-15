@@ -1,5 +1,5 @@
-#ifndef UNTITLEDWARE_PROCESSMANAGER_H
-#define UNTITLEDWARE_PROCESSMANAGER_H
+#ifndef UNTITLEDWARE_PROCESSMANAGER
+#define UNTITLEDWARE_PROCESSMANAGER
 
 #include <iostream>
 #include <windows.h>
@@ -22,4 +22,4 @@ T Read();
 ProcessManager(Output*,App*);
 };
 
-#endif //UNTITLEDWARE_PROCESSMANAGER_H
+#endif
