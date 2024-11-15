@@ -14,7 +14,8 @@ char argv[]
  {
 if (argc>2) {}
     Output out;
-Security sec();
+FileSystemManager fm;
+Security sec(out, fm);
 sec.Start();
     
 
