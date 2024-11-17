@@ -1,14 +1,17 @@
 #include "app.h"
 
-App::App(string nameApp, string nameExe, string version) {
+App::App(string nameApp, string nameExe, string version, Output* out) {
+    this->out = out;
     this->nameApp = nameApp;
-this->nameExe = nameExe;
+    this->nameExe = nameExe;
     this->version = version;
-this->pId=pm.GetPId();
-this->pHandle=pm.GetHandle();
+    //this->pId = pm.GetPID();
+    //this->pHandle = pm.GetHandle();
+    this->hwnd = pm.GetWindowHandle();
+    SetWindowTextA(hwnd,"HUI");
 }
 
 void App::SetHeader(string text) {
-    SetWindiwTitleA(this->hwnd,text.c_str());
+    SetWindowTextA(this->hwnd,text.c_str());
 }
 

@@ -7,19 +7,25 @@
 
 #include "output.h"
 #include "app.h"
-#include "FileManager.h"
 using namespace std;
 
 class ProcessManager {
 private:
-Output* out;
-App* victim;
+    Output* out;
+    App* victim;
 
 public:
-bool Write();
-template <typename T>
-T Read();
-ProcessManager(Output*,App*);
+    template <typename T, T>
+    bool Write(uintptr_t);
+    template <typename T>
+    T Read(uintptr_t);
+
+    DWORD GetPID();
+    HANDLE GetHandle();
+    HWND GetWindowHandle();
+
+    ProcessManager(Output*, App*);
+    ProcessManager() = default;
 };
 
 #endif

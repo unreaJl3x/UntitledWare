@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "decomple.h"
+//#include "decomple.h"
 #include "output.h"
 
 using namespace std;

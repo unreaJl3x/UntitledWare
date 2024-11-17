@@ -15,8 +15,8 @@ private:
 public:
     void print(string, int, string);
     void printMSG();
-
-void input();
+    void input();
+    Output() = default;
 };
 
 

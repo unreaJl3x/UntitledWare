@@ -11,21 +11,21 @@ using namespace std;
 
 class App {
 private:
-Output* out;
-ProcessManager pm;
+    Output* out;
+    ProcessManager pm = new ProcessManager(out, this);
 
 public:
     string nameApp;
     string version;
-    string version;
-string nameExe;
+    string nameExe;
 
-DWORD pId;
-HANDLE pHandle;
-HWND hwnd;
+    DWORD pId;
+    HANDLE pHandle;
+    HWND hwnd;
 
-    void SetHeader();
-    App(string, string, string, string, Output*);
+    void SetHeader(string);
+    App(string, string, string, Output*);
+    App() = default;
 };
 
 
