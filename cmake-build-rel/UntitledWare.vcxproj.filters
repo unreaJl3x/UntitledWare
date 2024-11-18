@@ -4,30 +4,90 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_draw.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_dx9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_win32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_tables.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_widgets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_dx9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_win32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_rectpack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_textedit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_truetype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

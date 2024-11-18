@@ -314,14 +314,34 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystemManager.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imconfig.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_demo.cpp" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_draw.cpp" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_dx9.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_dx9.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_win32.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_internal.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_tables.cpp" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_widgets.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_rectpack.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_textedit.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_truetype.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

@@ -1,30 +1,26 @@
-#ifndef UNTITLEDWARE_APP
-#define UNTITLEDWARE_APP
+#ifndef UNTITLEDWARE_APP_H
+#define UNTITLEDWARE_APP_H
 
 #include <iostream>
 #include <windows.h>
 
 #include "output.h"
-#include "FileSystemManager.h"
-#include "ProcessManager.h"
 using namespace std;
 
 class App {
 private:
     Output* out;
-    ProcessManager pm = new ProcessManager(out, this);
-
 public:
     string nameApp;
-    string version;
     string nameExe;
+    string IpClassNameWindow;
 
     DWORD pId;
     HANDLE pHandle;
     HWND hwnd;
 
     void SetHeader(string);
-    App(string, string, string, Output*);
+    App(string,string,string, Output*);
     App() = default;
 };
 

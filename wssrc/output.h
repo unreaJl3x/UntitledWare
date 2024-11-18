@@ -1,5 +1,5 @@
-#ifndef UNTITLEDWARE_OUTPUT
-#define UNTITLEDWARE_OUTPUT
+#ifndef UNTITLEDWARE_OUTPUT_H
+#define UNTITLEDWARE_OUTPUT_H
 
 #include <iostream>
 using namespace std;
@@ -20,4 +20,4 @@ public:
 };
 
 
-#endif
+#endif //UNTITLEDWARE_OUTPUT_H

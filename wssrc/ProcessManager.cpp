@@ -1,39 +1,59 @@
 #include "ProcessManager.h"
 
-ProcessManager::ProcessManager(Output* out, App* newApp) {
+#include <utility>
+
+ProcessManager::ProcessManager(Output* out, App newApp){
     this->out = out;
-    this->victim = newApp;
+    this->app = newApp;
 }
 
 template<typename T>
-T ProcessManager::Read(uintptr_t addr) {
+T ProcessManager::Read(uintptr_t offset) {
     T value = {};
-    bool result = ReadProcessMemory(victim->pHandle, addr, &value, sizeof(T), NULL);
-    if(!result) { out->print("Cannot read memory in point -> "+addr,result,"ProcessManager.Read"); }
+    bool result = ReadProcessMemory(app.pHandle, (offset), &value, sizeof(T), NULL);
+    if(!result) { out->print("Cannot read memory in point . "+(offset),result,"ProcessManager.Read"); }
     return value;
 }
 
 template<typename T, T value>
 bool ProcessManager::Write(uintptr_t addr) {
-    bool result = WriteProcessMemory(victim->pHandle, addr, value, sizeof(T), NULL);
-    if (!result) { out->print("Cannot write to the point -> "+addr,result,"ProcessManager.Write"); }
+    bool result = WriteProcessMemory(app.pHandle, addr, value, sizeof(T), NULL);
+    if (!result) { out->print("Cannot write to the point . "+addr,result,"ProcessManager.Write"); }
     return result;
 }
 
 DWORD ProcessManager::GetPID() {
     PROCESSENTRY32 pEntry; pEntry.dwSize = sizeof(PROCESSENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (snap==INVALID_HANDLE_VALUE) { out->print("INVALID HANDLE SNAP",false,"ProcessManager.GetPID"); }
+    if (snap==INVALID_HANDLE_VALUE) { out->print("INVALID HANDLE SNAP",false,"ProcessManager.GetPID"); return -1;}
 
     if (Process32First(snap, &pEntry)) {
         do {
-            if ( pEntry.szExeFile==victim->nameExe ) { CloseHandle(snap); return pEntry.th32ProcessID; }
+            if ( pEntry.szExeFile==app.nameExe ) { CloseHandle(snap); return pEntry.th32ProcessID; }
         } while(Process32Next(snap, &pEntry));
     }
+
+    CloseHandle(snap);
+    return -1;
 }
 
-HANDLE ProcessManager::GetHandle() {return OpenProcess(PROCESS_ALL_ACCESS, true, victim->pId); }
+HANDLE ProcessManager::GetHandle() {return OpenProcess(PROCESS_ALL_ACCESS, true, app.pId); }
 
 HWND ProcessManager::GetWindowHandle() {
-    return FindWindow("Valve001", victim->nameApp.c_str());
+    return FindWindow(app.IpClassNameWindow.c_str(), app.nameApp.c_str());//012DD6F0
+}
+
+uintptr_t ProcessManager::GetModuleAddr(string mName) {
+    MODULEENTRY32 mEntry; mEntry.dwSize = sizeof(MODULEENTRY32);
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, app.pId);
+    if ( snap==INVALID_HANDLE_VALUE ) { out->print("INVALID HANDLE SNAP",false,""); CloseHandle(snap); return -2; }
+
+    if (Module32First(snap, &mEntry)) {
+        do {
+            cout << mEntry.szModule <<endl;
+            if ( mEntry.szModule == mName ) { CloseHandle(snap); return (uintptr_t)mEntry.modBaseAddr; }
+        } while (Module32Next(snap, &mEntry));
+    }
+    CloseHandle(snap);
+    return -1;
 }

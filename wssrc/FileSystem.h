@@ -1,0 +1,10 @@
+#ifndef UNTITLEDWARE_FILESYSTEM_H
+#define UNTITLEDWARE_FILESYSTEM_H
+
+
+class FileSystem {
+
+};
+
+
+#endif //UNTITLEDWARE_FILESYSTEM_H
