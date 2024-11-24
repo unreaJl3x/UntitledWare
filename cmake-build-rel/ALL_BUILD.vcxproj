@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

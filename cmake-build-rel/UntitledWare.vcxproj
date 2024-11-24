@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -146,10 +146,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -172,7 +172,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -189,10 +189,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -215,7 +215,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -231,10 +231,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -325,23 +325,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imconfig.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_demo.cpp" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_draw.cpp" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_dx9.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_dx9.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_win32.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_impl_win32.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_internal.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_tables.cpp" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imgui_widgets.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_rectpack.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_textedit.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\imgui\imstb_truetype.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

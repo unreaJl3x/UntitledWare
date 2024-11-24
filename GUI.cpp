@@ -4,7 +4,7 @@ extern IMGUI_IMPL_API LRESULT ImGuiWin32WndHandle(HWND window,UINT message,WPARA
 
 long __stdcall WindowProcess(HWND window,UINT message,WPARAM wParams, LPARAM lParams)
 {
-    if (ImGuiWin32WndHandle(window, message, wParams, lParams)) return true;
+    if (ImGuiWin32WndHandle(window, message, wParams, lParams)) {return true};
     switch(message) {
         case WM_SIZE: {
             if (GUI::device && wParams != SIZE_MINIMIZED) {
@@ -66,5 +66,45 @@ void GUI::Destroy() {
 }
 
 bool GUI::CreateDevice() {
-    d3d
+    p3D9 = Direct3DCreate9(D3D_SDK_VERSION);
+    if (!p3D9) { return false; }
+    ZeroMemory(&presentParams, sizeof(presentParams));
+    presentParams.Windowed = TRUE;
+    presentParams.SwapEffect = D3DSWAPEFFECT_DISCARD;
+    presentParams.BackBufferFormat = D3DFMT_UNKNOWN;
+    presentParams.EnableAutoDepthStencil = TRUE;
+    presentParams.AutoDepthStencilFormat = D3DFMT_D16;
+    presentParams.PresentationInterval = D3DPRESENT_INTERVAL_ONE;
+    if (p3D9->CreateDevice(D3DADAPTER_DEFAULT,D3DDEVTYPE_HAL,window,D3DCREATE_HARDWARE_VERTEXPROCESSING,&presentParams,&device) < 0) {
+        return false;
+    }
+    return true;
+}
+
+void GUI::ResetDevice() {
+    ImGui_ImplDX9_InvalidateDeviceObjects();
+    const auto result = device->Reset(&presentParams);
+    if (result==D3DERR_INVALIDCALL) {
+        IM_ASSERT(0);
+    }
+    ImGui_ImplDX9_CreateDeviceObjects();
+}
+
+void GUI::DestroyDevice() {
+    if (device) {
+        device->Release();
+        device=nullptr;
+    }
+    if(p3D9) {
+        p3D9->Release();
+        p3D9 = nullptr;
+    }
+}
+
+void GUI::CreateImGui() {
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    io.IniFilename = NULL;
+    
 }

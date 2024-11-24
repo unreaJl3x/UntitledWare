@@ -28,7 +28,7 @@ public:
     void WindowCreate(string, string);
     void Destroy();
 
-    bool CreateDevice;
+    bool CreateDevice();
     static void ResetDevice();
     void DestroyDevice();
 
