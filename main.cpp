@@ -10,8 +10,8 @@ using namespace std;
 
 int main() {
     SetConsoleTitle("UntitledWare | UnLICENSED");
-    Global::Init("csgo.exe","Counter-Strike:GlobalOffensive");
     csgo.pID = Proc::GetAppDate(csgo.nameExe.c_str()).id;
+    csgo.pHandle = Proc::OpenHandle();
     OUTPUT::print((csgo.nameApp + (csgo.pID==4294967295? " is not found.":" have id is "+to_string(csgo.pID))),0,"main");
 
     if (csgo.CheckValidApp()) {

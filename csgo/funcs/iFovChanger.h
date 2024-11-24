@@ -8,10 +8,8 @@ namespace FovChanger
     bool main(){
         while (true)
         {
-            //cout << "WTF"<<endl;
             if (configSys.dateFovChanger.active)
             {
-                cout << "WTF"<<endl;
                 Write<int>(local+hazedumper::netvars::m_iDefaultFOV, configSys.dateFovChanger.value);
             } else {returned();}
             SLEEP

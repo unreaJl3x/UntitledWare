@@ -60,7 +60,7 @@ void ConfigSys::CreateDefaultConfig() {
     this->dateAntiFlash.active = true;
     this->dateRadarHack.active = true;
     this->dateFovChanger.active = true;
-    this->dateFovChanger.value = 90;
+    this->dateFovChanger.value = 1220;
 
     this->dateGlowESP.active = 1;
     this->dateGlowESP.TeamRed = 0;

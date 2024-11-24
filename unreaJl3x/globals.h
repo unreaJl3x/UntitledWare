@@ -33,7 +33,6 @@ namespace Global{
             extern Player allPlayers[PLAYERSC-1];
         }
     }
-    void Init(string,string);
     void UpdateDate();
 }
 #endif //CHEATCSGOEXTERNAL_GLOBALS_H

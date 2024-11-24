@@ -1,7 +1,7 @@
 #include "globals.h"
 #include "Proc.h"
-Game csgo;
-ConfigSys configSys;
+Game csgo("csgo.exe","Counter-Strike:GlobalOffensive");
+ConfigSys configSys("C:\\Users\\"+Proc::GetWinUser()+"\\AppData\\Roaming\\UntitledWare\\");
 
 namespace Global{
     namespace signatures
@@ -15,12 +15,6 @@ namespace Global{
             Player localPlayer; // CBasePlayer example
             Player allPlayers[PLAYERSC-1];
         }
-    }
-
-    void Init(string nameexe, string nameapp)
-    {
-        csgo = *(new Game(nameexe,nameapp));
-        configSys = *new ConfigSys("C:\\Users\\"+Proc::GetWinUser()+"\\AppData\\Roaming\\UntitledWare\\");
     }
 
     void UpdateDate() {
