@@ -1,3 +1,10 @@
+//	https://yougame.biz/threads/100325/
+//	https://elar.urfu.ru/bitstream/10995/58964/1/978-5-91256-403-1_2018_125.pdf
+//	https://yougame.biz/threads/22883/
+//	https://yougame.biz/threads/96665/
+//	https://www.unknowncheats.me/forum/counterstrike-global-offensive/324767-setupvelocity.html
+//	https://github.com/VSES/SourceEngine2007/blob/master/src_main/engine/cl_main.cpp#L1815-L1855
+
 #include <iostream>
 #include <string>
 #include <windows.h>
