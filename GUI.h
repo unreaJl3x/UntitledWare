@@ -1,41 +1,45 @@
+#ifndef UNTITLEDWARE_GUI_H
+#define UNTITLEDWARE_GUI_H
+
 #include <d3d9.h>
+#include <iostream>
+#include <windows.h>
 
-namespace gui
-{
-    // constant window size
-    constexpr int WIDTH = 500;
-    constexpr int HEIGHT = 300;
+#include "imgui/imgui.h"
+#include "imgui/imgui_impl_dx9.h"
+#include "imgui/imgui_impl_win32.h"
+using namespace std;
 
-    // when this changes, exit threads
-    // and close menu :)
-    inline bool isRunning = true;
+class GUI {
+public:
+    float weight, height;
+    bool exit;
+    POINTS pos;
 
-    // winapi window vars
-    inline HWND window = nullptr;
-    inline WNDCLASSEX windowClass = { };
+    HWND window;
+    WNDCLASSEXA windowClass;
 
-    // points for window movement
-    inline POINTS position = { };
+    PDIRECT3D9 p3D9;
+    LPDIRECT3DDEVICE9 device;
+    D3DPRESENT_PARAMETERS  presentParams;
 
-    // direct x state vars
-    inline PDIRECT3D9 d3d = nullptr;
-    inline LPDIRECT3DDEVICE9 device = nullptr;
-    inline D3DPRESENT_PARAMETERS presentParameters = { };
+    //long __stdcall WindowProcess(HWND window,UINT message,WPARAM wParams, LPARAM lParams);
 
-    // handle window creation & destruction
-    void CreateHWindow(const char* windowName) noexcept;
-    void DestroyHWindow() noexcept;
+    void WindowCreate(string, string);
+    void Destroy();
+    long __stdcall WindowProcess(HWND window,UINT message,WPARAM wParams, LPARAM lParams);
+    bool CreateDevice();
+    static void ResetDevice();
+    void DestroyDevice();
 
-    // handle device creation & destruction
-    bool CreateDevice() noexcept;
-    void ResetDevice() noexcept;
-    void DestroyDevice() noexcept;
+    void CreateImGui();
+    void DestroyImGui();
+    void BeginRender();
+    void EndRender();
+    void Render();
 
-    // handle ImGui creation & destruction
-    void CreateImGui() noexcept;
-    void DestroyImGui() noexcept;
+    GUI(int,int);
+};
 
-    void BeginRender() noexcept;
-    void EndRender() noexcept;
-    void Render() noexcept;
-}
+
+#endif //UNTITLEDWARE_GUI_H

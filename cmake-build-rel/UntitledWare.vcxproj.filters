@@ -19,9 +19,6 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
@@ -43,9 +40,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\GUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

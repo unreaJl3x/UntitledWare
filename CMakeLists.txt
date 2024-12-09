@@ -23,7 +23,4 @@ add_executable(${PROJECT_NAME} main.cpp
         csgo/functions/RadarHack.h
         csgo/globalDate.cpp
         csgo/globalDate.h
-        GUI.cpp
-        GUI.h
-
 )
