@@ -1,40 +1,41 @@
-#ifndef UNTITLEDWARE_GUI_H
-#define UNTITLEDWARE_GUI_H
-
 #include <d3d9.h>
-#include <iostream>
-#include <windows.h>
 
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_dx9.h"
-#include "imgui/imgui_impl_win32.h"
-using namespace std;
+namespace gui
+{
+    // constant window size
+    constexpr int WIDTH = 500;
+    constexpr int HEIGHT = 300;
 
-class GUI {
-public:
-    static int weight, height;
-    static bool exit;
-    static  POINTS pos;
+    // when this changes, exit threads
+    // and close menu :)
+    inline bool isRunning = true;
 
-    static HWND window;
-    static WNDCLASSEXA windowClass;
+    // winapi window vars
+    inline HWND window = nullptr;
+    inline WNDCLASSEX windowClass = { };
 
-    static PDIRECT3D9 p3D9;
-    static LPDIRECT3DDEVICE9 device;
-    static D3DPRESENT_PARAMETERS  presentParams;
+    // points for window movement
+    inline POINTS position = { };
 
-    //long __stdcall WindowProcess(HWND window,UINT message,WPARAM wParams, LPARAM lParams);
+    // direct x state vars
+    inline PDIRECT3D9 d3d = nullptr;
+    inline LPDIRECT3DDEVICE9 device = nullptr;
+    inline D3DPRESENT_PARAMETERS presentParameters = { };
 
-    void WindowCreate(string, string);
-    void Destroy();
+    // handle window creation & destruction
+    void CreateHWindow(const char* windowName) noexcept;
+    void DestroyHWindow() noexcept;
 
-    bool CreateDevice();
-    static void ResetDevice();
-    void DestroyDevice();
+    // handle device creation & destruction
+    bool CreateDevice() noexcept;
+    void ResetDevice() noexcept;
+    void DestroyDevice() noexcept;
 
-    void CreateImGui();
-    void DestroyImGui();
-};
+    // handle ImGui creation & destruction
+    void CreateImGui() noexcept;
+    void DestroyImGui() noexcept;
 
-
-#endif //UNTITLEDWARE_GUI_H
+    void BeginRender() noexcept;
+    void EndRender() noexcept;
+    void Render() noexcept;
+}
