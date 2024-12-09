@@ -326,6 +326,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

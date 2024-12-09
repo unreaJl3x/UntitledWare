@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <string>
 
 
@@ -31,8 +31,9 @@ int main(
     uintptr_t panaramaDll = csgo.GetModuleAddr("server.dll");
 
     cout << clientDll << ", " << servDll << ", "<<panaramaDll<<endl;
-    //GUI::weight = 800;GUI::height=800;
-
+    */
+    FileSystem fs(&out,"C:\\UW");
+    fs.CreateFileInDir("cfsg\\er\\er\\df","text.txt");
 
     return 1;
-}*/
+}

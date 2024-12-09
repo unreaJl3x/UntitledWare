@@ -3,7 +3,7 @@
     "revision": 0,
     "rules": [
         {
-            "primary-output": "UntitledWare.dir\\Release\\configSys.obj",
+            "primary-output": "UntitledWare.dir\\Release\\ConfigSys.obj",
             "outputs": [
                 "UntitledWare.dir\\Release\\"
             ],
