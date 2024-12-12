@@ -7,6 +7,7 @@
 #include <iostream>
 #include <filesystem>
 #include <vector>
+#include <random>
 
 #include "output.h"
 using namespace std;
@@ -16,8 +17,12 @@ private:
     Output* out;
     string rootDirrectory;
     string SlashCheck(string);
+    string DotCheck(string);
+    bool LocalDirCheck(string);
 
 public:
+
+    string CreateRandomName(int);
     void SetRootDirrectory(string);
     string GetRootDirrectory();
 
@@ -26,8 +31,10 @@ public:
     bool CreateDir(string);
     bool CreateFileInDir(string,string);
 
-    bool DeleteFile(string,string);
+    bool DeleteFileInDir(string,string);
     bool DeleteDir(string);
+
+    vector<string> GetFileListInDir(string, string);
 
     FileSystem() = default;
     FileSystem(Output*);

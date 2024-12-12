@@ -2,6 +2,7 @@
 #define UNTITLEDWARE_CONFIGSYS_H
 
 #define CFGFOLDER "cfg"
+#define CFGEXTENSION "ini"
 
 #include <iostream>
 

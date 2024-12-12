@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 
-
 #include "app.h"
 #include "FileSystem.h"
 #include "ProcessManager.h"
@@ -33,7 +32,13 @@ int main(
     cout << clientDll << ", " << servDll << ", "<<panaramaDll<<endl;
     */
     FileSystem fs(&out,"C:\\UW");
-    fs.CreateFileInDir("cfsg\\er\\er\\df","text.txt");
+    fs.CreateFileInDir("cfg",fs.CreateRandomName(5)+".txt");
+
+
+    vector<string> test = fs.GetFileListInDir("cfg","txt");
+    for(string i : test) {
+        cout << i << endl;
+    }
 
     return 1;
 }
