@@ -25,4 +25,9 @@ add_executable(${PROJECT_NAME} main.cpp
         csgo/globalDate.h
         wssrc/ConfigSys.cpp
         wssrc/ConfigSys.h
+        wssrc/Secure.cpp
+        wssrc/Secure.h
+        wssrc/decomple.cpp
+        hack.cpp
+        hack.h
 )

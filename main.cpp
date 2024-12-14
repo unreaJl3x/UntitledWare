@@ -1,11 +1,19 @@
 #include <iostream>
 #include <string>
+#include <thread>
 
 #include "app.h"
 #include "FileSystem.h"
 #include "ProcessManager.h"
-#include "GUI.h"
+#include "Secure.h"
+
+#include "hack.h"
 using namespace std;
+
+int exitt(int code) {
+    getchar();
+    return code;
+}
 
 int main(
     int argc,
@@ -13,11 +21,14 @@ int main(
 {
     if (argc>2) {}
     Output out;
-    /*ProcessManager csgo(&out,*new App("Counter-Strike: Global Offensive - Direct3D 9","csgo.exe", "Valve001",&out));
+    FileSystem fs(&out, "C:\\UW");
+    ProcessManager csgo(&out,*new App("Counter-Strike: Global Offensive - Direct3D 9","csgo.exe", "Valve001",&out));
 
     csgo.app.pId = csgo.GetPID();
     csgo.app.pHandle = csgo.GetHandle();
     csgo.app.hwnd = csgo.GetWindowHandle();
+
+    if (csgo.app.pId == DWORD(-1) || csgo.app.pHandle == INVALID_HANDLE_VALUE) { out.print("'"+csgo.app.nameApp+"' have is Invalid date.",false,"main"); return exitt(-1); }
 
     out.print(
             "'" + csgo.app.nameApp + "'" + " have is id-> " + to_string(csgo.app.pId) + ", hwnd->" + to_string( reinterpret_cast<int>( csgo.app.hwnd)),
@@ -25,20 +36,15 @@ int main(
             "main"
     );
 
-    uintptr_t clientDll = csgo.GetModuleAddr("client.dll");
-    uintptr_t servDll = csgo.GetModuleAddr("server.dll");
-    uintptr_t panaramaDll = csgo.GetModuleAddr("server.dll");
+    Secure sc(&fs,&out);
+    if (sc.Start()) {
+        thread HackThread(Hack(&fs,&out)); // CSGO FUNCS
+    } else {out.print("Invalid serial key-code.",false,"main");}
 
-    cout << clientDll << ", " << servDll << ", "<<panaramaDll<<endl;
-    */
-    FileSystem fs(&out,"C:\\UW");
-    fs.CreateFileInDir("cfg",fs.CreateRandomName(5)+".txt");
+    //uintptr_t clientDll = csgo.GetModuleAddr("client.dll");
+   // uintptr_t servDll = csgo.GetModuleAddr("server.dll");
+    //uintptr_t panaramaDll = csgo.GetModuleAddr("server.dll");
+    //cout << clientDll << ", " << servDll << ", "<<panaramaDll<<endl;
 
-
-    vector<string> test = fs.GetFileListInDir("cfg","txt");
-    for(string i : test) {
-        cout << i << endl;
-    }
-
-    return 1;
+    return exitt(1);
 }

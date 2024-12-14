@@ -21,7 +21,7 @@ private:
     bool LocalDirCheck(string);
 
 public:
-
+    bool CheckAvaleible(string, string);
     string CreateRandomName(int);
     void SetRootDirrectory(string);
     string GetRootDirrectory();

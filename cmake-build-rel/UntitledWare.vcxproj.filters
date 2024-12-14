@@ -22,6 +22,15 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\hack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
@@ -46,6 +55,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\hack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

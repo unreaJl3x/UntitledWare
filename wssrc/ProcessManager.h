@@ -24,6 +24,7 @@ public:
     HANDLE GetHandle();
     HWND GetWindowHandle();
     uintptr_t GetModuleAddr(string);
+    static string GetWindowsUser();
 
     ProcessManager(Output *, App);
 };

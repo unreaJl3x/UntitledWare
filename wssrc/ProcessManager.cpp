@@ -1,5 +1,6 @@
 #include "ProcessManager.h"
 
+#include <Lmcons.h>
 #include <utility>
 
 ProcessManager::ProcessManager(Output* out, App newApp){
@@ -56,4 +57,12 @@ uintptr_t ProcessManager::GetModuleAddr(string mName) {
     }
     CloseHandle(snap);
     return -1;
+}
+
+string ProcessManager::GetWindowsUser() {
+    TCHAR username[UNLEN + 1];
+    DWORD size = UNLEN + 1;
+    GetUserName((TCHAR*)username, &size);
+    string user = username;
+    return user;
 }

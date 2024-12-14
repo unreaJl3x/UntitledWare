@@ -143,3 +143,20 @@ string FileSystem::CreateRandomName(int lenght) {
     }
     return text;
 }
+
+bool FileSystem::CheckAvaleible(string path, string fName) {
+    ifstream file; file.open(LocalDirCheck(path) ?
+                        (rootDirrectory +
+                        SlashCheck(rootDirrectory) +
+                        path +
+                        SlashCheck(path) +
+                        fName)
+
+                        : (path +
+                        SlashCheck(path) +
+                        fName)
+    );
+    bool res = file.is_open();
+    file.close();
+    return res;
+}
