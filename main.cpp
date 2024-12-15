@@ -7,7 +7,7 @@
 #include "ProcessManager.h"
 #include "Secure.h"
 
-#include "hack.h"
+#include "CSGOCheatFuncsStarter.h"
 using namespace std;
 
 int exitt(int code) {

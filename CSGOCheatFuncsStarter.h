@@ -1,5 +1,5 @@
-#ifndef UNTITLEDWARE_HACK_H
-#define UNTITLEDWARE_HACK_H
+#ifndef UNTITLEDWARE_CSGOCHEATFUNCSSTARTER_H
+#define UNTITLEDWARE_CSGOCHEATFUNCSSTARTER_H
 
 #include <iostream>
 #include <windows.h>
@@ -10,14 +10,14 @@
 #include "output.h"
 using namespace std;
 
-class CsgoFuncsHack {
+class CSGOCheatFuncsStarter {
 private:
     FileSystem* fs;
     Output* out;
     ProcessManager* csgo;
 public:
     void Hack();
-    CsgoFuncsHack(FileSystem*, Output*,ProcessManager*);
+    CSGOCheatFuncsStarter(FileSystem*, Output*, ProcessManager*);
 };
 
-#endif //UNTITLEDWARE_HACK_H
+#endif //UNTITLEDWARE_CSGOCHEATFUNCSSTARTER_H

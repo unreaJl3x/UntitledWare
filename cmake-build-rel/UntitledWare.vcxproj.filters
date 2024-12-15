@@ -28,7 +28,7 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\hack.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,7 +60,7 @@
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\hack.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

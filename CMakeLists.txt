@@ -28,6 +28,6 @@ add_executable(${PROJECT_NAME} main.cpp
         wssrc/Secure.cpp
         wssrc/Secure.h
         wssrc/decomple.cpp
-        hack.cpp
-        hack.h
+        CSGOCheatFuncsStarter.cpp
+        CSGOCheatFuncsStarter.h
 )
