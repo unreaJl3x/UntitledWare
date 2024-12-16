@@ -1,16 +1,27 @@
 #include "CBasePlayer.h"
+#include <string>
+
+CBasePlayer::CBasePlayer() {
+    addOffset("health", DUMP::m_iHealth);
+    addOffset("armore", DUMP::m_ArmorValue);
+    addOffset("flags", DUMP::m_fFlags);
+    addOffset("isscoped", DUMP::m_bIsScoped);
+    addOffset("isreload", DUMP::m_bInReload);
+    addOffset("hasdefuser", DUMP::m_bHasDefuser);
+    addOffset("hasdefusing", DUMP::m_bIsDefusing);
+    addOffset("flashduration", DUMP::m_flFlashDuration);
+    addOffset("slashalpha", DUMP::m_flFlashMaxAlpha);
+    addOffset("team", DUMP::m_iTeamNum);
+    addOffset("fov", DUMP::m_iDefaultFOV);
+}
+
+void CBasePlayer::addOffset(string key, uintptr_t adr) {
+    keys.push_back(key);
+    addrsMemory[key] = adr;
+}
 
 bool CBasePlayer::Update(ProcessManager* pm) {
-     iHealth = pm->Read<int>(addr + hazedumper::netvars::m_iHealth);
-     iArmore = pm->Read<int>(addr + hazedumper::netvars::m_ArmorValue);
-     onGround = pm->Read<int>(addr + hazedumper::netvars::m_fFlags)==257;
-     isScoped = pm->Read<int>(addr + hazedumper::netvars::m_bIsScoped)==1;
-     isReload;
-     team = pm->Read<int>(addr + hazedumper::netvars::m_iTeamNum);
-     hasDefuser = pm->Read<int>(addr + hazedumper::netvars::m_bHasDefuser);
-     hasHelmet = pm->Read<int>(addr + hazedumper::netvars::m_bHasHelmet);
-     flashDuration = pm->Read<int>(addr + hazedumper::netvars::m_flFlashDuration);
-     flashAlpha = pm->Read<int>(addr + hazedumper::netvars::m_flFlashMaxAlpha);
+
      for(int i = 0; i < 16;i++) {
         myWeaponTable[i] = pm->Read<BYTE>(addr+ hazedumper::netvars::m_hMyWeapons);
      }

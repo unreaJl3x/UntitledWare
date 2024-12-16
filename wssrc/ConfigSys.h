@@ -5,7 +5,7 @@
 #define CFGEXTENSION "ini"
 
 #include <iostream>
-
+#include <map>
 #include "FileSystem.h"
 #include "output.h"
 using namespace std;
@@ -14,14 +14,21 @@ class ConfigSys {
 private:
     FileSystem* fs;
     Output* out;
+
 public:
-    struct Date {int i1;};
+    struct Date {
+        bool active;
+    };
+
+    map<string, Date> configDate;
 
     bool Create(string);
     bool Delete(string);
 
     bool Load();
-    bool Save(Date, string);
+    bool Save(string);
+
+    void SetDefault();
 
     ConfigSys()=default;
     ConfigSys(FileSystem*, Output*);

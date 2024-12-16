@@ -333,6 +333,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.cpp" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\global.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\global.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

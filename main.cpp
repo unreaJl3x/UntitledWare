@@ -38,13 +38,8 @@ int main(
 
     Secure sc(&fs,&out);
     if (sc.Start()) {
-        thread HackThread(Hack(&fs,&out)); // CSGO FUNCS
+        CSGOCheatFuncsStarter(&fs,&out,&csgo);
     } else {out.print("Invalid serial key-code.",false,"main");}
-
-    //uintptr_t clientDll = csgo.GetModuleAddr("client.dll");
-   // uintptr_t servDll = csgo.GetModuleAddr("server.dll");
-    //uintptr_t panaramaDll = csgo.GetModuleAddr("server.dll");
-    //cout << clientDll << ", " << servDll << ", "<<panaramaDll<<endl;
 
     return exitt(1);
 }

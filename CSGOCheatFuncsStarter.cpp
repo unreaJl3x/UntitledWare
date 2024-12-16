@@ -1,10 +1,5 @@
 #include "CSGOCheatFuncsStarter.h"
-void CSGOCheatFuncsStarter::Hack(FileSystem*, Output*) {
+void CSGOCheatFuncsStarter(FileSystem* fs, Output* out, ProcessManager* pm) {
 
-}
-
-CSGOCheatFuncsStarter::CSGOCheatFuncsStarter(FileSystem* fileSystem, Output* output, ProcessManager* pm) {
-    fs = fileSystem;
-    out = output;
 }
 
