@@ -24,7 +24,7 @@ events:
       The output was:
       0
       ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
-      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 17.11.2024 11:51:38.
+      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 21.12.2024 22:52:06.
       
       ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\3.29.6\\CompilerIdC\\CompilerIdC.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
           ╨Ю╤И╨╕╨▒╨╛╨║: 0
       
-      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:01.04
+      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.77
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -72,14 +72,14 @@ events:
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-      Compiler:  
+      Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe 
       Build flags: 
       Id flags:  
       
       The output was:
       0
       ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
-      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 17.11.2024 11:51:39.
+      ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 21.12.2024 22:52:07.
       
       ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\3.29.6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
       PrepareForBuild:
@@ -108,7 +108,7 @@ events:
           ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
           ╨Ю╤И╨╕╨▒╨╛╨║: 0
       
-      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.68
+      ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.60
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -127,8 +127,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-vefxsz"
-      binary: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-vefxsz"
+      source: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-5vpcna"
+      binary: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-5vpcna"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -137,40 +137,40 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-vefxsz'
+        Change Dir: 'C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-5vpcna'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f9a8e.vcxproj /p:Configuration=Debug /p:Platform=WIN32 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_22e1b.vcxproj /p:Configuration=Debug /p:Platform=WIN32 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 17.11.2024 11:51:40.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 21.12.2024 22:52:08.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-vefxsz\\cmTC_f9a8e.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-5vpcna\\cmTC_22e1b.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_f9a8e.dir\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_22e1b.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-vefxsz\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_f9a8e.dir\\Debug\\cmTC_f9a8e.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-5vpcna\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_22e1b.dir\\Debug\\cmTC_22e1b.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_f9a8e.dir\\Debug\\cmTC_f9a8e.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f9a8e.dir\\Debug\\cmTC_f9a8e.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_22e1b.dir\\Debug\\cmTC_22e1b.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_22e1b.dir\\Debug\\cmTC_22e1b.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9a8e.dir\\Debug\\\\" /Fd"cmTC_f9a8e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_22e1b.dir\\Debug\\\\" /Fd"cmTC_22e1b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34123 for x86
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9a8e.dir\\Debug\\\\" /Fd"cmTC_f9a8e.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_22e1b.dir\\Debug\\\\" /Fd"cmTC_22e1b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-vefxsz\\Debug\\cmTC_f9a8e.exe" /INCREMENTAL /ILK:"cmTC_f9a8e.dir\\Debug\\cmTC_f9a8e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-vefxsz/Debug/cmTC_f9a8e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-vefxsz/Debug/cmTC_f9a8e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f9a8e.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_f9a8e.vcxproj -> C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-vefxsz\\Debug\\cmTC_f9a8e.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-5vpcna\\Debug\\cmTC_22e1b.exe" /INCREMENTAL /ILK:"cmTC_22e1b.dir\\Debug\\cmTC_22e1b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-5vpcna/Debug/cmTC_22e1b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-5vpcna/Debug/cmTC_22e1b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_22e1b.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_22e1b.vcxproj -> C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-5vpcna\\Debug\\cmTC_22e1b.exe
         FinalizeBuildStatus:
-          ╨д╨░╨╣╨╗ "cmTC_f9a8e.dir\\Debug\\cmTC_f9a8e.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_f9a8e.dir\\Debug\\cmTC_f9a8e.tlog\\cmTC_f9a8e.lastbuildstate".
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-vefxsz\\cmTC_f9a8e.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+          ╨д╨░╨╣╨╗ "cmTC_22e1b.dir\\Debug\\cmTC_22e1b.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_22e1b.dir\\Debug\\cmTC_22e1b.tlog\\cmTC_22e1b.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-5vpcna\\cmTC_22e1b.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         
         ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 0
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.98
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.66
         
       exitCode: 0
   -
@@ -210,8 +210,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-8a1cvl"
-      binary: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-8a1cvl"
+      source: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-oq3d8r"
+      binary: "C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-oq3d8r"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -221,40 +221,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-8a1cvl'
+        Change Dir: 'C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-oq3d8r'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ef3eb.vcxproj /p:Configuration=Debug /p:Platform=WIN32 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ace9c.vcxproj /p:Configuration=Debug /p:Platform=WIN32 /p:VisualStudioVersion=17.0 /v:n
         ╨Т╨╡╤А╤Б╨╕╤П MSBuild 17.11.9+a69bbaaf5 ╨┤╨╗╤П .NET Framework
-        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 17.11.2024 11:51:41.
+        ╨б╨▒╨╛╤А╨║╨░ ╨╜╨░╤З╨░╤В╨░ 21.12.2024 22:52:08.
         
-        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-8a1cvl\\cmTC_ef3eb.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+        ╨Я╤А╨╛╨╡╨║╤В "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-oq3d8r\\cmTC_ace9c.vcxproj" ╨▓ ╤Г╨╖╨╗╨╡ 1 (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         PrepareForBuild:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_ef3eb.dir\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_ace9c.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-8a1cvl\\Debug\\".
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_ef3eb.dir\\Debug\\cmTC_ef3eb.tlog\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-oq3d8r\\Debug\\".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ ╨║╨░╤В╨░╨╗╨╛╨│╨░ "cmTC_ace9c.dir\\Debug\\cmTC_ace9c.tlog\\".
         InitializeBuildStatus:
-          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_ef3eb.dir\\Debug\\cmTC_ef3eb.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_ef3eb.dir\\Debug\\cmTC_ef3eb.tlog\\unsuccessfulbuild".
+          ╨б╨╛╨╖╨┤╨░╨╜╨╕╨╡ "cmTC_ace9c.dir\\Debug\\cmTC_ace9c.tlog\\unsuccessfulbuild", ╤В╨░╨║ ╨║╨░╨║ ╨▒╤Л╨╗╨╛ ╨╖╨░╨┤╨░╨╜╨╛ "AlwaysCreate".
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_ace9c.dir\\Debug\\cmTC_ace9c.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ef3eb.dir\\Debug\\\\" /Fd"cmTC_ef3eb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ace9c.dir\\Debug\\\\" /Fd"cmTC_ace9c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.41.34123 for x86
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ef3eb.dir\\Debug\\\\" /Fd"cmTC_ef3eb.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ace9c.dir\\Debug\\\\" /Fd"cmTC_ace9c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /analyze- /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2024.2.3\\bin\\cmake\\win\\x64\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-8a1cvl\\Debug\\cmTC_ef3eb.exe" /INCREMENTAL /ILK:"cmTC_ef3eb.dir\\Debug\\cmTC_ef3eb.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-8a1cvl/Debug/cmTC_ef3eb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-8a1cvl/Debug/cmTC_ef3eb.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_ef3eb.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_ef3eb.vcxproj -> C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-8a1cvl\\Debug\\cmTC_ef3eb.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.41.34120\\bin\\HostX64\\x86\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-oq3d8r\\Debug\\cmTC_ace9c.exe" /INCREMENTAL /ILK:"cmTC_ace9c.dir\\Debug\\cmTC_ace9c.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-oq3d8r/Debug/cmTC_ace9c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/CMakeScratch/TryCompile-oq3d8r/Debug/cmTC_ace9c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_ace9c.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_ace9c.vcxproj -> C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-oq3d8r\\Debug\\cmTC_ace9c.exe
         FinalizeBuildStatus:
-          ╨д╨░╨╣╨╗ "cmTC_ef3eb.dir\\Debug\\cmTC_ef3eb.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
-          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_ef3eb.dir\\Debug\\cmTC_ef3eb.tlog\\cmTC_ef3eb.lastbuildstate".
-        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-8a1cvl\\cmTC_ef3eb.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
+          ╨д╨░╨╣╨╗ "cmTC_ace9c.dir\\Debug\\cmTC_ace9c.tlog\\unsuccessfulbuild" ╤Г╨┤╨░╨╗╤П╨╡╤В╤Б╤П.
+          ╨Ю╨▒╤А╨░╤Й╨╡╨╜╨╕╨╡ ╨║ "cmTC_ace9c.dir\\Debug\\cmTC_ace9c.tlog\\cmTC_ace9c.lastbuildstate".
+        ╨б╨▒╨╛╤А╨║╨░ ╨┐╤А╨╛╨╡╨║╤В╨░ "C:\\Users\\wssrc\\CLionProjects\\UntitledWare\\cmake-build-rel\\CMakeFiles\\CMakeScratch\\TryCompile-oq3d8r\\cmTC_ace9c.vcxproj" ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░ (╤Ж╨╡╨╗╨╡╨▓╤Л╨╡ ╨╛╨▒╤К╨╡╨║╤В╤Л ╨┐╨╛ ╤Г╨╝╨╛╨╗╤З╨░╨╜╨╕╤О).
         
         ╨б╨▒╨╛╤А╨║╨░ ╤Г╤Б╨┐╨╡╤И╨╜╨╛ ╨╖╨░╨▓╨╡╤А╤И╨╡╨╜╨░.
             ╨Я╤А╨╡╨┤╤Г╨┐╤А╨╡╨╢╨┤╨╡╨╜╨╕╨╣: 0
             ╨Ю╤И╨╕╨▒╨╛╨║: 0
         
-        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.64
+        ╨Я╤А╨╛╤И╨╗╨╛ ╨▓╤А╨╡╨╝╨╡╨╜╨╕ 00:00:00.63
         
       exitCode: 0
   -

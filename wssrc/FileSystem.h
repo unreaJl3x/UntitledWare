@@ -16,13 +16,14 @@ class FileSystem {
 private:
     Output* out;
     string rootDirrectory;
-    string SlashCheck(string);
-    string DotCheck(string);
-    bool LocalDirCheck(string);
+
+    static string SlashCheck(string);
+    static string DotCheck(string);
+    static bool LocalDirCheck(string);
 
 public:
     bool CheckAvaleible(string, string);
-    string CreateRandomName(int);
+    static string CreateRandomName(int);
     void SetRootDirrectory(string);
     string GetRootDirrectory();
 

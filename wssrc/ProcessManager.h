@@ -4,6 +4,8 @@
 #include <iostream>
 #include <windows.h>
 #include <TlHelp32.h>
+#include <Lmcons.h>
+#include <utility>
 
 #include "app.h"
 #include "output.h"
@@ -12,17 +14,26 @@ using namespace std;
 class ProcessManager {
 private:
     Output* out;
+
 public:
     App app;
-    template <typename T, T>
-    bool Write(uintptr_t);
 
-    template <typename T>
-    T Read(uintptr_t);
+    template <int, int*>
+    bool WriteMemory(uintptr_t);
+
+    template <int, char*>
+    bool WriteMemory(uintptr_t);
+
+    template <int>
+    int ReadMemory(uintptr_t);
+
+    template <int>
+    string ReadMemoryA(uintptr_t);
 
     DWORD GetPID();
     HANDLE GetHandle();
     HWND GetWindowHandle();
+    bool SetWindowTitle(string);
     uintptr_t GetModuleAddr(string);
     static string GetWindowsUser();
 

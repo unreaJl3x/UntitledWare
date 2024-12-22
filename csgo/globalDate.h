@@ -5,14 +5,19 @@
 #include "ConfigSys.h"
 
 namespace GLOBAL {
-    extern CBasePlayer local;
-    extern ConfigSys cfgSys;
+
+    extern ConfigSys* cfgSys;
     namespace AppDate {
         extern DWORD pID;
         extern HANDLE pHandle;
     }
     namespace Addrs {
         extern uintptr_t client;
+        extern uintptr_t entityList;
+    }
+    namespace GameEntity {
+        extern unsigned __int8 playerCount;
+        extern vector<CBasePlayer*> players;
     }
 }
 

@@ -314,27 +314,28 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.cpp" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\global.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\global.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

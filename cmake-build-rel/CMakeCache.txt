@@ -25,6 +25,9 @@ CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 // else will be ignored.
 CMAKE_CONFIGURATION_TYPES:STRING=Debug;Release;MinSizeRel;RelWithDebInfo
 
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:UNINITIALIZED=C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/x64/bin/clang-cl.exe
+
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=/DWIN32 /D_WINDOWS /EHsc
 

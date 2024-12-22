@@ -1,31 +1,25 @@
 #include "CBasePlayer.h"
 #include <string>
 
-CBasePlayer::CBasePlayer() {
-    addOffset("health", DUMP::m_iHealth);
-    addOffset("armore", DUMP::m_ArmorValue);
-    addOffset("flags", DUMP::m_fFlags);
-    addOffset("isscoped", DUMP::m_bIsScoped);
-    addOffset("isreload", DUMP::m_bInReload);
-    addOffset("hasdefuser", DUMP::m_bHasDefuser);
-    addOffset("hasdefusing", DUMP::m_bIsDefusing);
-    addOffset("flashduration", DUMP::m_flFlashDuration);
-    addOffset("slashalpha", DUMP::m_flFlashMaxAlpha);
-    addOffset("team", DUMP::m_iTeamNum);
-    addOffset("fov", DUMP::m_iDefaultFOV);
+CBasePlayer::CBasePlayer(ProcessManager* pm, Output* out, uintptr_t addr) {
+    this->out = out;
+    this->pm = pm;
+    this->localAddress = addr;
+
+    addOffset("health", DUMP::m_iHealth, 0);
+    addOffset("armore", DUMP::m_ArmorValue, 0);
+    addOffset("flags", DUMP::m_fFlags, 0);
+    addOffset("isscoped", DUMP::m_bIsScoped, 0);
+    addOffset("isreload", DUMP::m_bInReload, 0);
+    addOffset("hasdefuser", DUMP::m_bHasDefuser, 0);
+    addOffset("hasdefusing", DUMP::m_bIsDefusing, 0);
+    addOffset("flashduration", DUMP::m_flFlashDuration, 0);
+    addOffset("slashalpha", DUMP::m_flFlashMaxAlpha, 0);
+    addOffset("team", DUMP::m_iTeamNum, 0);
+    addOffset("fov", DUMP::m_iDefaultFOV, 0);
 }
-
-void CBasePlayer::addOffset(string key, uintptr_t adr) {
-    keys.push_back(key);
-    addrsMemory[key] = adr;
-}
-
-bool CBasePlayer::Update(ProcessManager* pm) {
-
-     for(int i = 0; i < 16;i++) {
-        myWeaponTable[i] = pm->Read<BYTE>(addr+ hazedumper::netvars::m_hMyWeapons);
-     }
-     iAlive = pm->Read<int>(addr + hazedumper::netvars::m_lifeState)==0;
-
-    return true;
+template <typename Type>
+void CBasePlayer::addOffset(string key, uintptr_t addr, Type var) {
+    keys.push_back(key); Date d(var,addr);
+    memory[key] = d;
 }

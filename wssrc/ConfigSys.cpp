@@ -11,10 +11,8 @@ bool ConfigSys::Create(string fileName) { return fs->CreateFileInDir(CFGFOLDER, 
 bool ConfigSys::Delete(string fName) { return fs->DeleteFileInDir(fs->GetRootDirrectory(),fName); }
 
 bool ConfigSys::Save(string fName) {
-    bool res = fs->WriteInFile(CFGFOLDER, fName, to_string(d.i1));
-    if (!res) {bool res2 = fs->CreateFileInDir(CFGFOLDER,fName); if (res2) {res = fs->WriteInFile(CFGFOLDER, fName, to_string(d.i1));}}
 
-    return res;
+    return true;
 }
 
 void ConfigSys::SetDefault() {

@@ -1,24 +1,36 @@
 #include "ProcessManager.h"
 
-#include <Lmcons.h>
-#include <utility>
-
 ProcessManager::ProcessManager(Output* out, App newApp){
     this->out = out;
     this->app = newApp;
 }
 
-template<typename T>
-T ProcessManager::Read(uintptr_t offset) {
-    T value = {};
-    bool result = ReadProcessMemory(app.pHandle, (offset), &value, sizeof(T), NULL);
+template <int sizeMemory>
+int ProcessManager::ReadMemory(uintptr_t offset) {
+    int value;
+    bool result = ReadProcessMemory(app.pHandle, LPVOID(offset), &value, sizeMemory, NULL);
     if(!result) { out->print("Cannot read memory in point . "+(offset),result,"ProcessManager.Read"); }
     return value;
 }
 
-template<typename T, T value>
-bool ProcessManager::Write(uintptr_t addr) {
-    bool result = WriteProcessMemory(app.pHandle, addr, value, sizeof(T), NULL);
+template <int sizeMemory>
+string ProcessManager::ReadMemoryA(uintptr_t offset) {
+    string value;
+    bool result = ReadProcessMemory(app.pHandle, LPVOID(offset), &value, sizeMemory, NULL);
+    if(!result) { out->print("Cannot read memory in point . "+(offset),result,"ProcessManager.Read"); }
+    return value;
+}
+
+template <int sizeMemory, int* value>
+bool ProcessManager::WriteMemory(uintptr_t addr) {
+    bool result = WriteProcessMemory(app.pHandle, LPVOID(addr), value, sizeMemory, NULL);
+    if (!result) { out->print("Cannot write to the point . "+addr,result,"ProcessManager.Write"); }
+    return result;
+}
+
+template <int sizeMemory, char* value>
+bool ProcessManager::WriteMemory(uintptr_t addr) {
+    bool result = WriteProcessMemory(app.pHandle, LPVOID(addr), value, sizeMemory, NULL);
     if (!result) { out->print("Cannot write to the point . "+addr,result,"ProcessManager.Write"); }
     return result;
 }
@@ -64,5 +76,9 @@ string ProcessManager::GetWindowsUser() {
     DWORD size = UNLEN + 1;
     GetUserName((TCHAR*)username, &size);
     string user = username;
-    return user;
+    return "user";
+}
+
+bool ProcessManager::SetWindowTitle(string text) {
+    return SetWindowTextA(app.hwnd, text.c_str());
 }

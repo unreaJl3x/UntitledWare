@@ -8,6 +8,9 @@
 #include "FileSystem.h"
 #include "ProcessManager.h"
 #include "output.h"
+#include "globalDate.h"
+#include "CBasePlayer.h"
+#include "csgo_signatures.h"
 using namespace std;
 
 void CSGOCheatFuncsStarter(FileSystem* fs, Output* out, ProcessManager* pm);

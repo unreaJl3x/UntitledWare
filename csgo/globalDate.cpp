@@ -1,15 +1,17 @@
 #include "globalDate.h"
 
 namespace GLOBAL {
-    namespace GameDate {
-        CBasePlayer* players;
-        int playerCount;
-    }
-    namespace AppDate{
-         HANDLE pHandle;
-         DWORD pID;
+    ConfigSys* cfgSys;
+    namespace AppDate {
+        DWORD pID;
+        HANDLE pHandle;
     }
     namespace Addrs {
         uintptr_t client;
+        uintptr_t entityList;
+    }
+    namespace GameEntity {
+        unsigned __int8 playerCount;
+        vector<CBasePlayer*> players;
     }
 }

@@ -14,14 +14,24 @@ class ConfigSys {
 private:
     FileSystem* fs;
     Output* out;
-
-public:
-    struct Date {
+    class Date {
+    public:
         bool active;
+
+        void main();
+        void returned();
+    };
+    // FUNCS DATE
+    struct GlowEspDate : Date {
+        unsigned __int8 rgb[2][3];
+    };
+    struct RadarHackDate : Date {};
+    struct FovChangerDate : Date {
+        unsigned __int8 fov = 180;
     };
 
+public:
     map<string, Date> configDate;
-
     bool Create(string);
     bool Delete(string);
 
