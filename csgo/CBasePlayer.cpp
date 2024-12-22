@@ -23,3 +23,9 @@ void CBasePlayer::addOffset(string key, uintptr_t addr, Type var) {
     keys.push_back(key); Date d(var,addr);
     memory[key] = d;
 }
+
+bool CBasePlayer::UpdateDate() {
+    for (string key : keys) {
+        memory[key].varible = pm->ReadMemory<4>(memory[key].addr);
+    }
+}

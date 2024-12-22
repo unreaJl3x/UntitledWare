@@ -35,7 +35,7 @@ private:
 public:
     map<string, Date> memory;
 
-    //bool Update();
+    bool UpdateDate();
 
     CBasePlayer() = default;
     CBasePlayer(ProcessManager*, Output*, uintptr_t);
