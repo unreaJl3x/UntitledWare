@@ -4,16 +4,7 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.cpp">
@@ -25,27 +16,18 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayerBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\CSGOCheatFuncsStarter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ConfigSys.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\decomple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.h">
@@ -57,7 +39,7 @@
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\Secure.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h">
@@ -66,10 +48,10 @@
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\globalDate.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayerBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

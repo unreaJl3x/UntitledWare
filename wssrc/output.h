@@ -9,13 +9,12 @@ using namespace std;
 
 class Output {
 private:
-    const string litteral = "|*> ";
-    const string prefix ="UW";
+    static inline const string litteral = "|*> ";
+    static inline const string prefix ="UW";
 
 public:
-    void print(string, int, string);
-    void printMSG();
-    void input();
+    static void print(string, int, string);
+    static void printMSG();
     Output() = default;
 };
 

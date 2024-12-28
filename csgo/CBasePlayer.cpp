@@ -1,9 +1,7 @@
 #include "CBasePlayer.h"
 #include <string>
 
-CBasePlayer::CBasePlayer(ProcessManager* pm, Output* out, uintptr_t addr) {
-    this->out = out;
-    this->pm = pm;
+CBasePlayer::CBasePlayer(uintptr_t addr) {
     this->localAddress = addr;
 
     addOffset("health", DUMP::m_iHealth, 0);
@@ -18,14 +16,8 @@ CBasePlayer::CBasePlayer(ProcessManager* pm, Output* out, uintptr_t addr) {
     addOffset("team", DUMP::m_iTeamNum, 0);
     addOffset("fov", DUMP::m_iDefaultFOV, 0);
 }
-template <typename Type>
-void CBasePlayer::addOffset(string key, uintptr_t addr, Type var) {
+
+void CBasePlayer::addOffset(string key, uintptr_t addr, BYTE var) {
     keys.push_back(key); Date d(var,addr);
     memory[key] = d;
-}
-
-bool CBasePlayer::UpdateDate() {
-    for (string key : keys) {
-        memory[key].varible = pm->ReadMemory<4>(memory[key].addr);
-    }
 }

@@ -12,32 +12,21 @@
 using namespace std;
 
 class ProcessManager {
-private:
-    Output* out;
-
 public:
-    App app;
+    static bool WriteMemory(uintptr_t, int, int*, HANDLE h);
 
-    template <int, int*>
-    bool WriteMemory(uintptr_t);
+    static bool WriteMemoryA(uintptr_t, int, char*, HANDLE h);
 
-    template <int, char*>
-    bool WriteMemory(uintptr_t);
+    static int ReadMemory(uintptr_t, int, HANDLE h);
 
-    template <int>
-    int ReadMemory(uintptr_t);
+    static string ReadMemoryA(uintptr_t, int, HANDLE h);
 
-    template <int>
-    string ReadMemoryA(uintptr_t);
+    static DWORD GetPID(string*);
+    static HANDLE GetHandle(DWORD);
+    static HWND GetWindowHandle(string*,string*);
 
-    DWORD GetPID();
-    HANDLE GetHandle();
-    HWND GetWindowHandle();
-    bool SetWindowTitle(string);
-    uintptr_t GetModuleAddr(string);
+    static uintptr_t GetModuleAddr(string, DWORD);
     static string GetWindowsUser();
-
-    ProcessManager(Output *, App);
 };
 
 #endif

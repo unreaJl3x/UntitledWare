@@ -13,13 +13,9 @@ using namespace std;
 
 class CBasePlayer {
 private:
-    ProcessManager* pm;
-    Output* out;
     uintptr_t localAddress;
+    void addOffset(string, uintptr_t, BYTE);
 
-    vector<string> keys;
-    template <typename T>
-    void addOffset(string, uintptr_t, T);
     class Date {
     public:
         uintptr_t addr;
@@ -28,17 +24,17 @@ private:
         Date() = default;
         Date(BYTE var, uintptr_t addr) {
             this->addr = addr;
-            this->varible=(BYTE)var;
+            this->varible = var;
         }
     };
 
+
 public:
+    vector<string> keys;
     map<string, Date> memory;
 
-    bool UpdateDate();
-
     CBasePlayer() = default;
-    CBasePlayer(ProcessManager*, Output*, uintptr_t);
+    CBasePlayer(uintptr_t);
 };
 
 #endif //UNTITLEDWARE_CBASEPLAYER_H

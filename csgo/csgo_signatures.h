@@ -1,6 +1,11 @@
 #pragma once
+
+#ifndef SIGNATURE_H
+#define SIGNATURE_H
 #include <cstdint>
 #include <windows.h>
+
+
 
 // 2023-09-05 21:12:09.438009200 UTC
 
@@ -76,6 +81,7 @@ namespace hazedumper {
         constexpr ptrdiff_t m_iFOVStart = 0x31F8;
         constexpr ptrdiff_t m_iGlowIndex = 0x10488;
         constexpr ptrdiff_t m_iHealth = 0x100;
+        constexpr int m_iHealth_size = 4;
         constexpr ptrdiff_t m_iItemDefinitionIndex = 0x2FBA;
         constexpr ptrdiff_t m_iItemIDHigh = 0x2FD0;
         constexpr ptrdiff_t m_iMostRecentModelBoneCounter = 0x2690;
@@ -164,3 +170,5 @@ namespace hazedumper {
         constexpr ptrdiff_t set_abs_origin = 0x1E8E00;
     }
 }
+
+#endif

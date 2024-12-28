@@ -1,9 +1,8 @@
 #include "FileSystem.h"
 
-FileSystem::FileSystem(Output * output) { out = output; rootDirrectory = CDDIR; }
+FileSystem::FileSystem() { rootDirrectory = CDDIR; }
 
 /// \param pathDir Path to Dirrectory
-FileSystem::FileSystem(Output * output, string pathDir) { out = output; rootDirrectory = pathDir; }
 FileSystem::FileSystem(string pathDir) {rootDirrectory = pathDir; }
 
 bool FileSystem::CreateDir(string path) {
@@ -14,7 +13,7 @@ bool FileSystem::CreateDir(string path) {
     } catch (...) { res = false; }
 
     string start = (res?("Has been create"):("Cannot create"));
-    out->print(start+" dirrictory at path->"+path,res,"CreateDir");
+    Output::print(start+" dirrictory at path->"+path,res,"CreateDir");
     return res;
 }
 
@@ -24,7 +23,7 @@ bool FileSystem::DeleteDir(string path) {
         res= filesystem::remove_all(path);
     } catch(...) { res = false; }
     string start = (res?"Successful ":"Cannot ");
-    out->print(start+"dirrectory at path->"+path,res,"DeleteDir");
+    Output::print(start+"dirrectory at path->"+path,res,"DeleteDir");
     return res;
 }
 
@@ -36,7 +35,7 @@ bool FileSystem::DeleteFileInDir(string path, string fName) {
     return res;
 }
 
-void FileSystem::SetRootDirrectory(string path) { rootDirrectory = path; out->print("Set root dirrectory to'"+rootDirrectory+"'",true,"SetRootDirrectory"); }
+void FileSystem::SetRootDirrectory(string path) { rootDirrectory = path; Output::print("Set root dirrectory to'"+rootDirrectory+"'",true,"SetRootDirrectory"); }
 string FileSystem::GetRootDirrectory() { return rootDirrectory; }
 
 bool FileSystem::CreateFileInDir(string dir, string fileName) {
@@ -55,9 +54,9 @@ bool FileSystem::CreateFileInDir(string dir, string fileName) {
                 fileName);
     }
     if (!file.is_open()) {
-        out->print(("Cannot open file at path-> '"+(!localDir ? dir : rootDirrectory + SlashCheck(rootDirrectory)+dir)+"'"),false,"CreateFileInDir");
+        Output::print(("Cannot open file at path-> '"+(!localDir ? dir : rootDirrectory + SlashCheck(rootDirrectory)+dir)+"'"),false,"CreateFileInDir");
         string pathDir =( localDir ? (GetRootDirrectory() + SlashCheck(rootDirrectory) + dir) : ("dir)"));
-        out->print("Create dir at path->"+pathDir,false,"CreateFileInDir");
+        Output::print("Create dir at path->"+pathDir,false,"CreateFileInDir");
 
         bool res = CreateDir(pathDir);
 
@@ -70,7 +69,7 @@ bool FileSystem::CreateFileInDir(string dir, string fileName) {
 
 bool FileSystem::WriteInFile(string path, string nameFile, string text) {
     ofstream file; file.open(path+"\\"+nameFile);
-    if (!file.is_open()) {out->print(("Cannot open file at path-> '"+path+"'"),false,"WriteInFile");return false;}
+    if (!file.is_open()) {Output::print(("Cannot open file at path-> '"+path+"'"),false,"WriteInFile");return false;}
 
     file << text;
 
@@ -82,7 +81,7 @@ bool FileSystem::WriteInFile(string path, string nameFile, string text) {
 vector<string> FileSystem::ReadFromFile(string path, string fileName) {
     ifstream file; file.open((!LocalDirCheck(path)) ? path : (rootDirrectory+SlashCheck(rootDirrectory)+path)
     + SlashCheck(path) + fileName);
-    if (!file.is_open()) {out->print(("Cannot open file at path-> '"+path+ SlashCheck(path)+fileName+"'"),false,"ReadFromFile");return *new vector<string>{""};}
+    if (!file.is_open()) {Output::print(("Cannot open file at path-> '"+path+ SlashCheck(path)+fileName+"'"),false,"ReadFromFile");return *new vector<string>{""};}
 
     string line;
     vector<string> m;

@@ -13,7 +13,6 @@ using namespace std;
 class ConfigSys {
 private:
     FileSystem* fs;
-    Output* out;
     class Date {
     public:
         bool active;
@@ -41,7 +40,7 @@ public:
     void SetDefault();
 
     ConfigSys()=default;
-    ConfigSys(FileSystem*, Output*);
+    ConfigSys(FileSystem*);
 };
 
 

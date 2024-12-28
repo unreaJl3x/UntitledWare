@@ -14,7 +14,6 @@ using namespace std;
 
 class FileSystem {
 private:
-    Output* out;
     string rootDirrectory;
 
     static string SlashCheck(string);
@@ -37,9 +36,7 @@ public:
 
     vector<string> GetFileListInDir(string, string);
 
-    FileSystem() = default;
-    FileSystem(Output*);
-    FileSystem(Output*,string);
+    FileSystem();
     FileSystem(string);
 };
 

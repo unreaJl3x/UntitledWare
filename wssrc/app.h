@@ -4,12 +4,11 @@
 #include <iostream>
 #include <windows.h>
 
+#include "ProcessManager.h"
 #include "output.h"
 using namespace std;
 
 class App {
-private:
-    Output* out;
 public:
     string nameApp;
     string nameExe;
@@ -19,9 +18,12 @@ public:
     HANDLE pHandle;
     HWND hwnd;
 
+    bool running;
+
+    bool isRunning();
+
     void SetHeader(string);
-    App(string,string,string, Output*);
-    App() = default;
+    App(string, string, string);
 };
 
 

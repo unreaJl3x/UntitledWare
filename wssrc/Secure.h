@@ -19,11 +19,10 @@ class Secure {
 private:
     string key;
     FileSystem* fs;
-    Output* out;
 
 public:
     bool Start();
-    Secure(FileSystem*, Output*);
+    Secure(FileSystem*);
 };
 
 

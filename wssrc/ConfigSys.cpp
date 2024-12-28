@@ -1,7 +1,6 @@
 #include "ConfigSys.h"
 
-ConfigSys::ConfigSys(FileSystem* fls, Output* outs) {
-    fs=fls; out=outs;
+ConfigSys::ConfigSys(FileSystem* fls) {
     fs->CreateDir(CFGFOLDER);
     configDate["radarhack"].active = true;
 }
