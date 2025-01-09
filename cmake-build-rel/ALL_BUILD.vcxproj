@@ -27,7 +27,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{68D68607-CDE0-3C6D-A4FF-7F5AFC5C7A5B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>WIN32</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -69,7 +69,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -79,7 +79,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -89,7 +89,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -99,7 +99,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|WIN32'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

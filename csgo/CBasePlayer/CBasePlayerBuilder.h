@@ -2,10 +2,11 @@
 #define UNTITLEDWARE_CBASEPLAYERBUILDER_H
 
 #include "CBasePlayer.h"
+#include "csgo/AppCS.h"
 
 class CBasePlayerBuilder {
 public:
-    static CBasePlayer GetPlayer(int, uintptr_t, HANDLE h);
+    static vector<CBasePlayer> GetPlayerList(AppCS*);
 };
 
 

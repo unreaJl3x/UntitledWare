@@ -2,19 +2,19 @@
 #define UNTITLEDWARE_OUTPUT_H
 
 #include <iostream>
-using namespace std;
 
 #define BAD "FF"
 #define OK "OK"
 
 class Output {
 private:
-    static inline const string litteral = "|*> ";
-    static inline const string prefix ="UW";
+    static inline const std::string litteral = "|*> ";
+    static inline const std::string prefix ="UW";
 
 public:
-    static void print(string, int, string);
-    static void printMSG();
+    static void print(std::string, int, std::string);
+    static void printWithErrorCode(std::string, std::string);
+    static void printMSG(std::string, std::string);
     Output() = default;
 };
 

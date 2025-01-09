@@ -19,10 +19,19 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayerBuilder.cpp">
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayerBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\tests\SimpleESP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxOverlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,16 +51,22 @@
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\hazedumper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayerBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayerBuilder.h">
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\tests\SimpleESP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxOverlay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

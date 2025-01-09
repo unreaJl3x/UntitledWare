@@ -4,6 +4,8 @@ C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\FileSystem.cpp;C:\Users\wssrc\CL
 C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\output.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\output.obj
 C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\ProcessManager.obj
 C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\AppCS.obj
-C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\CBasePlayer.obj
-C:\Users\wssrc\CLionProjects\UntitledWare\csgo\Player.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\Player.obj
-C:\Users\wssrc\CLionProjects\UntitledWare\csgo\PlayerBuilder.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\PlayerBuilder.obj
+C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayer.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\CBasePlayer.obj
+C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayerBuilder.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\CBasePlayerBuilder.obj
+C:\Users\wssrc\CLionProjects\UntitledWare\tests\SimpleESP.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\SimpleESP.obj
+C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxOverlay.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\dxOverlay.obj
+C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.cpp;C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\UntitledWare.dir\Release\dxRender.obj

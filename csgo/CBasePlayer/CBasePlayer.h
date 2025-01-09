@@ -2,27 +2,27 @@
 #define UNTITLEDWARE_CBASEPLAYER_H
 
 #include <iostream>
-#include <windows.h>
+#include <Windows.h>
 #include <map>
 #include <vector>
 
 #include "ProcessManager.h"
-#include "csgo_signatures.h"
-using namespace std;
+#include "csgo/hazedumper.h"
 #define DUMP hazedumper::netvars
+using namespace std;
 
 class CBasePlayer {
 private:
-    uintptr_t localAddress;
     void addOffset(string, uintptr_t, BYTE);
 
+    template <typename T>
     class Date {
     public:
         uintptr_t addr;
-        BYTE varible;
+        T varible;
 
         Date() = default;
-        Date(BYTE var, uintptr_t addr) {
+        Date(T var, uintptr_t addr) {
             this->addr = addr;
             this->varible = var;
         }
@@ -31,10 +31,9 @@ private:
 
 public:
     vector<string> keys;
-    map<string, Date> memory;
+    map<string, Date<int> > memory;
 
-    CBasePlayer() = default;
-    CBasePlayer(uintptr_t);
+    CBasePlayer();
 };
 
 #endif //UNTITLEDWARE_CBASEPLAYER_H

@@ -24,7 +24,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{E57E2F03-7C20-366A-BD02-001F811B447A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
     <Platform>WIN32</Platform>
     <ProjectName>UntitledWare</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -103,10 +103,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -114,8 +114,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dwmapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Microsoft DirectX SDK (June 2010)/Lib/x86;C:/Microsoft DirectX SDK (June 2010)/Lib/x86/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -146,10 +146,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -157,8 +157,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dwmapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Microsoft DirectX SDK (June 2010)/Lib/x86;C:/Microsoft DirectX SDK (June 2010)/Lib/x86/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -172,7 +172,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -189,10 +189,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -200,8 +200,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dwmapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Microsoft DirectX SDK (June 2010)/Lib/x86;C:/Microsoft DirectX SDK (June 2010)/Lib/x86/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -215,7 +215,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|WIN32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -231,10 +231,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\imgui;C:\Users\wssrc\CLionProjects\UntitledWare\csgo;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\wssrc\CLionProjects\UntitledWare\.;C:\Users\wssrc\CLionProjects\UntitledWare\wssrc;C:\Microsoft DirectX SDK (June 2010)\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -242,8 +242,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3dx9.lib;d3d9.lib;dwmapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Microsoft DirectX SDK (June 2010)/Lib/x86;C:/Microsoft DirectX SDK (June 2010)/Lib/x86/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
@@ -324,12 +324,17 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\ProcessManager.cpp" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\AppCS.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\csgo_signatures.h" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\functions\RadarHack.h" />
-    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayerBuilder.cpp" />
-    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayerBuilder.h" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayer.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayer.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\hazedumper.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayerBuilder.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\csgo\CBasePlayer\CBasePlayerBuilder.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\tests\SimpleESP.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\tests\SimpleESP.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxOverlay.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxOverlay.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

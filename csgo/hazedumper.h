@@ -88,6 +88,7 @@ namespace hazedumper {
         constexpr ptrdiff_t m_iObserverMode = 0x3388;
         constexpr ptrdiff_t m_iShotsFired = 0x103E0;
         constexpr ptrdiff_t m_iState = 0x3268;
+        ///     CT - 1; T - 2;
         constexpr ptrdiff_t m_iTeamNum = 0xF4;
         constexpr ptrdiff_t m_lifeState = 0x25F;
         constexpr ptrdiff_t m_nBombSite = 0x2994;
@@ -111,6 +112,7 @@ namespace hazedumper {
 
     namespace signatures {
         constexpr ptrdiff_t anim_overlays = 0x2990;
+        // "engine.dll"
         constexpr ptrdiff_t clientstate_choked_commands = 0x4D30;
         constexpr ptrdiff_t clientstate_delta_ticks = 0x174;
         constexpr ptrdiff_t clientstate_last_outgoing_command = 0x4D2C;
@@ -125,7 +127,10 @@ namespace hazedumper {
         constexpr ptrdiff_t dwClientState_PlayerInfo = 0x52C0;
         constexpr ptrdiff_t dwClientState_State = 0x108;
         constexpr ptrdiff_t dwClientState_ViewAngles = 0x4D90;
+        // end "engine.dll"
+        // "client.dll"
         constexpr ptrdiff_t dwEntityList = 0x04E051DC;//0x4E0102C
+        // "client.dll"
         constexpr ptrdiff_t dwForceAttack = 0x322EE98;
         constexpr ptrdiff_t dwForceAttack2 = 0x322EEA4;
         constexpr ptrdiff_t dwForceBackward = 0x322EEE0;
@@ -154,7 +159,7 @@ namespace hazedumper {
         constexpr ptrdiff_t dwYawPtr = 0xDEF948;
         constexpr ptrdiff_t dwZoomSensitivityRatioPtr = 0xDF53B8;
         constexpr ptrdiff_t dwbSendPackets = 0xDD2D2;
-        constexpr ptrdiff_t dwppDirect3DDevice9 = 0xA62C0;
+        constexpr ptrdiff_t dwpDirect3DDevice9 = 0xA62C0;
         constexpr ptrdiff_t find_hud_element = 0x592626C0;
         constexpr ptrdiff_t force_update_spectator_glow = 0x3DB90A;
         constexpr ptrdiff_t interface_engine_cvar = 0x3FA9C;

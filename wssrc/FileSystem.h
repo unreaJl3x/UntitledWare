@@ -1,43 +1,37 @@
 #ifndef UNTITLEDWARE_FILESYSTEM_H
 #define UNTITLEDWARE_FILESYSTEM_H
 
-#define CDDIR "C:\\"
-
-#include <fstream>
 #include <iostream>
-#include <filesystem>
 #include <vector>
-#include <random>
 
-#include "output.h"
-using namespace std;
+#define CDDIR "C:\\"
 
 class FileSystem {
 private:
-    string rootDirrectory;
+    std::string rootDirrectory;
 
-    static string SlashCheck(string);
-    static string DotCheck(string);
-    static bool LocalDirCheck(string);
+    static std::string SlashCheck(std::string);
+    static std::string DotCheck(std::string);
+    static bool LocalDirCheck(std::string);
 
 public:
-    bool CheckAvaleible(string, string);
-    static string CreateRandomName(int);
-    void SetRootDirrectory(string);
-    string GetRootDirrectory();
+    bool CheckAvaleible(std::string, std::string);
+    static std::string CreateRandomName(int);
+    void SetRootDirrectory(std::string);
+    std::string GetRootDirrectory();
 
-    bool WriteInFile(string,string,string);
-    vector<string> ReadFromFile(string,string);
-    bool CreateDir(string);
-    bool CreateFileInDir(string,string);
+    bool WriteInFile(std::string, std::string, std::string);
+    std::vector<std::string> ReadFromFile(std::string, std::string);
+    bool CreateDir(std::string);
+    bool CreateFileInDir(std::string, std::string);
 
-    bool DeleteFileInDir(string,string);
-    bool DeleteDir(string);
+    bool DeleteFileInDir(std::string, std::string);
+    bool DeleteDir(std::string);
 
-    vector<string> GetFileListInDir(string, string);
+    std::vector<std::string> GetFileListInDir(std::string, std::string);
 
     FileSystem();
-    FileSystem(string);
+    FileSystem(std::string);
 };
 
 

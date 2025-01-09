@@ -1,5 +1,13 @@
 #include "ProcessManager.h"
 
+#include <Lmcons.h>
+#include <utility>
+#include <string>
+
+#include "output.h"
+
+using namespace std;
+
 int ProcessManager::ReadMemory(uintptr_t offset, int sizeMemory, HANDLE h) {
     int value;
     bool result = ReadProcessMemory(h, LPVOID(offset), &value, sizeMemory, NULL);
@@ -32,7 +40,7 @@ DWORD ProcessManager::GetPID(string *nameExe) {
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (snap == INVALID_HANDLE_VALUE) {
         Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetPID");
-        return -1;
+        return NULL;
     }
 
     if (Process32First(snap, &pEntry)) {
@@ -45,7 +53,7 @@ DWORD ProcessManager::GetPID(string *nameExe) {
     }
 
     CloseHandle(snap);
-    return -1;
+    return NULL;
 }
 
 HANDLE ProcessManager::GetHandle(DWORD pID) {
@@ -61,9 +69,9 @@ uintptr_t ProcessManager::GetModuleAddr(string mName, DWORD id) {
     mEntry.dwSize = sizeof(MODULEENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, id);
     if (snap == INVALID_HANDLE_VALUE) {
-        Output::print("INVALID HANDLE SNAP", false, "");
+        Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetModuleAddr");
         CloseHandle(snap);
-        return -2;
+        return NULL;
     }
 
     if (Module32First(snap, &mEntry)) {
@@ -75,14 +83,35 @@ uintptr_t ProcessManager::GetModuleAddr(string mName, DWORD id) {
         } while (Module32Next(snap, &mEntry));
     }
     CloseHandle(snap);
-    return -1;
+    return NULL;
 }
 
 string ProcessManager::GetWindowsUser() {
     TCHAR username[UNLEN + 1];
     DWORD size = UNLEN + 1;
     GetUserName((TCHAR *) username, &size);
-    string user = username;
-    return "user";
+    return basic_string(username);
 }
 
+
+vector<PROCESSENTRY32> ProcessManager::GetAllProcessEntry(std::string *nameExe) {
+    PROCESSENTRY32 pEntry;
+    vector<PROCESSENTRY32> pEntres;
+    pEntry.dwSize = sizeof(PROCESSENTRY32);
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snap == INVALID_HANDLE_VALUE) {
+        Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetAllProcessEntry");
+        return pEntres;
+    }
+
+    if (Process32First(snap, &pEntry)) {
+        do {
+            if (pEntry.szExeFile == *nameExe) {
+                pEntres.push_back(pEntry);
+            }
+        } while (Process32Next(snap, &pEntry));
+    }
+
+    CloseHandle(snap);
+    return pEntres;
+}

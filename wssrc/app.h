@@ -4,26 +4,30 @@
 #include <iostream>
 #include <windows.h>
 
-#include "ProcessManager.h"
-#include "output.h"
-using namespace std;
-
 class App {
-public:
-    string nameApp;
-    string nameExe;
-    string IpClassNameWindow;
+private:
+    int resolution[2];
+    std::string nameApp;
+    std::string nameExe;
+    std::string IpClassNameWindow;
 
-    DWORD pId;
-    HANDLE pHandle;
-    HWND hwnd;
+    DWORD pId = NULL;
+    HANDLE pHandle = nullptr;
+    HWND hwnd = nullptr;
 
     bool running;
 
+public:
     bool isRunning();
+    DWORD GetProcessId();
+    std::string GetAppName();
+    std::string GetExeName();
+    std::string GetWindowClassName();
+    HANDLE GetProcessHandle();
+    HWND GetWindowHandle();
 
-    void SetHeader(string);
-    App(string, string, string);
+    void SetHeader(std::string);
+    App(std::string, std::string, std::string);
 };
 
 
