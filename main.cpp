@@ -10,46 +10,28 @@
 #include "csgo/AppCS.h"
 #include "dx_interface/dxOverlay.h"
 #include "dx_interface/dxRender.h"
-
+#include "dx_interface/dxOverlay.h"
+#include "dx_interface/dxRender.h"
 using namespace std;
-
-#define OFFKEY VK_END
 
 bool HaveADooplicant(string nameApp) {
     vector<PROCESSENTRY32> pEntres = ProcessManager::GetAllProcessEntry(&nameApp);
     return pEntres.size() >= 2;
 }
 
+#define KEYOFF VK_END
 
-void returnColor(D3DCOLOR _color) {
-    const int modifires_ARGB[4] = {16777216,65536,256,1};
-    __int64 color = _color;
-    int count,u = 0;
-    int en[4]{0,0,0,0};
-
-    for (int mod : modifires_ARGB) {
-        do {
-            cout << "mod"<<mod;
-            count++;
-            color -= mod;
-            cout<<color<<endl;
-        } while( color > 0);
-        color += mod;
-        cout<<"COlOR "<<count<<endl;
-        count=0;
-        en[u]=count;
-        u++;
-    }
-    cout << "NEW COLOR ARGB - "<<en[0]<<"X"<<en[1]<<"X"<<en[2]<<"X"<<en[3]<<endl;
-}
+#define W_WIDTH 350
+#define W_HEIGHT 300
 
 int main(int argc, char *argv[]) {
     SetConsoleTitleA("UntitledWare <!/>");
+
     if (HaveADooplicant(basic_string(argv[0]).erase(0, basic_string(argv[0]).find_last_of('\\') + 1))) {
         Output::printMSG("Programm is already running!","UntitledWare");
         return EXIT_FAILURE;
     }
-    returnColor(dxRender::COLOR::RED);
+
     AppCS csgo;
     if (!csgo.isRunning()) {
         getchar();
@@ -63,43 +45,37 @@ int main(int argc, char *argv[]) {
 
 // body
     dxOverlay over(&csgo);
-    mutex _mutex;
-
-    MSG message;
-    ZeroMemory(&message,sizeof(message));
-
-    bool run,showMenu,cann = true;
+    mutex _m;
+    MSG _msg;
+    ZeroMemory(&_msg,sizeof(_msg));
     dxRender rend = over.CreateRender();
 
+    D3DCOLOR RainBow = dxRender::COLOR::RED;
+    D3DCOLOR BACKGROUND = dxRender::COLOR::VERYBLACKGRAY;
+    RECT menuRect(0,0,W_WIDTH,W_HEIGHT);
+
+    rend.addTexture(new RECT(menuRect.left,menuRect.top,menuRect.right,30),0);
+    rend.addTexture(&menuRect,1);
+
     do {
-        cann=true;
-        if ( PeekMessage( &message, over.GetWindowHandle( ), NULL, NULL, PM_REMOVE ) ) {
-            TranslateMessage( &message );
-            DispatchMessage( &message );
+        if ( PeekMessage( &_msg, over.GetWindowHandle( ), NULL, NULL, PM_REMOVE ) ) {
+            TranslateMessage( &_msg );
+            DispatchMessage( &_msg );
         }
-        unique_lock lock(_mutex);
-        if (GetAsyncKeyState(OFFKEY)&cann) { showMenu = !showMenu; cann=false;}
+        unique_lock lock(_m);
 
+        RainBow = dxRender::COLOR::Rainbow(RainBow);
         rend.beginRender();
-        //menu
-        if (showMenu) {
-            D3DCOLOR ac = dxRender::COLOR::RED;
-            D3DCOLOR bg = dxRender::COLOR::GRAY;
 
-            RECT r(0, 0, 320, 230);
-            rend.drawBox(r, bg, true);
-            rend.drawBox(r, ac, false);
-            rend.drawText({r.left, r.top}, "UntitledWare", ac, 25);
-            rend.drawLine({r.left+25,r.top},{r.left+25,r.bottom},ac);
-            rend.drawLine({r.left,r.top+12},{r.right,r.top+12},ac);
-            D3DCOLOR c = dxRender::COLOR::Rainbow(c);
-        }
-        //menu
+        rend.drawBox(&menuRect, &BACKGROUND, new char[2]{DB_OUTLINE, DB_FILLED}, vector<int>{1});
+        rend.drawBox(&menuRect, &RainBow);
+        rend.drawBox(&menuRect, &RainBow, new char[1]{DB_FILLED}, vector<int>{0});
+        rend.drawText({(menuRect.right-menuRect.left)/2,10},"UntitledWare",BACKGROUND,25);
+        rend.drawLine({menuRect.left+30,menuRect.top},{menuRect.left+30,menuRect.bottom},RainBow);
+
         rend.endRender();
         this_thread::sleep_for(chrono::milliseconds(1));
-    } while(run | message.message != WM_QUIT);
-
-
+    } while(!GetAsyncKeyState(VK_END));
 
     Output::print("Exit on application.", true, "main");
     getchar();
