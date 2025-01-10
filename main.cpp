@@ -67,13 +67,17 @@ int main(int argc, char *argv[]) {
         RainBow = dxRender::COLOR::Rainbow(RainBow);
         rend.beginRender();
 
-        rend.drawBox(&menuRect, &BACKGROUND, new char[2]{DB_OUTLINE, DB_FILLED}, vector<int>{1});
-        rend.drawBox(&menuRect, &RainBow);
-        rend.drawBox(&menuRect, &RainBow, new char[1]{DB_FILLED}, vector<int>{0});
-        rend.drawText({(menuRect.right-menuRect.left)/2,10},"UntitledWare",BACKGROUND,25);
-        rend.drawLine({menuRect.left+30,menuRect.top},{menuRect.left+30,menuRect.bottom},RainBow);
-
+        rend.drawBox(&menuRect, BACKGROUND, new char[2]{DB_OUTLINE, DB_FILLED}, vector<int>{1});
+        rend.drawBox(&menuRect, RainBow);
+        rend.drawBox(&menuRect, RainBow, new char[1]{DB_FILLED}, vector<int>{0});
+        rend.drawText(new POINT{menuRect.left,menuRect.top},"UntitledWare",BACKGROUND,25);
+        rend.drawLine(new POINT{menuRect.left+30,menuRect.top},new POINT{menuRect.left+30,menuRect.bottom},RainBow);
+        bool r;
+        rend.Button(new RECT(menuRect.left+5,menuRect.top+60,menuRect.left+25,menuRect.top+80),dxRender::COLOR::PINK,&r);
+        if (r) {cout<<"work"<<endl;}
         rend.endRender();
+        rend.DragMenu(&menuRect);
+
         this_thread::sleep_for(chrono::milliseconds(1));
     } while(!GetAsyncKeyState(VK_END));
 

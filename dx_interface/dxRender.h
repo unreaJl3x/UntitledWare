@@ -22,26 +22,26 @@ private:
     ID3DXLine* dxLine;
     ID3DXFont* dxFont;
     ID3DXSprite* dxSprite;
+    HWND hWindow;
+    RECT GetWindowPos(HWND);
 
     HWND thWindow;
-    HWND hWindow;
     static VOID WINAPI ColorFill (D3DXVECTOR4* pOut, const D3DXVECTOR2* pTexCoord,const D3DXVECTOR2* pTexelSize, LPVOID pData);
 
 public:
     dxRender(IDirect3DDevice9*, HWND,HWND);
     ~dxRender();
 
-    void drawLine(POINT, POINT, D3DCOLOR);
-
-    void drawBox(RECT*, D3DCOLOR*,char* = new char[1]{DB_OUTLINE},vector<int> = *(new vector{-1}));
-    bool addTexture(RECT* rect, int idTexture);
-
-    void drawText(POINT, std::string, D3DCOLOR, int);
-
     void beginRender();
     void endRender();
 
+    void drawLine(POINT*, POINT*, D3DCOLOR);
+    void drawBox(RECT*, D3DCOLOR,char* = new char[1]{DB_OUTLINE},vector<int> = *(new vector{-1}));
+    bool addTexture(RECT* rect, int idTexture);
+    void drawText(POINT*, std::string, D3DCOLOR, int);
+
     void DragMenu(RECT*);
+    void Button(RECT*, D3DCOLOR, bool*);
 
     static vector<int> GetARGBCode(D3DCOLOR);
 
