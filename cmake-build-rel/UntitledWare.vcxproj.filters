@@ -34,6 +34,9 @@
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\MenuController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\app.h">
@@ -67,6 +70,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\MenuController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

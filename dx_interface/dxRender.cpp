@@ -1,6 +1,6 @@
 #include "dxRender.h"
 #include <d3dx9tex.h>
-
+#include <string>
 dxRender::dxRender(IDirect3DDevice9 *device, HWND handleWindow, HWND targetHandleWindow) {
     if (!device) {
         Output::print("Invalid device", false, "dxRender");
@@ -76,7 +76,7 @@ vector<int> dxRender::GetARGBCode(D3DCOLOR input) {
     return COLOR_ARGB;
 }
 
-void dxRender::drawBox(RECT* rect, D3DCOLOR color,char * gFlags, vector<int> idTexture) {
+void dxRender::drawBox(RECT* rect, D3DCOLOR color,char * gFlags, vector<int>* idTexture) {
     if(gFlags[0]==DB_OUTLINE||gFlags[1]==DB_OUTLINE) {
         const int _size = 5;
         D3DXVECTOR2 mergins[5]{
@@ -88,51 +88,48 @@ void dxRender::drawBox(RECT* rect, D3DCOLOR color,char * gFlags, vector<int> idT
         };
         dxLine->Draw(mergins,_size,color);
     }
-    if ((gFlags[1]==DB_FILLED || gFlags[0]==DB_FILLED) && idTexture[0]!=-1) {
+    if ((gFlags[1]==DB_FILLED || gFlags[0]==DB_FILLED) && idTexture[0][0] !=-1) {
         dxSprite->Begin(0);
-        for(int i : idTexture) {
+        for(int i : *idTexture) {
             dxSprite->Draw(textures[i], NULL, NULL, new D3DXVECTOR3(rect->left,rect->top,0), color);
         }
         dxSprite->End();
     }
 }
 
-bool dxRender::addTexture(RECT* rect, int idTexture) {
-    bool newKey = true;
-    for(int i : keys) {
-        if(i==idTexture) newKey = false;
-    }
-    if(newKey) {
-        cout<<"vrea"<<endl;
-        keys.push_back(idTexture);
-        device->CreateTexture(rect->right-rect->left,
-                              rect->bottom-rect->top,
-                              0,
-                              0,
-                              D3DFMT_A8R8G8B8 ,
-                              D3DPOOL_DEFAULT,
-                              &textures[idTexture],
-                              NULL
-        );
-        D3DXFillTexture(textures[idTexture],ColorFill,NULL);
-        return true;
-    }
-    return false;
+int dxRender::addTexture(RECT* rect) {
+    int key;
+    if (keys.size() !=0) {
+        key = keys.back() + 1;
+    } else {key = 0;}
+
+    keys.push_back(key);
+    device->CreateTexture(rect->right-rect->left,
+                          rect->bottom-rect->top,
+                          0,
+                          0,
+                          D3DFMT_A8R8G8B8 ,
+                          D3DPOOL_DEFAULT,
+                          &textures[key],
+                          NULL
+    );
+    D3DXFillTexture(textures[key], ColorFill, NULL);
+    return key;
 }
 
-RECT dxRender::GetWindowPos(HWND handle) {
+RECT* dxRender::GetWindowPos(HWND handle) {
     RECT rect;
     GetWindowRect(handle, &rect);
     MapWindowPoints(HWND_DESKTOP,GetParent(handle), (LPPOINT)(&rect),2);
 
-    return rect;
+    return &rect;
 }
 
 void dxRender::Button(RECT* rectButton, D3DCOLOR color, bool* varible) {
     drawBox(rectButton, color);
     POINT cursor;
     GetCursorPos(&cursor);
-    RECT window = GetWindowPos(hWindow);
+    RECT window = *GetWindowPos(hWindow);
 
     RECT butonInWindows(        rectButton->left + window.left,
                                  rectButton->top + window.top,
@@ -155,7 +152,7 @@ void dxRender::Button(RECT* rectButton, D3DCOLOR color, bool* varible) {
 
 void dxRender::DragMenu(RECT* menuRect) {
     static POINT cursor(0,0);
-    RECT window = GetWindowPos(hWindow);
+    RECT window = *GetWindowPos(hWindow);
     RECT menuInWindow(
                     menuRect->left   + window.left,
                     menuRect->top    + window.top,
@@ -171,22 +168,36 @@ void dxRender::DragMenu(RECT* menuRect) {
             GetAsyncKeyState(VK_LBUTTON)
         )
     {
-        const float cof = .2f;
-        float DELTA[2];
+        const float cof = .34f;
+        LONG DELTA[2];
         POINT newCursorPos;
         GetCursorPos(&newCursorPos);
 
         DELTA[0] = (newCursorPos.x-cursor.x)*cof;
         DELTA[1] = (newCursorPos.y-cursor.y)*cof;
 
-        //cout <<"DElta " << DELTA[0] << " "<<DELTA[1]<<endl;
-
         menuRect->left += DELTA[0];
         menuRect->right += DELTA[0];
         menuRect->top += DELTA[1];
         menuRect->bottom += DELTA[1];
     } else {
-        //cout<<"non";
         GetCursorPos(&cursor);
     }
+}
+
+string dxRender::ChangingString(string _text, int speed) {
+    static string text = _text;
+    string changedString = "";
+    static int num = 0;
+    static int time;
+    time++;
+    if (time%speed==0) {
+        if (num >= text.size()) { num = 0; }
+        else { num++; }
+    }
+    for (int i = 0; i < num; i++) {
+        changedString += text[i];
+    }
+
+    return changedString;
 }

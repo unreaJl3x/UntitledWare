@@ -335,6 +335,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxOverlay.h" />
     <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.cpp" />
     <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\dx_interface\dxRender.h" />
+    <ClCompile Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\MenuController.cpp" />
+    <ClInclude Include="C:\Users\wssrc\CLionProjects\UntitledWare\wssrc\MenuController.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\wssrc\CLionProjects\UntitledWare\cmake-build-rel\ZERO_CHECK.vcxproj">

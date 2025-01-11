@@ -36,6 +36,8 @@ add_executable(${PROJECT_NAME} main.cpp
         dx_interface/dxOverlay.h
         dx_interface/dxRender.cpp
         dx_interface/dxRender.h
+        wssrc/MenuController.cpp
+        wssrc/MenuController.h
 
 )
 

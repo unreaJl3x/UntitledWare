@@ -23,7 +23,6 @@ private:
     ID3DXFont* dxFont;
     ID3DXSprite* dxSprite;
     HWND hWindow;
-    RECT GetWindowPos(HWND);
 
     HWND thWindow;
     static VOID WINAPI ColorFill (D3DXVECTOR4* pOut, const D3DXVECTOR2* pTexCoord,const D3DXVECTOR2* pTexelSize, LPVOID pData);
@@ -36,14 +35,16 @@ public:
     void endRender();
 
     void drawLine(POINT*, POINT*, D3DCOLOR);
-    void drawBox(RECT*, D3DCOLOR,char* = new char[1]{DB_OUTLINE},vector<int> = *(new vector{-1}));
-    bool addTexture(RECT* rect, int idTexture);
+    void drawBox(RECT*, D3DCOLOR,char* = new char[1]{DB_OUTLINE},vector<int>* = new vector{-1});
+    int addTexture(RECT* rect);
     void drawText(POINT*, std::string, D3DCOLOR, int);
 
     void DragMenu(RECT*);
     void Button(RECT*, D3DCOLOR, bool*);
 
     static vector<int> GetARGBCode(D3DCOLOR);
+    static RECT* GetWindowPos(HWND);
+    static string ChangingString(string, int);
 
     static struct COLOR {
         static const inline D3DCOLOR RED =          D3DCOLOR_ARGB(255, 255, 0  , 0  );
@@ -99,6 +100,9 @@ public:
             return D3DCOLOR_ARGB(color[0],color[1],color[2],color[3]);
         }
     };
+    static RECT* Transform(RECT* menu, RECT* obj) { return new RECT(menu->left+obj->left,menu->top+obj->top,menu->left+obj->right,menu->top+obj->bottom); }
+    static LONG width(RECT* rect) { return rect->right-rect->left; }
+    static LONG height(RECT* rect) { return rect->bottom-rect->top; }
 };
 
 #endif //UNTITLEDWARE_DXRENDER_H
