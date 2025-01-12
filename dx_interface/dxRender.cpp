@@ -159,8 +159,6 @@ void dxRender::DragMenu(RECT* menuRect) {
                    menuRect->right  + window.left,
                     menuRect->bottom + window.top - (((menuRect->bottom-menuRect->top)*88)/100)
     );
-    //cout << "MenuInWindow: left"<<menuInWindow.left<<", right"<<menuInWindow.right<<", top"<<menuInWindow.top<<", bottom"<<menuInWindow.bottom<<"Cursor - > "<<cursor.y<<endl;
-
     if  (   cursor.y > menuInWindow.top &&
             cursor.y < menuInWindow.bottom &&
             cursor.x > menuInWindow.left &&
@@ -173,8 +171,8 @@ void dxRender::DragMenu(RECT* menuRect) {
         POINT newCursorPos;
         GetCursorPos(&newCursorPos);
 
-        DELTA[0] = (newCursorPos.x-cursor.x)*cof;
-        DELTA[1] = (newCursorPos.y-cursor.y)*cof;
+        DELTA[0] = (newCursorPos.x-cursor.x)*1.1f;
+        DELTA[1] = (newCursorPos.y-cursor.y)*1.1f;
 
         menuRect->left += DELTA[0];
         menuRect->right += DELTA[0];
@@ -189,11 +187,18 @@ string dxRender::ChangingString(string _text, int speed) {
     static string text = _text;
     string changedString = "";
     static int num = 0;
-    static int time;
+    static int time, time2 = 1;
     time++;
     if (time%speed==0) {
-        if (num >= text.size()) { num = 0; }
-        else { num++; }
+        if (num >= text.size()) {
+            if (time2 % (speed+(speed*40/100)) == 0) {
+                num = 0;
+                time2=1;
+            } else { time2++; }
+        }
+        else {
+            num++;
+        }
     }
     for (int i = 0; i < num; i++) {
         changedString += text[i];

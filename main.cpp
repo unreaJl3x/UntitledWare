@@ -41,34 +41,36 @@ int main(int argc, char *argv[]) {
 // body
     dxOverlay over(&csgo);
     mutex _m;
-    MSG _msg;
+    MSG _msg; ZeroMemory(&_msg,sizeof(_msg));
+
     bool boolMenu = true;
-    ZeroMemory(&_msg,sizeof(_msg));
     dxRender rend = over.CreateRender();
 
-    D3DCOLOR RAINBOW = dxRender::COLOR::RED;
-    D3DCOLOR BACKGROUND = dxRender::COLOR::VERYBLACKGRAY;
-
     // MC
-    MenuController _mc(&over,&rend, &boolMenu, &BACKGROUND);
-    _mc.CreatePlace("MainBorder", &RAINBOW, &_mc.GetRect()->left, &_mc.GetRect()->top, &_mc.GetRect()->right, &_mc.GetRect()->bottom, "MAIN", new char[1]{DB_OUTLINE});
-    _mc.CreatePlace("MainHeader", &RAINBOW, &_mc.GetRect()->left,&_mc.GetRect()->top,&(_mc.GetRect()->right),&(_mc.GetRect()->bottom), "MAIN", new char[1]{DB_FILLED});
-    _mc.CreateText("MainHeaderText", "UntitledWate", &BACKGROUND, (dxRender::width(_mc.GetRect())/3.f) ,dxRender::height(_mc.GetRect())*5/100, 20,"MAIN");
+    MenuController _mc(&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY);
+    _mc.AddColor("RAINBOW", dxRender::COLOR::RED);
+    _mc.CreatePlace("MainMenuOutline", DEFAULT_WINDOWPARENT, new RECT(0, 0, _mc.GetRect()->right, _mc.GetRect()->bottom), "RAINBOW");
+    _mc.CreatePlace("MainMenuHeader", DEFAULT_WINDOWPARENT, new RECT(0, 0, _mc.GetRect()->right, _mc.GetRect()->bottom*10/100), "RAINBOW", new char[1]{DB_FILLED});
+    _mc.CreateText("MainHeaderTitle",DEFAULT_WINDOWPARENT, "Main", DEFAULT_WINDOWCOLOR_BACKGROUND, RECT(dxRender::width(_mc.GetRect())/3.f,dxRender::height(_mc.GetRect())*2/100,0,0), 25);
+    _mc.AddLabel("b1","First");
+    _mc.AddColor("pink",dxRender::COLOR::PINK);
+    _mc.CreateButton("FirstButton", DEFAULT_WINDOWPARENT, RECT(0,0,30,30),new char[1]{DB_OUTLINE}, "pink", "b1", 5);
     // MC
 
-    //
     do {
         if ( PeekMessage( &_msg, over.GetWindowHandle( ), NULL, NULL, PM_REMOVE ) ) {TranslateMessage( &_msg );DispatchMessage( &_msg );}
         unique_lock lock(_m);
-        RAINBOW = dxRender::COLOR::Rainbow(RAINBOW);
-        if (GetAsyncKeyState(MENU_KEY)) {boolMenu=!boolMenu;}
+        if (GetAsyncKeyState(MENU_KEY)) { boolMenu = !boolMenu; }
+
+        _mc.SetColor("RAINBOW", dxRender::COLOR::Rainbow(*_mc.GetColor("RAINBOW")));
+        _mc.SetLabel(DEFAULT_TITLELABEL_ID, dxRender::ChangingString(DEFAULT_TITLEVALUE, 10));
 
         rend.beginRender();
         _mc.Draw();
         rend.endRender();
 
         this_thread::sleep_for(chrono::milliseconds(1));
-    } while(!GetAsyncKeyState(KEY_OFF));
+    } while(!GetAsyncKeyState(KEY_OFF) || _msg.message != WM_QUIT);
 
     Output::print("Exit on application.", true, "main");
     getchar();
