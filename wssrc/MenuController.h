@@ -24,36 +24,48 @@ private:
     dxRender* rend;
 
 public:
-    bool AddParent(std::string, bool*);
-    bool RemoveParent(std::string);
+    bool AddParent      (string key, bool* value);
+    bool RemoveParent   (string key             );
 
-    bool AddColor(std::string, D3DCOLOR);
-    bool RemoveColor(std::string);
-    bool SetColor(std::string, D3DCOLOR);
-    D3DCOLOR* GetColor(std::string);
+    bool AddColor       (string key, D3DCOLOR value);
+    bool RemoveColor    (string key                 );
+    bool SetColor       (string key, D3DCOLOR value);
+    D3DCOLOR* GetColor  (string key                 );
 
-    bool AddLabel(std::string, std::string);
-    bool RemoveLabel(std::string);
-    bool SetLabel(std::string, std::string);
+    bool AddLabel       (string key, string value);
+    bool RemoveLabel    (string key              );
+    bool SetLabel       (string key, string value);
 
-    bool CreatePlace(std::string name, std::string parent , RECT*, string color, char* = new char[1]{DB_OUTLINE});
-    bool RemovePlace(std::string);
+    bool CreatePlace    (string name, string parent, RECT* pPos, string color, char* pParams = new char[1]{DB_OUTLINE});
+    bool RemovePlace    (string key);
 
-    bool CreateText(std::string name, std::string parent, std::string text, std::string color, RECT, int size);
+    bool CreateText     (string name, string parent, string text, string color, RECT pos, int size);
+    bool RemoveTet      (string key);
+    
+    bool CreateButton   (string nameButton, string parent, RECT pos, string colorName, char* pParams = new char[1]{ DB_OUTLINE }, string labelOnButton = "", int size = 0);
+    bool RemoveButton   (string);
 
-    bool CreateButton(std::string nameButton, std::string parent, RECT, char*, std::string colorName, std::string labelOnButton, int);
-    bool RemoveButton(std::string);
+    bool CreateCheckBox ();
+    bool RemoveCheckBox ();
 
-    bool CreateSlider();
-    bool RemoveSlider();
+    bool CreateBindBox  ();
+    bool RemoveBindBox  ();
 
-    bool CreateDrawBow();
-    bool RemoveDragBox();
+    bool CreateSlider   ();
+    bool RemoveSlider   ();
 
-    void SetRect(LONG,LONG,LONG,LONG);
+    bool CreateColorPicker();
+    bool RemoveColorPicker();
+
+
+    bool CreateDragBow  ();
+    bool RemoveDragBox  ();
+
+    void      SetRect   (LONG,LONG,LONG,LONG);
     static RECT* GetRect();
 
     void Draw();
+
     MenuController(dxOverlay*, dxRender*, bool*, D3DCOLOR);
 
 private: // STRUCTS
@@ -70,7 +82,7 @@ private: // STRUCTS
             _keys.push_back(key);
             return true;
         }
-        bool Remove(std::string removeKey) {
+        bool Remove(string removeKey) {
             if (_keys.size() == 0) { return false; }
             for (int key = 0; key < _keys.size(); key++) {
                 if (_keys[key] == removeKey) {
@@ -81,6 +93,15 @@ private: // STRUCTS
             }
             return false;
         }
+        bool Set(typeKey keyType, typeValue value) {
+            for(string key : _keys) {
+                if (key == keyType) {
+                    _map[key] = value;
+                    return true;
+                }
+            }
+            return false;
+        };
     };
     struct Date {
         string colorKey;
