@@ -34,6 +34,7 @@ public:
     dxRender CreateRender();
 
     HWND GetWindowHandle();
+    HWND GetVictimWindowHandle();
 
     dxOverlay(App*);
     ~dxOverlay();

@@ -132,3 +132,7 @@ dxOverlay::RECTMY dxOverlay::GetWindowRectMY(HWND hwnd) {
 
     return rect;
 }
+
+HWND dxOverlay::GetVictimWindowHandle() {
+    return thWindow;
+}

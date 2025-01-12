@@ -1,6 +1,7 @@
 #include "dxRender.h"
 #include <d3dx9tex.h>
 #include <string>
+
 dxRender::dxRender(IDirect3DDevice9 *device, HWND handleWindow, HWND targetHandleWindow) {
     if (!device) {
         Output::print("Invalid device", false, "dxRender");
@@ -59,6 +60,7 @@ VOID WINAPI dxRender::ColorFill(D3DXVECTOR4* pOut, const D3DXVECTOR2* pTexCoord,
 {
     *pOut = D3DXVECTOR4(255.f / 255.f, 255.f / 255.f, 255.f / 255.f, 0.9f);
 }
+
 vector<int> dxRender::GetARGBCode(D3DCOLOR input) {
     vector<int> COLOR_ARGB;
     const int mod[4] {16777216,65536,256,1};
@@ -125,6 +127,7 @@ RECT* dxRender::GetWindowPos(HWND handle) {
     return &rect;
 }
 
+/* // in future will be RECODE
 void dxRender::Button(RECT* rectButton, D3DCOLOR color, bool* varible) {
     drawBox(rectButton, color);
     POINT cursor;
@@ -148,7 +151,8 @@ void dxRender::Button(RECT* rectButton, D3DCOLOR color, bool* varible) {
     } else {
         *varible = false;
     }
-}
+}*/ //
+
 
 void dxRender::DragMenu(RECT* menuRect) {
     static POINT cursor(0,0);
@@ -166,18 +170,20 @@ void dxRender::DragMenu(RECT* menuRect) {
             GetAsyncKeyState(VK_LBUTTON)
         )
     {
-        const float cof = .34f;
-        LONG DELTA[2];
         POINT newCursorPos;
         GetCursorPos(&newCursorPos);
 
-        DELTA[0] = (newCursorPos.x-cursor.x)*1.1f;
-        DELTA[1] = (newCursorPos.y-cursor.y)*1.1f;
+        const float cof = 1.2f;
+        LONG DELTA[2] (( newCursorPos.x - cursor.x ) * cof, ( newCursorPos.y - cursor.y ) * cof);
 
-        menuRect->left += DELTA[0];
-        menuRect->right += DELTA[0];
-        menuRect->top += DELTA[1];
-        menuRect->bottom += DELTA[1];
+        int victimW[2](dxRender::width(dxRender::GetWindowPos(thWindow)),dxRender::height(dxRender::GetWindowPos(thWindow)));
+
+        menuRect->left      = (menuRect->left   + DELTA[0]    <      0      ) ?     0       : menuRect->left   + DELTA[0];
+        menuRect->right     = (menuRect->right  + DELTA[0]    >  victimW[0] ) ? victimW[0]  : menuRect->right  + DELTA[0];
+        menuRect->top       = (menuRect->top    + DELTA[1]    <      0      ) ?     0       : menuRect->top    + DELTA[1];
+        menuRect->bottom    = (menuRect->bottom + DELTA[1]    >  victimW[1] ) ? victimW[1]  : menuRect->bottom + DELTA[1];
+
+        GetCursorPos(&cursor);
     } else {
         GetCursorPos(&cursor);
     }

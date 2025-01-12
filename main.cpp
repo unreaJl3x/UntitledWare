@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
 
     // MC
     MenuController _mc(&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY);
-   //_mc.CreateButton("FirstButton", DEFAULT_WINDOWPARENT, RECT(0,0,30,30), "pink", new char[1]{DB_OUTLINE}, "b1", 5);
+    _mc.CreateButton("FirstButton", DEFAULT_WINDOWPARENT, RECT(0,0,30,30), "pink", new char[1]{DB_OUTLINE}, "b1", 5);
     // MC
 
     do {

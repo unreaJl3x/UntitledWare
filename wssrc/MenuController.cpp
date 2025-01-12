@@ -5,16 +5,16 @@ MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuB
     rend = render;
 
     AddParent(DEFAULT_WINDOWPARENT,          menuBool           );
-    AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND, dxRender::COLOR::PINK     );
+    AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND, dxRender::COLOR::VERYBLACKGRAY);
     AddColor( "RAINBOW",                     dxRender::COLOR::RED);
     AddLabel( DEFAULT_TITLELABEL_ID,         DEFAULT_TITLEVALUE  );
     
     CreatePlace(MAIN_WINDOW_NAME, DEFAULT_WINDOWPARENT, &window, DEFAULT_WINDOWCOLOR_BACKGROUND,  new char[1]{DB_FILLED});
 
-    CreatePlace("MainMenuOutline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
-    CreatePlace("MainMenuHeader", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom*10/100), "RAINBOW", new char[1]{DB_FILLED});
-    CreateText("MainMenuHeaderTitle", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
-
+    CreatePlace("Main.Menu.Outline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
+    CreatePlace("Main.Menu.Header", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom*10/100), "RAINBOW", new char[1]{DB_FILLED});
+    CreateText("Main.MenuHeader.Title", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, new RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
+    CreateLine("Main.Menu.Line1", DEFAULT_WINDOWPARENT, new RECT((dxRender::width(&window)*10/100),window.top,(dxRender::width(&window)*10/100), window.bottom), "RAINBOW");
 }
 
 void MenuController::SetRect(LONG x, LONG y, LONG w, LONG h) {
@@ -53,9 +53,7 @@ bool MenuController::CreatePlace(string placeName, string placeParent, RECT* rec
     date.pParams = pParams;
     date.textureId = rend->addTexture(rect);
 
-    _places.Add(placeName, date);
-
-    return true;
+    return _places.Add(placeName, date);
 }
 bool MenuController::RemovePlace(string keyPlace) {
     return _places.Remove(keyPlace);;
@@ -66,7 +64,8 @@ void MenuController::Draw() {
     for (string placesKeys : _places._keys) {
 
         // PLACE
-        if (*(_parents._map[_places._map[placesKeys].parent])==true) {
+        string placeParent = _places._map[placesKeys].parent;
+        if (*(_parents._map[placeParent])==true) {
             RECT placeRect = *_places._map[placesKeys].rect;
             if (placesKeys != MAIN_WINDOW_NAME) {
                 placeRect.left += window.left;
@@ -80,27 +79,42 @@ void MenuController::Draw() {
                           new vector<int>{_places._map[placesKeys].textureId});
 
             // \PLACE
+            // LINES
+            for (string lineKey : _lines._keys) {
+                if (_lines._map[lineKey].parent == placeParent) {
+                    RECT lineRect = *_lines._map[lineKey].rect;
+                    lineRect.left += window.left;
+                    lineRect.top += window.top;
+                    lineRect.right += window.left;
+                    lineRect.bottom += window.top;
+
+                    rend->drawLine(
+                            new POINT(lineRect.left,lineRect.top),
+                            new POINT(lineRect.right, lineRect.bottom),
+                            _colors._map[_lines._map[lineKey].colorKey]
+                    );
+                }
+            }
+            // \LINES
             // TEXT
             for(string textKey : _texts._keys) {
-                if (_texts._map[textKey].parent == _places._map[placesKeys].parent) {
+                if (_texts._map[textKey].parent == placeParent) {
                     POINT position(_texts._map[textKey].rect->left, _texts._map[textKey].rect->top);
                     position.x += window.left;
                     position.y += window.top;
 
                     rend->drawText(
                             &position,
-                            "_labels._map[_texts._map[textKey].labelKey]",
-                            dxRender::COLOR::BLACK,
-                            25
+                            _labels._map[_texts._map[textKey].labelKey],
+                            _colors._map[_texts._map[textKey].colorKey],
+                            _texts._map[textKey].size
                     );
-                    cout << "key: " << textKey << "| label: " << _labels._map[_texts._map[textKey].labelKey]<<"| size: "<<_texts._map[textKey].size<<endl;
-
                 }
             }
             // \TEXT
             // BUTTON
             for (string buttonKey : _buttons._keys) {
-                if (_buttons._map[buttonKey].parent == _places._map[placesKeys].parent) {
+                if (_buttons._map[buttonKey].parent == placeParent) {
                     RECT buttonRect = *_buttons._map[buttonKey].rect;
 
                     buttonRect.left   += window.left;
@@ -144,16 +158,18 @@ bool MenuController::SetLabel(string labelKey, string value) {
     return _labels.Set(labelKey, value);
 }
 
-bool MenuController::CreateText(string textName, string parentName, string labelName, string colorName, RECT pRect, int size) {
+bool MenuController::CreateText(string textName, string parentName, string labelName, string colorName, RECT* pRect, int size) {
     DateText date;
-    date.rect = &pRect;
+    date.rect = pRect;
     date.parent = parentName;
     date.size = size;
     date.labelKey = labelName;
     date.colorKey = colorName;
 
-    _texts.Add(textName, date);
-    return true;
+    return _texts.Add(textName, date);
+}
+bool MenuController::RemoveText(std::string key) {
+    return _texts.Remove(key);
 }
 
 bool MenuController::CreateButton(string nameButton, string parentName, RECT r, string colorName, char* pParam, string lableOnButton, int size) {
@@ -166,6 +182,20 @@ bool MenuController::CreateButton(string nameButton, string parentName, RECT r, 
     date.labelKey = lableOnButton;
     date.size = size;
 
-    _buttons.Add(nameButton, date);
-    return true;
+    return _buttons.Add(nameButton, date);
+}
+bool MenuController::RemoveButton(std::string key) {
+    return _buttons.Remove(key);
+}
+
+bool MenuController::CreateLine(string nameLine, string parent, RECT* pos, string colorName) {
+    Date date;
+    date.parent = parent;
+    date.colorKey = colorName;
+    date.rect = pos;
+
+    return _lines.Add(nameLine, date);
+}
+bool MenuController::RemoveLine(string key) {
+    return _lines.Remove(key);
 }
