@@ -14,8 +14,8 @@ dxRender::dxRender(IDirect3DDevice9 *device, HWND handleWindow, HWND targetHandl
         Output::print("Failed crate dxLine", false, "dxRender");
     }
     D3DXCreateFontA(device,
-                    15,
-                    10,
+                    dxRender::height(dxRender::GetWindowPos(hWindow))/40,
+                    dxRender::width(dxRender::GetWindowPos(hWindow))/80,
                     FW_HEAVY,
                     1,
                     false,
@@ -99,6 +99,8 @@ void dxRender::drawBox(RECT* rect, D3DCOLOR color,char * gFlags, vector<int>* id
     }
 }
 
+
+/// \return
 int dxRender::addTexture(RECT* rect) {
     int key;
     if (keys.size() !=0) {
@@ -106,7 +108,7 @@ int dxRender::addTexture(RECT* rect) {
     } else {key = 0;}
 
     keys.push_back(key);
-    device->CreateTexture(rect->right-rect->left,
+    bool createTexture = device->CreateTexture(rect->right-rect->left,
                           rect->bottom-rect->top,
                           0,
                           0,
@@ -114,9 +116,10 @@ int dxRender::addTexture(RECT* rect) {
                           D3DPOOL_DEFAULT,
                           &textures[key],
                           NULL
-    );
+    ) == D3D_OK;
+
     D3DXFillTexture(textures[key], ColorFill, NULL);
-    return key;
+    return createTexture ? key : -1;
 }
 
 RECT* dxRender::GetWindowPos(HWND handle) {
@@ -127,34 +130,32 @@ RECT* dxRender::GetWindowPos(HWND handle) {
     return &rect;
 }
 
-/* // in future will be RECODE
-void dxRender::Button(RECT* rectButton, D3DCOLOR color, bool* varible) {
-    drawBox(rectButton, color);
-    POINT cursor;
-    GetCursorPos(&cursor);
-    RECT window = *GetWindowPos(hWindow);
+bool dxRender::Button(RECT* rectButton, bool* varible) {
+       RECT window = *dxRender::GetWindowPos(hWindow);
+       RECT menu = *rectButton;
+       POINT cursorePos;
+       GetCursorPos(&cursorePos);
+       static bool can = true;
+       if (
+           cursorePos.x > menu.left + window.left &&
+           cursorePos.x < menu.right+ window.right &&
+           cursorePos.y > menu.top + window.top &&
+           cursorePos.y < menu.bottom + window.top && can
+       )
+       {
+           if (GetAsyncKeyState(VK_LBUTTON)) {
+               can = false;
+               *varible = true;
+               return true;
+           }
+       } else {
+           can = true;
+       }
 
-    RECT butonInWindows(        rectButton->left + window.left,
-                                 rectButton->top + window.top,
-                              rectButton->right + window.left,
-                           rectButton->bottom + window.top
-    );
+       return false;
+}
 
-    if  (   cursor.y < butonInWindows.bottom &&
-            cursor.y > butonInWindows.top &&
-            cursor.x > butonInWindows.left &&
-            cursor.x<butonInWindows.right &&
-            GetAsyncKeyState(VK_LBUTTON)
-        )
-    {
-                    *varible = true;
-    } else {
-        *varible = false;
-    }
-}*/ //
-
-
-void dxRender::DragMenu(RECT* menuRect) {
+bool dxRender::DragMenu(RECT* menuRect) {
     static POINT cursor(0,0);
     RECT window = *GetWindowPos(hWindow);
     RECT menuInWindow(
@@ -176,17 +177,21 @@ void dxRender::DragMenu(RECT* menuRect) {
         const float cof = 1.2f;
         LONG DELTA[2] (( newCursorPos.x - cursor.x ) * cof, ( newCursorPos.y - cursor.y ) * cof);
 
-        int victimW[2](dxRender::width(dxRender::GetWindowPos(thWindow)),dxRender::height(dxRender::GetWindowPos(thWindow)));
+        int victimW[2](dxRender::width(dxRender::GetWindowPos(thWindow))-dxRender::width(dxRender::GetWindowPos(thWindow))*2/100, dxRender::height(dxRender::GetWindowPos(thWindow))-dxRender::height(dxRender::GetWindowPos(thWindow))*7/100);
 
-        menuRect->left      = (menuRect->left   + DELTA[0]    <      0      ) ?     0       : menuRect->left   + DELTA[0];
-        menuRect->right     = (menuRect->right  + DELTA[0]    >  victimW[0] ) ? victimW[0]  : menuRect->right  + DELTA[0];
-        menuRect->top       = (menuRect->top    + DELTA[1]    <      0      ) ?     0       : menuRect->top    + DELTA[1];
-        menuRect->bottom    = (menuRect->bottom + DELTA[1]    >  victimW[1] ) ? victimW[1]  : menuRect->bottom + DELTA[1];
+        if (!(menuRect->left + DELTA[0] < 0 || menuRect->right + DELTA[0] > victimW[0])) { menuRect->left += DELTA[0];  menuRect->right += DELTA[0]; }
 
+        if (!(menuRect->top + DELTA[1] < 0 || menuRect->bottom + DELTA[1] > victimW[1]) ) {  menuRect->top += DELTA[1];  menuRect->bottom += DELTA[1]; }
+        else {}
+
+        //cout << "MENU: " << menuRect->left << " " << menuRect->right << " " << menuRect->top << " " << menuRect->bottom << endl;
+        //cout << "Widnow: " << victimW[0] << " " << victimW[1] << endl;
         GetCursorPos(&cursor);
+        return true;
     } else {
         GetCursorPos(&cursor);
     }
+    return false;
 }
 
 string dxRender::ChangingString(string _text, int speed) {

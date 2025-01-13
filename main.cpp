@@ -48,7 +48,6 @@ int main(int argc, char *argv[]) {
 
     // MC
     MenuController _mc(&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY);
-    _mc.CreateButton("FirstButton", DEFAULT_WINDOWPARENT, RECT(0,0,30,30), "pink", new char[1]{DB_OUTLINE}, "b1", 5);
     // MC
 
     do {
@@ -61,7 +60,7 @@ int main(int argc, char *argv[]) {
         rend.endRender();
 
         this_thread::sleep_for(chrono::milliseconds(1));
-    } while(!GetAsyncKeyState(KEY_OFF) || _msg.message != WM_QUIT);
+    } while(_msg.message != WM_QUIT);
 
     Output::print("Exit on application.", true, "main");
     getchar();

@@ -11,24 +11,23 @@ private:
     std::string nameExe;
     std::string IpClassNameWindow;
 
-    DWORD pId = NULL;
-    HANDLE pHandle = nullptr;
-    HWND hwnd = nullptr;
+    HANDLE pHandle;
+    DWORD pId;
+    HWND hwnd;
 
     bool running;
 
 public:
-    bool isRunning();
-    DWORD GetProcessId();
-    std::string GetAppName();
-    std::string GetExeName();
-    std::string GetWindowClassName();
-    HANDLE GetProcessHandle();
-    HWND GetWindowHandle();
+    bool isRunning                  (   );
+    DWORD GetProcessId              (   );
+    std::string GetAppName          (   );
+    std::string GetExeName          (   );
+    std::string GetWindowClassName  (   );
+    HANDLE GetProcessHandle         (   );
+    HWND GetWindowHandle            (   );
 
-    void SetHeader(std::string);
-    App(std::string, std::string, std::string);
+    void SetHeader  ( std::string );
+    App             ( std::string, std::string, std::string );
 };
-
 
 #endif

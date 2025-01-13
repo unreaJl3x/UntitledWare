@@ -3,7 +3,7 @@
 using namespace std;
 
 void Output::print(string text, int status, string func) {
-    cout << litteral << prefix << ":"<< (status==1 ? OK : BAD) << ":" << func << ":[ " << text << ".]" << endl;
+    cout << litteral << prefix << ":"<< (status==1 ? OK : BAD) << ":" << func << ":[ " << text << ". ]" << endl;
 }
 
 void Output::printWithErrorCode(string text, string func) {

@@ -24,31 +24,31 @@ private:
     dxRender* rend;
 
 public:
-    bool AddParent          (string key, bool* value);
-    bool RemoveParent       (string key             );
+    bool AddParent          ( string key, bool* value );
+    bool RemoveParent       ( string key              );
 
-    bool AddColor           (string key, D3DCOLOR value);
-    bool RemoveColor        (string key                 );
-    bool SetColor           (string key, D3DCOLOR value);
-    D3DCOLOR* GetColor      (string key                 );
+    bool AddColor           ( string key, D3DCOLOR value );
+    bool RemoveColor        ( string key                 );
+    bool SetColor           ( string key, D3DCOLOR value );
+    D3DCOLOR* GetColor      ( string key                 );
 
-    bool AddLabel           (string key, string value);
-    bool RemoveLabel        (string key);
-    bool SetLabel           (string key, string value);
+    bool AddLabel           ( string key, string value );
+    bool RemoveLabel        ( string key               );
+    bool SetLabel           ( string key, string value );
 
-    bool CreatePlace        (string name, string parent, RECT* pPos, string color, char* pParams = new char[1]{DB_OUTLINE});
-    bool RemovePlace        (string key);
+    bool CreatePlace        ( string name, string parent, RECT* pPos, string color, char* pParams = new char[1]{DB_OUTLINE});
+    bool RemovePlace        ( string key);
 
-    bool CreateText         (string name, string parent, string text, string color, RECT* pos, int size);
-    bool RemoveText         (string key);
+    bool CreateText         ( string name, string parent, string text, string color, RECT* pos, int size );
+    bool RemoveText         ( string key );
     
-    bool CreateButton       (string nameButton, string parent, RECT pos, string colorName, char* pParams = new char[1]{ DB_OUTLINE }, string labelOnButton = "", int size = 0);
-    bool RemoveButton       (string key);
+    bool CreateButton       ( string nameButton, string parent, RECT* pos, bool* varible, string colorName, char* pParams = new char[1]{ DB_OUTLINE }, string labelOnButton = "", int size = 0 );
+    bool RemoveButton       ( string key );
 
-    bool CreateLine         (string nameLine, string parent, RECT* pos, string colorName);
-    bool RemoveLine         (string key);
+    bool CreateLine         ( string nameLine, string parent, RECT* pos, string colorName );
+    bool RemoveLine         ( string key );
 
-    bool CreateCheckBox     (   );
+    bool CreateCheckBox     ( string chboxName, string parent,  string colorName, RECT* rect, bool* varible );
     bool RemoveCheckBox     (   );
 
     bool CreateBindBox      (   );
@@ -127,6 +127,7 @@ private: // STRUCTS
         int textureId;
         string labelKey ;
         int size;
+        bool* varible;
     };
 
 private:

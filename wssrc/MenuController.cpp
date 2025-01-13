@@ -1,5 +1,6 @@
 #include "MenuController.h"
 
+bool place1 = false;
 MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuBool, D3DCOLOR backgroundClor) {
     over = overlay;
     rend = render;
@@ -7,14 +8,26 @@ MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuB
     AddParent(DEFAULT_WINDOWPARENT,          menuBool           );
     AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND, dxRender::COLOR::VERYBLACKGRAY);
     AddColor( "RAINBOW",                     dxRender::COLOR::RED);
+    AddColor( "PINK",                     dxRender::COLOR::PINK);
     AddLabel( DEFAULT_TITLELABEL_ID,         DEFAULT_TITLEVALUE  );
     
     CreatePlace(MAIN_WINDOW_NAME, DEFAULT_WINDOWPARENT, &window, DEFAULT_WINDOWCOLOR_BACKGROUND,  new char[1]{DB_FILLED});
 
-    CreatePlace("Main.Menu.Outline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
-    CreatePlace("Main.Menu.Header", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom*10/100), "RAINBOW", new char[1]{DB_FILLED});
-    CreateText("Main.MenuHeader.Title", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, new RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
-    CreateLine("Main.Menu.Line1", DEFAULT_WINDOWPARENT, new RECT((dxRender::width(&window)*10/100),window.top,(dxRender::width(&window)*10/100), window.bottom), "RAINBOW");
+    CreatePlace  ("Main.Menu.Outline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
+    CreatePlace  ("Main.Menu.Header", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom*10/100), "RAINBOW", new char[1]{DB_FILLED});
+    CreateText   ("Main.MenuHeader.Title", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, new RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
+    CreateLine   ("Main.Menu.Line1", DEFAULT_WINDOWPARENT, new RECT((dxRender::width(&window)*15/100),window.top,(dxRender::width(&window)*15/100), window.bottom), "RAINBOW");
+
+    AddParent("Place1", &place1);
+    AddColor("BLACK", dxRender::COLOR::BLACK);
+    CreatePlace  ("Main.Menu.Place1", "Place1", new RECT(dxRender::width(&window)*18/100, dxRender::height(&window)*15/100, dxRender::width(&window)*97/100,dxRender::height(&window)*95/100), "BLACK", new char[1]{DB_FILLED});
+    RECT buttonRect(
+            dxRender::width(&window)*3/100,
+            dxRender::height(&window)*14/100,
+            dxRender::width(&window)*12/100,
+            0
+    );
+    CreateButton ("Main.Menu.Misc.Button", DEFAULT_WINDOWPARENT, new RECT(buttonRect.left,buttonRect.top,buttonRect.right,(buttonRect.right-buttonRect.left)+buttonRect.top), &place1,"PINK",new char[1]{DB_OUTLINE});
 }
 
 void MenuController::SetRect(LONG x, LONG y, LONG w, LONG h) {
@@ -130,13 +143,16 @@ void MenuController::Draw() {
                     );
 
                     if (_buttons._map[buttonKey].labelKey != "") {
+                        POINT pos (buttonRect.left, buttonRect.top+dxRender::height(&buttonRect)/3.f);
                         rend->drawText(
-                                new POINT(dxRender::width(&placeRect)/6.f,dxRender::height(&placeRect)/6.f),
+                                &pos,
                                 _labels._map[_buttons._map[buttonKey].labelKey],
                                 _colors._map[_buttons._map[buttonKey].colorKey],
-                                dxRender::width(&placeRect)/6.f
+                                _buttons._map[buttonKey].size
                         );
+
                     }
+                    rend->Button(&buttonRect, _buttons._map[buttonKey].varible);
                 }
             }
             // \BUTTON
@@ -172,15 +188,16 @@ bool MenuController::RemoveText(std::string key) {
     return _texts.Remove(key);
 }
 
-bool MenuController::CreateButton(string nameButton, string parentName, RECT r, string colorName, char* pParam, string lableOnButton, int size) {
+bool MenuController::CreateButton(string nameButton, string parentName, RECT* r, bool* varible,string colorName, char* pParam, string lableOnButton, int size) {
     DateButton date;
-    date.rect = &r;
+    date.rect = r;
     date.colorKey = colorName;
     date.parent = parentName;
-    date.textureId = rend->addTexture(&r);
+    date.textureId = rend->addTexture(r);
     date.pParams = pParam;
     date.labelKey = lableOnButton;
     date.size = size;
+    date.varible = varible;
 
     return _buttons.Add(nameButton, date);
 }
@@ -198,4 +215,8 @@ bool MenuController::CreateLine(string nameLine, string parent, RECT* pos, strin
 }
 bool MenuController::RemoveLine(string key) {
     return _lines.Remove(key);
+}
+
+bool MenuController::CreateCheckBox(string chboxName, string parent,  string colorName, RECT* rect, bool* varible) {
+    return true;
 }

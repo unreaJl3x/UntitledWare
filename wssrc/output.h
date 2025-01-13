@@ -12,10 +12,9 @@ private:
     static inline const std::string prefix ="UW";
 
 public:
-    static void print(std::string, int, std::string);
-    static void printWithErrorCode(std::string, std::string);
-    static void printMSG(std::string, std::string);
-    Output() = default;
+    static void print               ( std::string, int, std::string );
+    static void printWithErrorCode  ( std::string, std::string      );
+    static void printMSG            ( std::string, std::string      );
 };
 
 
