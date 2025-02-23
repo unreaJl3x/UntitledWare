@@ -1,39 +1,46 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.28)
 project(UntitledWare)
 
 set(CMAKE_CXX_STANDARD 20)
 
 include_directories(.)
-include_directories(csgo)
-include_directories(unreaJl3x)
+include_directories(wssrc)
+
+include_directories("C:\\directSDK\\Include")
+link_directories("C:\\directSDK\\Lib\\x86")
 
 add_executable(${PROJECT_NAME} main.cpp
+        #           wssrc folder
+        wssrc/app.h                 # Application date (HEADER)
+        wssrc/app.cpp               # Application date
+        wssrc/FileSystem.h          # Interactive with filesystem (HEADER)
+        wssrc/FileSystem.cpp        # Interactive with filesystem
+        wssrc/output.h              # Print text functions (HEADER)
+        wssrc/output.cpp            # Print text fusnctions
+        wssrc/ProcessManager.h      # Interactive with memory space (HEADER)
+        wssrc/ProcessManager.cpp    # Interactive with memory space
 
-        hack.cpp            # MAIN HACK LOOP
+        #           csgo folder
+        csgo/AppCS.cpp
+        csgo/AppCS.h
+        csgo/CBasePlayer/CBasePlayer.h          # Interpretation CSGO class (HEADER)
+        csgo/CBasePlayer/CBasePlayer.cpp        # Interpretation CSGO class
+        csgo/hazedumper.h      # Hazedump (HEADER)
 
-        unreaJl3x/Proc.cpp      # Inject by using Windows API
-        unreaJl3x/Proc.h        # Inject by using Windows API (HEADER)
-        unreaJl3x/mem.h         # Write\Read Process Memory (HEADER)
-        unreaJl3x/game.h        # Victim app date
-        unreaJl3x/game.cpp      # Victim app date (HEADER)
-        unreaJl3x/globals.h     # Global variables (HEADER)
-        unreaJl3x/globals.cpp   # Global variables
-        unreaJl3x/output.h      # Print function (HEADER)
-        unreaJl3x/output.cpp    # Print function (HEADER)
-        unreaJl3x/security.h   # Check Valid youreself app (HEADER)
-        unreaJl3x/security.cpp # Check Valid youreself app (HEADER)
-        unreaJl3x/decomple.h    # Decompilator key-code Algorithm (HEADER)
-        unreaJl3x/decomple.cpp  # Decompilator key-code Algorithm
-        unreaJl3x/configSys.cpp
-        unreaJl3x/configSys.h
+        #       csgo/functions folder
+        csgo/CBasePlayer/CBasePlayerBuilder.cpp
+        csgo/CBasePlayer/CBasePlayerBuilder.h
+        tests/SimpleESP.cpp
+        tests/SimpleESP.h
+        dx_interface/dxOverlay.cpp
+        dx_interface/dxOverlay.h
+        dx_interface/dxRender.cpp
+        dx_interface/dxRender.h
+        wssrc/MenuController.cpp
+        wssrc/MenuController.h
 
-            # COUNTER-STRIKE: GLOBAL OFFENSIVE
-        csgo/Player.h           # Local transfer CBasePlayer (HEADER)
-        csgo/Player.cpp         # Local transfer CBasePlayer
-        # Functions
-        csgo/funcs.h
-        csgo/funcs/RadarHack.h
-        csgo/funcs/iFovChanger.h
-        csgo/funcs/AntiFlash.h
-        csgo/funcs/GlowESP.h
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+        d3dx9.lib d3d9.lib dwmapi.lib
 )

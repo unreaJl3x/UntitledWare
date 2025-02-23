@@ -1,3 +1,0 @@
-C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/UntitledWare.dir
-C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/ALL_BUILD.dir
-C:/Users/wssrc/CLionProjects/UntitledWare/cmake-build-rel/CMakeFiles/ZERO_CHECK.dir

@@ -1,34 +1,68 @@
-//	https://yougame.biz/threads/100325/
-//	https://elar.urfu.ru/bitstream/10995/58964/1/978-5-91256-403-1_2018_125.pdf
-//	https://yougame.biz/threads/22883/
-//	https://yougame.biz/threads/96665/
-//	https://www.unknowncheats.me/forum/counterstrike-global-offensive/324767-setupvelocity.html
-//	https://github.com/VSES/SourceEngine2007/blob/master/src_main/engine/cl_main.cpp#L1815-L1855
-
 #include <iostream>
-#include <string>
 #include <windows.h>
+#include <TlHelp32.h>
+#include <chrono>
+#include <thread>
+#include <mutex>
 
-#include "unreaJl3x/globals.h"
-#include "unreaJl3x/Proc.h"
+#include "wssrc/MenuController.h"
 #include "output.h"
-#include "unreaJl3x/security.h"
+#include "csgo/AppCS.h"
+#include "dx_interface/dxOverlay.h"
+#include "dx_interface/dxRender.h"
 using namespace std;
 
-int main() {
-    SetConsoleTitle("UntitledWare | UnLICENSED");
-    csgo.pID = Proc::GetAppDate(csgo.nameExe.c_str()).id;
-    csgo.pHandle = Proc::OpenHandle();
-    OUTPUT::print((csgo.nameApp + (csgo.pID==4294967295? " is not found.":" have id is "+to_string(csgo.pID))),0,"main");
+bool HaveADooplicant(string nameApp) {
+    vector<PROCESSENTRY32> pEntres = ProcessManager::GetAllProcessEntry(&nameApp);
+    return pEntres.size() >= 2;
+}
 
-    if (csgo.CheckValidApp()) {
-        if (Proc::GetRunningExempls(Proc::GetAppDate(GetCurrentProcessId()).name)) { ShowWindow(GetConsoleWindow(),SW_HIDE);OUTPUT::print_msg("Programm already running.");return 0; }
-        Security sec;
-        sec.Start();
+#define KEY_OFF VK_F1
+#define MENU_KEY VK_DELETE
+int main(int argc, char *argv[]) {
+    SetConsoleTitleA("UntitledWare <!/>");
+
+    if (HaveADooplicant(basic_string(argv[0]).erase(0, basic_string(argv[0]).find_last_of('\\') + 1))) {
+        Output::printMSG("Programm is already running!","UntitledWare");
+        return EXIT_FAILURE;
     }
 
-    OUTPUT::print("Exit programm", 1, "main");
-	getchar();
+    AppCS csgo;
+    if (!csgo.isRunning()) {
+        getchar();
+        return EXIT_FAILURE;
+    }
 
-	return 190;
+    Output::print(
+            "'" + csgo.GetAppName() + "'" + " have is id-> " + to_string(csgo.GetProcessId()) + ", hwnd->"
+            + to_string(reinterpret_cast<int>(csgo.GetWindowHandle())), 1, "main"
+    );
+
+// body
+    dxOverlay over(&csgo);
+    mutex _m;
+    MSG _msg; ZeroMemory(&_msg,sizeof(_msg));
+
+    bool boolMenu = true;
+    dxRender rend = over.CreateRender();
+
+    // MC
+    MenuController _mc(&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY);
+    // MC
+
+    do {
+        if ( PeekMessage( &_msg, over.GetWindowHandle( ), NULL, NULL, PM_REMOVE ) ) {TranslateMessage( &_msg );DispatchMessage( &_msg );}
+        unique_lock lock(_m);
+        if (GetAsyncKeyState(MENU_KEY)) { boolMenu = !boolMenu; }
+
+        rend.beginRender();
+        _mc.Draw();
+        rend.endRender();
+
+        this_thread::sleep_for(chrono::milliseconds(1));
+    } while(_msg.message != WM_QUIT);
+
+    Output::print("Exit on application.", true, "main");
+    getchar();
+    return EXIT_SUCCESS;
 }
