@@ -38,6 +38,9 @@ add_executable(${PROJECT_NAME} main.cpp
         dx_interface/dxRender.h
         wssrc/MenuController.cpp
         wssrc/MenuController.h
+        wssrc/ConfController.cpp
+        wssrc/ConfController.h
+        wssrc/map_and_keys.h
 
 )
 

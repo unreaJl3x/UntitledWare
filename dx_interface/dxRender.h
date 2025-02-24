@@ -104,7 +104,10 @@ public:
 
 private:
     static VOID WINAPI ColorFill (D3DXVECTOR4* pOut, const D3DXVECTOR2* pTexCoord,const D3DXVECTOR2* pTexelSize, LPVOID pData);
-
+public:
+    static bool WGetKeyState(int key) {
+        return (GetKeyState(key)==-127||GetKeyState(key)==-128 );
+    }
 };
 
 #endif

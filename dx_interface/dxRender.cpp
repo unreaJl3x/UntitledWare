@@ -152,7 +152,7 @@ bool dxRender::Button(RECT* rectButton) {
            cursorePos.y < menu.bottom + window.top
        )
        {
-           if (GetAsyncKeyState(VK_LBUTTON) && can) {
+           if (WGetKeyState(VK_LBUTTON) && can) {
                can = false;
                return true;
            }
@@ -176,7 +176,7 @@ bool dxRender::DragMenu(RECT* menuRect) {
             cursor.y < menuInWindow.bottom &&
             cursor.x > menuInWindow.left &&
             cursor.x < menuInWindow.right &&
-            GetAsyncKeyState(VK_LBUTTON)
+            WGetKeyState(VK_LBUTTON)
         )
     {
         POINT newCursorPos;

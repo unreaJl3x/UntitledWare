@@ -1,8 +1,8 @@
 #include "MenuController.h"
 
 #include <string>
+#include <conio.h>
 
-static bool TIMER(int t);
 
 bool place1 = false;
 bool place2 = false;
@@ -14,7 +14,8 @@ MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuB
     AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND, dxRender::COLOR::VERYBLACKGRAY);
     AddColor( "RAINBOW",                     dxRender::COLOR::RED);
     AddColor( "PINK",                     dxRender::COLOR::PINK);
-    AddLabel( DEFAULT_TITLELABEL_ID,         DEFAULT_TITLEVALUE  );
+    AddColor( "WHITE",                     dxRender::COLOR::WHITE);
+    AddLabel( DEFAULT_TITLELABEL_ID,         new string(DEFAULT_TITLEVALUE)  );
     
     CreatePlace(MAIN_WINDOW_NAME, DEFAULT_WINDOWPARENT, &window, DEFAULT_WINDOWCOLOR_BACKGROUND,  new vector<char>{DB_FILLED});
 
@@ -32,9 +33,9 @@ MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuB
             dxRender::width(&window)*12/100,
             0
     );
-    //CreateButton ("Main.Menu.Misc.Button", DEFAULT_WINDOWPARENT, new RECT(buttonRect.left,buttonRect.top,buttonRect.right,(buttonRect.right-buttonRect.left)+buttonRect.top), &place1,"PINK", new vector<char>{DB_FILLED} );
-    //CreateCheckBox("checkboxTest",DEFAULT_WINDOWPARENT,"PINK",new RECT(32,90,64,122),&place2);
-    CreateKeyBind("TestKeyBind", DEFAULT_WINDOWPARENT, new RECT(5,70,25,90),"PINK","BLACK",20);
+    CreateButton ("Main.Menu.Misc.Button", DEFAULT_WINDOWPARENT, new RECT(buttonRect.left,buttonRect.top,buttonRect.right,(buttonRect.right-buttonRect.left)+buttonRect.top), &place1,"PINK", new vector<char>{DB_FILLED} );
+    CreateCheckBox("checkboxTest", "Place1","PINK",new RECT(32,90,64,122),&place2);
+    CreateKeyBind("TestKeyBind", "Place1", new RECT(5,70,25,90),"PINK","WHITE",20, "testkeybind");
 }
 
 void MenuController::SetRect(LONG x, LONG y, LONG w, LONG h) {
@@ -103,7 +104,7 @@ void MenuController::Draw() {
                 if (_lines._map[lineKey].parent == placeParent) {
                     WRECT lineRect;
                     lineRect = _lines._map[lineKey].rect;
-                    lineRect += window;
+                    lineRect += placeRect;
 
                     rend->drawLine(
                             new POINT(lineRect.left,lineRect.top),
@@ -117,12 +118,12 @@ void MenuController::Draw() {
             for(string textKey : _texts._keys) {
                 if (_texts._map[textKey].parent == placeParent) {
                     POINT position(_texts._map[textKey].rect->left, _texts._map[textKey].rect->top);
-                    position.x += window.left;
-                    position.y += window.top;
+                    position.x += placeRect.left;
+                    position.y += placeRect.top;
 
                     rend->drawText(
                             &position,
-                            _labels._map[_texts._map[textKey].labelKey],
+                            *_labels._map[_texts._map[textKey].labelKey],
                             _colors._map[_texts._map[textKey].colorKey],
                             _texts._map[textKey].size
                     );
@@ -134,7 +135,7 @@ void MenuController::Draw() {
                 if (_buttons._map[buttonKey].parent == placeParent) {
                     WRECT buttonRect;
                     buttonRect = _buttons._map[buttonKey].rect;
-                    buttonRect += window;
+                    buttonRect += placeRect;
 
                     rend->drawBox(
                                 &buttonRect,
@@ -148,13 +149,15 @@ void MenuController::Draw() {
                         POINT pos (buttonRect.left, buttonRect.top+dxRender::height(&buttonRect)/3.f);
                         rend->drawText(
                                 &pos,
-                                _labels._map[_buttons._map[buttonKey].labelKey],
+                                *_labels._map[_buttons._map[buttonKey].labelKey],
                                 _colors._map[_buttons._map[buttonKey].colorKey],
                                 _buttons._map[buttonKey].size
                         );
 
                     }
-                    _buttons[buttonKey].SetVarible(rend->Button(&buttonRect));
+                    if (rend->Button(&buttonRect)) {
+                        _buttons[buttonKey].SetVarible(true);
+                    }
                 }
             }
             // \BUTTON
@@ -163,10 +166,11 @@ void MenuController::Draw() {
                 if (_checkboxes[key].parent == placeParent) {
                     WRECT rect;
                     rect = _checkboxes[key].rect;
-                    rect += window;
+                    rect += placeRect;
 
-                    _checkboxes[key].SetVarible( rend->Button(&rect) ? !(*_checkboxes[key].varible) : *_checkboxes[key].varible);
-
+                    if (rend->Button(&rect)) {
+                        _checkboxes[key].SetVarible(!*_checkboxes[key].varible);
+                    }
                     rend->drawBox(
                         &rect,
                         _colors["PINK"],
@@ -182,28 +186,31 @@ void MenuController::Draw() {
                 if (_keybinds[key].parent == placeParent) {
                     WRECT rect;
                     rect = _keybinds[key].rect;
-                    rect += window;
-                    if (rend->Button(&rect)) {
-
+                    rect += placeRect;
+                    static bool getKey = false;
+                    if (rend->Button(&rect)) { getKey = true; }
+                    if (getKey) {
+                        cfc.GetKeyDown(_labels[_keybinds[key].stringKey]);
+                        getKey = false;
                     }
                     rend->drawBox(&rect, _colors[_keybinds[key].colorKey] );
-                    rend->drawText(new POINT(rect.left,rect.top), "0", _colors[_keybinds[key].colorTextKey], 20);
+                    rend->drawText(new POINT(rect.left,rect.top), *_labels[_keybinds[key].stringKey], _colors[_keybinds[key].colorTextKey], 6);
                 }
             }
         }
     }
     SetColor("RAINBOW", dxRender::COLOR::Rainbow(*GetColor("RAINBOW")));
-    SetLabel(DEFAULT_TITLELABEL_ID, dxRender::ChangingString(DEFAULT_TITLEVALUE, 10));
+    *_labels[DEFAULT_TITLELABEL_ID] = dxRender::ChangingString(DEFAULT_TITLEVALUE, 10);
     rend->DragMenu(&window);
 }
 
-bool MenuController::AddLabel(string labelName, string varible) {
+bool MenuController::AddLabel(string labelName, string* varible) {
     return _labels.Add(labelName, varible);
 }
 bool MenuController::RemoveLabel(string labelName) {
     return _labels.Remove(labelName);
 }
-bool MenuController::SetLabel(string labelKey, string value) {
+bool MenuController::SetLabel(string labelKey, string* value) {
     return _labels.Set(labelKey, value);
 }
 
@@ -260,13 +267,15 @@ bool MenuController::CreateCheckBox(string chboxName, string parent,  string col
     return _checkboxes.Add(chboxName, date);
 }
 
-bool MenuController::CreateKeyBind(string keybindName, string parent, RECT* rect, string colorBoxKey, string colorTextKey, int size) {
+bool MenuController::CreateKeyBind(string keybindName, string parent, RECT* rect, string colorBoxKey, string colorTextKey, int size, string stringKey) {
     DateKeyBind date;
+    date.stringKey = stringKey;
     date.parent = parent;
     date.size = size;
     date.colorTextKey = colorTextKey;
     date.colorKey = colorBoxKey;
     date.rect = rect;
+    _labels.Add(stringKey, new string("NONE"));
     return _keybinds.Add(keybindName, date);
 }
 
