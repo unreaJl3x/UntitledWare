@@ -35,6 +35,7 @@ public:
     void drawLine       ( POINT*, POINT*, D3DCOLOR );
     void drawBox        ( RECT* rect, D3DCOLOR color, vector<char>* params = new vector{DB_OUTLINE}, vector<int>* texturesid= new vector{-1});
     int  addTexture     ( RECT* rect);
+    int addTextureFromImage (RECT*, string);
     void drawText       ( POINT*, std::string, D3DCOLOR, int);
 
     bool DragMenu       ( RECT*         );

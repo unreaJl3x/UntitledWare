@@ -5,6 +5,7 @@
 #include <thread>
 #include <mutex>
 
+#include "tests/FovChanger.h"
 #include "wssrc/MenuController.h"
 #include "output.h"
 #include "csgo/AppCS.h"
@@ -46,10 +47,11 @@ int main(int argc, char *argv[]) {
     bool boolMenu = true;
     dxRender rend = over.CreateRender();
 
+    ConfController cfc;
     // MC
-    MenuController _mc(&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY);
+    MenuController _mc (&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY, &cfc);
     // MC
-
+    //thread fov(FovChanger::main,csgo.GetProcessHandle(), &cfc, csgo.GetProcessId());
     do {
         if ( PeekMessage( &_msg, over.GetWindowHandle( ), NULL, NULL, PM_REMOVE ) ) {TranslateMessage( &_msg );DispatchMessage( &_msg );}
         unique_lock lock(_m);

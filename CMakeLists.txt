@@ -41,6 +41,7 @@ add_executable(${PROJECT_NAME} main.cpp
         wssrc/ConfController.cpp
         wssrc/ConfController.h
         wssrc/map_and_keys.h
+        tests/FovChanger.h
 
 )
 

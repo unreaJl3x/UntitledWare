@@ -95,8 +95,8 @@ void dxRender::drawBox(RECT* rect, D3DCOLOR color, vector<char>* gFlags, vector<
             }
 
             case DB_FILLED: {
-                if (idTexture[0][0] ==-1) {break;}
-                dxSprite->Begin(0);
+                if (idTexture[0][0] == -1) {break;}
+                dxSprite->Begin(D3DXSPRITE_ALPHABLEND);
                 for(int i : *idTexture) {
                     dxSprite->Draw(textures[i], NULL, NULL, new D3DXVECTOR3(rect->left,rect->top,0), color);
                 }
@@ -224,4 +224,32 @@ string dxRender::ChangingString(string _text, int speed) {
     }
 
     return changedString;
+}
+
+int dxRender::addTextureFromImage(RECT* rect, string path) {
+    int key;
+    if (keys.size() !=0) {
+        key = keys.back() + 1;
+    } else { key = 0; }
+
+    keys.push_back(key);
+    /*bool createTexture = device->CreateTexture(rect->right-rect->left,
+                         rect->bottom-rect->top,
+                         0,
+                         0,
+                         D3DFMT_A8R8G8B8 ,
+                         D3DPOOL_DEFAULT,
+                         &textures[key],
+                         NULL
+   ) == D3D_OK;*/
+    bool createTexture = D3DXCreateTextureFromFileEx(device, path.c_str(), rect->right-rect->left,rect->bottom-rect->top, D3DX_DEFAULT,
+                          0,
+                          D3DFMT_UNKNOWN ,
+                          D3DPOOL_MANAGED, D3DX_DEFAULT,D3DX_DEFAULT,0,NULL,NULL, &textures[key]
+        ) == D3D_OK;
+
+    //D3DXFillTexture(textures[key], ColorFill, NULL);
+    D3DXSaveTextureToFileA("1.png",D3DXIFF_PNG,textures[key],NULL);
+    cout << createTexture <<endl;
+    return key;
 }

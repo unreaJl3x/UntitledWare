@@ -12,6 +12,8 @@ public:
     map<typeKey, typeValue> _map;
     vector<typeKey> _keys;
 
+    map_and_keys() = default;
+
     typeValue operator [] (typeKey tk) {
         return _map[tk];
     }
@@ -44,5 +46,8 @@ public:
         return false;
     };
     bool IsNull() { return _keys.size()==0; }
+    int size() {
+        return _map.size();
+    }
 };
 #endif //MAP_AND_KEYS_H
