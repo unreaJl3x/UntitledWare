@@ -6,6 +6,7 @@
 
 #include "App.h"
 #include "dxRender.h"
+#include "WRECT.h"
 
 class dxOverlay {
 private:

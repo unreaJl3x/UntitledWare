@@ -1,6 +1,14 @@
 #include "dxRender.h"
 #include <d3dx9tex.h>
 #include <string>
+#include <mutex>
+
+HWND dxRender::GetHW() {
+    return hWindow;
+}
+HWND dxRender::GetTHW() {
+    return thWindow;
+}
 
 dxRender::dxRender(IDirect3DDevice9 *device, HWND handleWindow, HWND targetHandleWindow) {
     if (!device) {
@@ -131,11 +139,11 @@ int dxRender::addTexture(RECT* rect) {
 }
 
 RECT* dxRender::GetWindowPos(HWND handle) {
-    RECT rect;
-    GetWindowRect(handle, &rect);
-    MapWindowPoints(HWND_DESKTOP,GetParent(handle), (LPPOINT)(&rect),2);
+    RECT rectt;
+    GetWindowRect(handle, &rectt);
+    MapWindowPoints(HWND_DESKTOP,GetParent(handle), (LPPOINT)(&rectt),2);
 
-    return &rect;
+    return &rectt;
 }
 
 bool dxRender::Button(RECT* rectButton) {
@@ -163,15 +171,18 @@ bool dxRender::Button(RECT* rectButton) {
        return false;
 }
 
-bool dxRender::DragMenu(RECT* menuRect) {
+POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long prochent,  bool verticalLock, bool horizontalLock, POINT* limits, RECT dRect) {
     static POINT cursor(0,0);
     RECT window = *GetWindowPos(hWindow);
     RECT menuInWindow(
-                    menuRect->left   + window.left,
-                    menuRect->top    + window.top,
-                   menuRect->right  + window.left,
-                    menuRect->bottom + window.top - (((menuRect->bottom-menuRect->top)*88)/100)
+                    objRect->left   + window.left + dRect.left,
+                    objRect->top    + window.top+ dRect.top,
+                   objRect->right  + window.left+ dRect.left,
+                    objRect->bottom + window.top+ dRect.bottom - (((objRect->bottom-objRect->top)*prochent)/100)
     );
+    cout << "MENU: " << objRect->left << " " << objRect->right << " " << objRect->top << " " << objRect->bottom
+<< "menuInWindow: " << menuInWindow.left << " " << menuInWindow.right << " " << menuInWindow.top << " " << menuInWindow.bottom <<  "\r";
+
     if  (   cursor.y > menuInWindow.top &&
             cursor.y < menuInWindow.bottom &&
             cursor.x > menuInWindow.left &&
@@ -183,23 +194,32 @@ bool dxRender::DragMenu(RECT* menuRect) {
         GetCursorPos(&newCursorPos);
 
         const float cof = 1.2f;
-        LONG DELTA[2] (( newCursorPos.x - cursor.x ) * cof, ( newCursorPos.y - cursor.y ) * cof);
+        POINT DELTA(( newCursorPos.x - cursor.x ) * cof, ( newCursorPos.y - cursor.y ) * cof);
 
         int victimW[2](dxRender::width(dxRender::GetWindowPos(thWindow))-dxRender::width(dxRender::GetWindowPos(thWindow))*2/100, dxRender::height(dxRender::GetWindowPos(thWindow))-dxRender::height(dxRender::GetWindowPos(thWindow))*7/100);
 
-        if (!(menuRect->left + DELTA[0] < 0 || menuRect->right + DELTA[0] > victimW[0])) { menuRect->left += DELTA[0];  menuRect->right += DELTA[0]; }
+        if ((!(objRect->left + DELTA.x < 0 || objRect->right + DELTA.x> victimW[0])) && !horizontalLock) {
+            cout <<limits[0].x<<endl;
+            if ((objRect->left+DELTA.x > limits[0].x && objRect->left+DELTA.x < limits[1].x)&& limits[0].x!=INT_MAX) {
+                objRect->left += DELTA.x;  objRect->right += DELTA.x;
+            }
+            else if (limits[0].x == INT_MAX) {
+                objRect->left += DELTA.x;  objRect->right += DELTA.x;
+            }
 
-        if (!(menuRect->top + DELTA[1] < 0 || menuRect->bottom + DELTA[1] > victimW[1]) ) {  menuRect->top += DELTA[1];  menuRect->bottom += DELTA[1]; }
+        }
+
+        if ((!(objRect->top + DELTA.y < 0 || objRect->bottom + DELTA.y > victimW[1])) && !verticalLock ) {  objRect->top += DELTA.y;  objRect->bottom += DELTA.y; }
         else {}
 
-        //cout << "MENU: " << menuRect->left << " " << menuRect->right << " " << menuRect->top << " " << menuRect->bottom << endl;
-        //cout << "Widnow: " << victimW[0] << " " << victimW[1] << endl;
         GetCursorPos(&cursor);
-        return true;
+        return DELTA;
     } else {
         GetCursorPos(&cursor);
+        //cout << "CURSORE: "<<cursor.x<< " , "<<cursor.y<<endl;
     }
-    return false;
+
+    return POINT(0,0);
 }
 
 string dxRender::ChangingString(string _text, int speed) {

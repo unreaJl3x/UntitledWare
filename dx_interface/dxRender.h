@@ -38,7 +38,16 @@ public:
     int addTextureFromImage (RECT*, string);
     void drawText       ( POINT*, std::string, D3DCOLOR, int);
 
-    bool DragMenu       ( RECT*         );
+    HWND GetHW();
+    HWND GetTHW();
+
+    static void CircleDrag(RECT* r,HWND hw,HWND thw,LONG s =0, bool verticalLock = false, bool horizontalLock = false, POINT *limits = new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT c = RECT(0,0,0,0)) {
+        while (true) {
+            DragRect(r, hw, thw, s,verticalLock,horizontalLock,limits,c);
+            //cout << "1"<<endl;
+        }
+    }
+    static POINT DragRect ( RECT*,HWND hw,HWND thw,LONG =0, bool verticalLock = false, bool horizontalLock = false, POINT *limits = new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT = RECT(0,0,0,0));
     bool Button         ( RECT*  );
 
     static vector<int> GetARGBCode  ( D3DCOLOR );

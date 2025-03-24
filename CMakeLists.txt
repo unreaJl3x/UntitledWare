@@ -13,8 +13,8 @@ add_executable(${PROJECT_NAME} main.cpp
         #           wssrc folder
         wssrc/app.h                 # Application date (HEADER)
         wssrc/app.cpp               # Application date
-        wssrc/FileSystem.h          # Interactive with filesystem (HEADER)
-        wssrc/FileSystem.cpp        # Interactive with filesystem
+        #wssrc/FileSystem.h          # Interactive with filesystem (HEADER)
+        #wssrc/FileSystem.cpp        # Interactive with filesystem
         wssrc/output.h              # Print text functions (HEADER)
         wssrc/output.cpp            # Print text fusnctions
         wssrc/ProcessManager.h      # Interactive with memory space (HEADER)
@@ -32,6 +32,7 @@ add_executable(${PROJECT_NAME} main.cpp
         csgo/CBasePlayer/CBasePlayerBuilder.h
         tests/SimpleESP.cpp
         tests/SimpleESP.h
+        tests/FovChanger.h
         dx_interface/dxOverlay.cpp
         dx_interface/dxOverlay.h
         dx_interface/dxRender.cpp
@@ -41,7 +42,7 @@ add_executable(${PROJECT_NAME} main.cpp
         wssrc/ConfController.cpp
         wssrc/ConfController.h
         wssrc/map_and_keys.h
-        tests/FovChanger.h
+        wssrc/WRECT.h
 
 )
 

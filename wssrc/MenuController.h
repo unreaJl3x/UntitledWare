@@ -7,6 +7,7 @@
 #include "dx_interface/dxRender.h"
 #include "ConfController.h"
 #include "map_and_keys.h"
+#include "WRECT.h"
 
 #define DEFAULT_WINDOWRECTT_W 325
 #define DEFAULT_WINDOWRECTT_H 200
@@ -56,7 +57,7 @@ public:
     bool CreateKeyBind      ( string, string, RECT*, string, string, int, string );
     bool RemoveKeyBind      ( string);
 
-    bool CreateSlider       ( string sliderName, string parent, RECT* pRect, string bgColor, string slideColor, int* varible, int max, int min);
+    bool CreateSlider       ( string sliderName, string parent, RECT* pRect, LONG size, string bgColor, string slideColor, int* varible, int max, int min);
     bool RemoveSlider       ( string);
 
     bool CreateColorPicker  (   );
@@ -76,32 +77,6 @@ public:
     MenuController(dxOverlay*, dxRender*, bool*, D3DCOLOR, ConfController*);
 
 private: // STRUCTS
-    struct WRECT : RECT {
-        void operator+=(RECT* r) {
-            this->left += r->left;
-            this->top += r->top;
-            this->bottom += r->top;
-            this->right += r->left;
-        }
-        void operator+=(RECT r) {
-            this->left += r.left;
-            this->top += r.top;
-            this->bottom += r.top;
-            this->right += r.left;
-        }
-        void operator*=(RECT* r) {
-            this->left += r->left;
-            this->top += r->top;
-            this->bottom += r->bottom;
-            this->right += r->right;
-        }
-        void operator=(RECT* r) {
-            this->left = r->left;
-            this->top = r->top;
-            this->bottom = r->bottom;
-            this->right = r->right;
-        }
-    };
     struct Date {
         string colorKey;
         RECT* rect;
@@ -156,7 +131,8 @@ private: // STRUCTS
         type min, max;
         int textureid;
         string bgColor, slideColor;
-
+        LONG size;
+        RECT* rectSlide;
     };
 
 private:

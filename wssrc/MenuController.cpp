@@ -1,8 +1,8 @@
 #include "MenuController.h"
-
+#include <thread>
+#include <mutex>
 #include <string>
 #include <conio.h>
-
 
 bool placeMisc = false;
 MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuBool, D3DCOLOR backgroundClor, ConfController* cfc) {
@@ -33,10 +33,13 @@ MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuB
             dxRender::width(&window)*12/100,
             0
     );
-    CreateCheckBox("FovChanger", DEFAULT_WINDOWPARENT,"PINK",new RECT(32,90,64,122), cfc->GetLinkB("FovChanger.active"));
+    //CreateCheckBox("FovChanger", DEFAULT_WINDOWPARENT,"PINK",new RECT(32,90,64,122), cfc->GetLinkB("FovChanger.active"));
     //CreateInputPlace("fovDate", DEFAULT_WINDOWPARENT, "BLACK",);
     int g = 0;
-    CreateSlider("fovDate", DEFAULT_WINDOWPARENT, new RECT(0,0,20,20),"WHITE", "WHITE", &g, 100, 0);
+    CreateSlider("fovDate", DEFAULT_WINDOWPARENT, new RECT(30,100,120,100), 30,"WHITE", "WHITE", &g, 100, 0);
+
+    thread menuDrag(dxRender::CircleDrag, &window, rend->GetHW(), rend->GetTHW(),88,false,false, new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT(0,0,0,0));
+    menuDrag.detach();
 }
 
 void MenuController::SetRect(LONG x, LONG y, LONG w, LONG h) {
@@ -211,12 +214,16 @@ void MenuController::Draw() {
             // SLIDER
             for (string key : _sliders._keys) {
                 if (_sliders[key].parent == placeParent) {
-                    WRECT rect;
+                    WRECT rect, rectBox;
                     rect = _sliders[key].rect;
                     rect += placeRect;
 
-                    rend->drawLine(new POINT(0,50), new POINT(100,50), _colors[_sliders[key].slideColor]);
-                    rend->drawBox(&rect, _colors[_sliders[key].bgColor], new vector<char>{DB_FILLED}, new vector<int>{_sliders[key].textureid});
+                    rend->drawLine(new POINT(rect.left,rect.top), new POINT(rect.right,rect.top), _colors[_sliders[key].slideColor]);
+
+                    rectBox = _sliders[key].rectSlide;
+                    rectBox += placeRect;
+                    rend->drawBox(&rectBox, _colors[_sliders[key].bgColor], new vector<char>{DB_FILLED}, new vector<int>{_sliders[key].textureid});
+                    //dxRender::DragRect( _sliders[key].rectSlide,rend->GetHW(),rend->GetTHW(),0, true,false, new POINT[2]{POINT(_sliders[key].rect->left-1,0), POINT(_sliders[key].rect->right+1, 0)},placeRect);
 
                 }
             }
@@ -225,7 +232,6 @@ void MenuController::Draw() {
     }
     SetColor("RAINBOW", dxRender::COLOR::Rainbow(*GetColor("RAINBOW")));
     *_labels[DEFAULT_TITLELABEL_ID] = dxRender::ChangingString(DEFAULT_TITLEVALUE, 10);
-    rend->DragMenu(&window);
 }
 
 bool MenuController::AddLabel(string labelName, string* varible) {
@@ -329,17 +335,19 @@ bool MenuController::RemoveInputPlace(string key) {
     return _inputplaces.Remove(key);
 }
 */
-bool MenuController::CreateSlider(string sliderName, string parent, RECT *pRect, string bgColor, string slideColor, int *varible, int max, int min) {
+bool MenuController::CreateSlider(string sliderName, string parent, RECT *pRect, LONG size, string bgColor, string slideColor, int *varible, int max, int min) {
     DateSlider<int> date;
     date.max = max;
     date.min = min;
-    date.textureid = rend->addTextureFromImage(pRect, "circle.png");
+    date.textureid = rend->addTextureFromImage(new RECT(0,0,size,size), "circle.png");
     cout << "Slider" << date.textureid<<endl;
     date.varible = varible;
     date.bgColor = bgColor;
     date.slideColor = slideColor;
     date.parent = parent;
     date.rect = pRect;
+    date.size = size;
+    date.rectSlide = new RECT(pRect->left+5, pRect->top-(size/2), pRect->left+size+5, pRect->top-(size/2)+size);
     return _sliders.Add(sliderName, date);
 }
 
