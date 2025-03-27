@@ -15,6 +15,9 @@ public:
         date._map[date._keys[0]].dateFov.dateIndf = "FovChanger";
         date._map[date._keys[0]].dateFov.fovValue = value<int>(100,60, "fovValue");
         date._map[date._keys[0]].dateFov.active = false;
+
+        date._map[date._keys[0]].radarHack.dateIndf = "RadarHack";
+        date._map[date._keys[0]].radarHack.active = false;
     }
 
 private:
@@ -47,6 +50,7 @@ private:
     struct Dates {
         DateFov dateFov;
         Date radarHack;
+        Date esp;
     };
 
 public:

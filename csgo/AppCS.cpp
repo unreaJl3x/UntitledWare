@@ -16,5 +16,5 @@ int AppCS::GetPlayerCountInMatch() {
 }
 
 vector<CBasePlayer> AppCS::GetPlayers() {
-    return CBasePlayerBuilder::GetPlayerList(this);
+   return CBasePlayerBuilder::GetPlayerList(this);
 }

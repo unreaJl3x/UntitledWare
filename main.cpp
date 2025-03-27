@@ -11,6 +11,9 @@
 #include "csgo/AppCS.h"
 #include "dx_interface/dxOverlay.h"
 #include "dx_interface/dxRender.h"
+#include "tests/RadarHack.h"
+#include "tests/SimpleESP.h"
+
 using namespace std;
 
 bool HaveADooplicant(string nameApp) {
@@ -51,11 +54,14 @@ int main(int argc, char *argv[]) {
     // MC
     MenuController _mc (&over,&rend, &boolMenu, dxRender::COLOR::VERYBLACKGRAY, &cfc);
     // MC
-    //thread fov(FovChanger::main,csgo.GetProcessHandle(), &cfc, csgo.GetProcessId());
+    thread fov(FovChanger::main,csgo.GetProcessHandle(), &cfc, csgo.GetProcessId());
+    thread esp(SimpleESP, &csgo, &cfc);
+   // thread radar(RadarHack::main, csgo.GetProcessHandle(),&csgo, &cfc);
+
     do {
         if ( PeekMessage( &_msg, over.GetWindowHandle( ), NULL, NULL, PM_REMOVE ) ) {TranslateMessage( &_msg );DispatchMessage( &_msg );}
         unique_lock lock(_m);
-        if (GetAsyncKeyState(MENU_KEY)) { boolMenu = !boolMenu; }
+        if (dxRender::WGetKeyState(MENU_KEY)) { this_thread::sleep_for(chrono::milliseconds(70)); boolMenu = !boolMenu; }
 
         rend.beginRender();
         _mc.Draw();

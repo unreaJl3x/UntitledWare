@@ -61,6 +61,7 @@ void dxRender::drawLine(POINT* start, POINT* end, D3DCOLOR color) {
 }
 
 void dxRender::drawText(POINT* pos, std::string text, D3DCOLOR color, int size) {
+    //cout << text.c_str()<<endl;
     dxFont->DrawTextA(NULL, text.c_str(), text.length(), new RECT(pos->x,pos->y,pos->x*size,pos->y*size), DT_LEFT|DT_NOCLIP, color);
 }
 
@@ -115,7 +116,6 @@ void dxRender::drawBox(RECT* rect, D3DCOLOR color, vector<char>* gFlags, vector<
     }
 }
 
-
 /// \return
 int dxRender::addTexture(RECT* rect) {
     int key;
@@ -146,32 +146,36 @@ RECT* dxRender::GetWindowPos(HWND handle) {
     return &rectt;
 }
 
-bool dxRender::Button(RECT* rectButton) {
-       RECT window = *dxRender::GetWindowPos(hWindow);
-       RECT menu = *rectButton;
-       POINT cursorePos;
-       GetCursorPos(&cursorePos);
-       static bool can = true;
+void dxRender::Button(RECT* rectButton, bool* var) {
+    RECT window = *dxRender::GetWindowPos(hWindow);
+    RECT menu = *rectButton;
+    POINT cursorePos;
+    GetCursorPos(&cursorePos);
+    static bool cannable;
 
-       if (
-           cursorePos.x > menu.left + window.left &&
-           cursorePos.x < menu.right + window.left &&
-           cursorePos.y > menu.top + window.top &&
-           cursorePos.y < menu.bottom + window.top
-       )
-       {
-           if (WGetKeyState(VK_LBUTTON) && can) {
-               can = false;
-               return true;
-           }
-       } else {
-           can = true;
-       }
+    if (
+        cursorePos.x > menu.left + window.left &&
+        cursorePos.x < menu.right + window.left &&
+        cursorePos.y > menu.top + window.top &&
+        cursorePos.y < menu.bottom + window.top
+    )
+    {
+        if (WGetKeyState(VK_LBUTTON) && cannable) {
+            cannable = false;
+            *var = !(*var);
+            this_thread::sleep_for(chrono::milliseconds(100));
+            return;
+        }
+    } else {
+        cannable = true;
+    }
 
-       return false;
+    return;
 }
 
-POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long prochent,  bool verticalLock, bool horizontalLock, POINT* limits, RECT dRect) {
+mutex _m;
+POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long prochent, float speed,  bool verticalLock, bool horizontalLock, POINT* limits, RECT dRect) {
+    _m.lock();
     static POINT cursor(0,0);
     RECT window = *GetWindowPos(hWindow);
     RECT menuInWindow(
@@ -180,8 +184,8 @@ POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long proche
                    objRect->right  + window.left+ dRect.left,
                     objRect->bottom + window.top+ dRect.bottom - (((objRect->bottom-objRect->top)*prochent)/100)
     );
-    cout << "MENU: " << objRect->left << " " << objRect->right << " " << objRect->top << " " << objRect->bottom
-<< "menuInWindow: " << menuInWindow.left << " " << menuInWindow.right << " " << menuInWindow.top << " " << menuInWindow.bottom <<  "\r";
+    /*cout << "MENU: " << objRect->left << " " << objRect->right << " " << objRect->top << " " << objRect->bottom
+<< "menuInWindow: " << menuInWindow.left << " " << menuInWindow.right << " " << menuInWindow.top << " " << menuInWindow.bottom <<  "\r";*/
 
     if  (   cursor.y > menuInWindow.top &&
             cursor.y < menuInWindow.bottom &&
@@ -193,13 +197,14 @@ POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long proche
         POINT newCursorPos;
         GetCursorPos(&newCursorPos);
 
-        const float cof = 1.2f;
+        const float cof = 1.2f*speed;
         POINT DELTA(( newCursorPos.x - cursor.x ) * cof, ( newCursorPos.y - cursor.y ) * cof);
 
         int victimW[2](dxRender::width(dxRender::GetWindowPos(thWindow))-dxRender::width(dxRender::GetWindowPos(thWindow))*2/100, dxRender::height(dxRender::GetWindowPos(thWindow))-dxRender::height(dxRender::GetWindowPos(thWindow))*7/100);
 
         if ((!(objRect->left + DELTA.x < 0 || objRect->right + DELTA.x> victimW[0])) && !horizontalLock) {
-            cout <<limits[0].x<<endl;
+            //
+            //cout <<limits[0].x<<endl;
             if ((objRect->left+DELTA.x > limits[0].x && objRect->left+DELTA.x < limits[1].x)&& limits[0].x!=INT_MAX) {
                 objRect->left += DELTA.x;  objRect->right += DELTA.x;
             }
@@ -213,12 +218,13 @@ POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long proche
         else {}
 
         GetCursorPos(&cursor);
+        _m.unlock();
         return DELTA;
     } else {
         GetCursorPos(&cursor);
         //cout << "CURSORE: "<<cursor.x<< " , "<<cursor.y<<endl;
     }
-
+    _m.unlock();
     return POINT(0,0);
 }
 
@@ -269,7 +275,7 @@ int dxRender::addTextureFromImage(RECT* rect, string path) {
         ) == D3D_OK;
 
     //D3DXFillTexture(textures[key], ColorFill, NULL);
-    D3DXSaveTextureToFileA("1.png",D3DXIFF_PNG,textures[key],NULL);
-    cout << createTexture <<endl;
+    //D3DXSaveTextureToFileA("1.png",D3DXIFF_PNG,textures[key],NULL);
+    //cout << createTexture <<endl;
     return key;
 }

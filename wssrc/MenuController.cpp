@@ -4,19 +4,24 @@
 #include <string>
 #include <conio.h>
 
+#define place_misc "Place_Misc"
 bool placeMisc = false;
+
 MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuBool, D3DCOLOR backgroundClor, ConfController* cfc) {
     over = overlay;
     rend = render;
     this->cfc = cfc;
+    this->menuBool = menuBool;
 
     AddParent(DEFAULT_WINDOWPARENT,          menuBool           );
+
     AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND, dxRender::COLOR::VERYBLACKGRAY);
     AddColor( "RAINBOW",                     dxRender::COLOR::RED);
     AddColor( "PINK",                     dxRender::COLOR::PINK);
     AddColor( "WHITE",                     dxRender::COLOR::WHITE);
+    AddColor("BLACK", dxRender::COLOR::BLACK);
+
     AddLabel( DEFAULT_TITLELABEL_ID,         new string(DEFAULT_TITLEVALUE)  );
-    
     CreatePlace(MAIN_WINDOW_NAME, DEFAULT_WINDOWPARENT, &window, DEFAULT_WINDOWCOLOR_BACKGROUND,  new vector<char>{DB_FILLED});
 
     CreatePlace  ("Main.Menu.Outline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
@@ -24,21 +29,22 @@ MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuB
     CreateText   ("Main.MenuHeader.Title", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, new RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
     CreateLine   ("Main.Menu.Line1", DEFAULT_WINDOWPARENT, new RECT((dxRender::width(&window)*15/100),window.top,(dxRender::width(&window)*15/100), window.bottom), "RAINBOW");
 
-    AddParent("Place_Misc", &placeMisc);
-    AddColor("BLACK", dxRender::COLOR::BLACK);
-    CreatePlace  ("Main.Menu.Place1", "Place_Misc", new RECT(dxRender::width(&window)*18/100, dxRender::height(&window)*15/100, dxRender::width(&window)*97/100,dxRender::height(&window)*95/100), "BLACK", new vector<char>{DB_FILLED});
-    RECT buttonRect(
-            dxRender::width(&window)*3/100,
-            dxRender::height(&window)*14/100,
-            dxRender::width(&window)*12/100,
-            0
-    );
-    //CreateCheckBox("FovChanger", DEFAULT_WINDOWPARENT,"PINK",new RECT(32,90,64,122), cfc->GetLinkB("FovChanger.active"));
-    //CreateInputPlace("fovDate", DEFAULT_WINDOWPARENT, "BLACK",);
-    int g = 0;
-    CreateSlider("fovDate", DEFAULT_WINDOWPARENT, new RECT(30,100,120,100), 30,"WHITE", "WHITE", &g, 100, 0);
+    AddParent(place_misc, &placeMisc);
+    CreatePlace  ("Main.Menu.Place1", place_misc, new RECT(dxRender::width(&window)*18/100, dxRender::height(&window)*15/100, dxRender::width(&window)*97/100,dxRender::height(&window)*95/100), "BLACK", new vector<char>{DB_FILLED});
 
-    thread menuDrag(dxRender::CircleDrag, &window, rend->GetHW(), rend->GetTHW(),88,false,false, new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT(0,0,0,0));
+    //MISC
+    CreateButton("Misc_button", DEFAULT_WINDOWPARENT, new RECT(5,45,40,80), &placeMisc,"WHITE", "imgs\\misc.png");
+    // MISC | FOV
+    AddLabel( "Fov",         new string("Fov")  );
+    CreateText("fovChanger_text", place_misc, "Fov","WHITE", new RECT(25,10,0,0),5);
+    CreateCheckBox("FovButton", place_misc, "WHITE", new RECT(10,10,20,20), cfc->GetLinkB("FovChanger.active"));
+    CreateSlider("SliderFov", place_misc, new RECT(100,16,200,16), 25,"WHITE","WHITE", cfc->GetLinkI("FovChanger.fovValue"), 160,60);
+    //MISC | ESP
+    CreateButton("esp", place_misc, new RECT(10,30,20,40), cfc->GetLinkB("RadarHack.active"), "WHITE");
+    AddLabel( "esp",         new string("ESP")  );
+    CreateText("esp_text", place_misc, "esp","WHITE", new RECT(25,30,0,0),5);
+
+    thread menuDrag(dxRender::CircleDrag, &window, rend->GetHW(), rend->GetTHW(),88,1.f,false,false, new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT(0,0,0,0));
     menuDrag.detach();
 }
 
@@ -85,6 +91,7 @@ bool MenuController::RemovePlace(string keyPlace) {
 }
 
 void MenuController::Draw() {
+    if (!*menuBool) {return;}
     for (string placesKeys : _places._keys) {
 
         // PLACE
@@ -140,15 +147,24 @@ void MenuController::Draw() {
                     buttonRect = _buttons._map[buttonKey].rect;
                     buttonRect += placeRect;
 
-                    rend->drawBox(
-                                &buttonRect,
-                                _colors._map[_buttons._map[buttonKey].colorKey],
-                                new vector<char>{DB_FILLED,DB_OUTLINE},
-                                new vector<int>{ _buttons._map[buttonKey].textureId }
-                    );
+                    if  (_buttons[buttonKey].pParams->size() == 1) {
+                        rend->drawBox(
+                                    &buttonRect,
+                                    _colors._map[_buttons._map[buttonKey].colorKey],
+                                    _buttons[buttonKey].pParams,
+                                    new vector<int>{ _buttons._map[buttonKey].textureId }
+                        );
+                    } else {
+                        rend->drawBox(
+                                    &buttonRect,
+                                    _colors._map[_buttons._map[buttonKey].colorKey],
+                                    *_buttons[buttonKey].varible ? new vector<char>{DB_FILLED}:new vector<char>{DB_OUTLINE},
+                                    new vector<int>{ _buttons._map[buttonKey].textureId }
+                        );
+                    }
 
 
-                    if (_buttons._map[buttonKey].labelKey != "") {
+                    /*if (_buttons._map[buttonKey].labelKey != "") {
                         POINT pos (buttonRect.left, buttonRect.top+dxRender::height(&buttonRect)/3.f);
                         rend->drawText(
                                 &pos,
@@ -157,10 +173,8 @@ void MenuController::Draw() {
                                 _buttons._map[buttonKey].size
                         );
 
-                    }
-                    if (rend->Button(&buttonRect)) {
-                        _buttons[buttonKey].SetVarible(true);
-                    }
+                    }*/
+                    rend->Button(&buttonRect,_buttons[buttonKey].varible);
                 }
             }
             // \BUTTON
@@ -171,9 +185,7 @@ void MenuController::Draw() {
                     rect = _checkboxes[key].rect;
                     rect += placeRect;
 
-                    if (rend->Button(&rect)) {
-                        _checkboxes[key].SetVarible(!*_checkboxes[key].varible);
-                    }
+                    rend->Button(&rect, _checkboxes[key].varible);
                     rend->drawBox(
                         &rect,
                         _colors["PINK"],
@@ -191,7 +203,7 @@ void MenuController::Draw() {
                     rect = _keybinds[key].rect;
                     rect += placeRect;
                     static bool getKey = false;
-                    if (rend->Button(&rect)) { getKey = true; }
+                    rend->Button(&rect,&getKey);
                     if (getKey) {
                         cfc->GetKeyDown(_labels[_keybinds[key].stringKey]);
                         getKey = false;
@@ -223,13 +235,19 @@ void MenuController::Draw() {
                     rectBox = _sliders[key].rectSlide;
                     rectBox += placeRect;
                     rend->drawBox(&rectBox, _colors[_sliders[key].bgColor], new vector<char>{DB_FILLED}, new vector<int>{_sliders[key].textureid});
-                    //dxRender::DragRect( _sliders[key].rectSlide,rend->GetHW(),rend->GetTHW(),0, true,false, new POINT[2]{POINT(_sliders[key].rect->left-1,0), POINT(_sliders[key].rect->right+1, 0)},placeRect);
-
+                    POINT delta = dxRender::DragRect( _sliders[key].rectSlide,rend->GetHW(),rend->GetTHW(),0, 2.f, true,false, new POINT[2]{POINT(_sliders[key].rect->left-1,0), POINT(_sliders[key].rect->right+1, 0)},placeRect);
+                    int a1 = (delta.x * 100) / (_sliders[key].rect->right);
+                    int a2 = a1 * _sliders[key].max / 100;
+                    //cout << "delta"<<delta.x<<" ; a1->"<<a1<<" ; a2->"<<a2<<" ; current: "<< *_sliders[key].varible<<" ; max:"<<_sliders[key].max<<endl;;
+                    _sliders[key] + a1;
                 }
             }
             // \SLIDER
         }
     }
+
+    //dxRender::DragRect(&window, rend->GetHW(), rend->GetTHW(),88,1.f,false,false, new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT(0,0,0,0));
+
     SetColor("RAINBOW", dxRender::COLOR::Rainbow(*GetColor("RAINBOW")));
     *_labels[DEFAULT_TITLELABEL_ID] = dxRender::ChangingString(DEFAULT_TITLEVALUE, 10);
 }
@@ -269,6 +287,18 @@ bool MenuController::CreateButton(string nameButton, string parentName, RECT* r,
     date.labelKey = lableOnButton;
     date.size = size;
     date.varible = varible;
+
+    return _buttons.Add(nameButton, date);
+}
+
+bool MenuController::CreateButton(string nameButton, string parentName, RECT* r, bool* varible, string colorName, string path, vector<char>* vc) {
+    DateButton date;
+    date.rect = r;
+    date.colorKey = colorName;
+    date.parent = parentName;
+    date.textureId = rend->addTextureFromImage(r, path);
+    date.varible = varible;
+    date.pParams = vc;
 
     return _buttons.Add(nameButton, date);
 }
@@ -339,8 +369,8 @@ bool MenuController::CreateSlider(string sliderName, string parent, RECT *pRect,
     DateSlider<int> date;
     date.max = max;
     date.min = min;
-    date.textureid = rend->addTextureFromImage(new RECT(0,0,size,size), "circle.png");
-    cout << "Slider" << date.textureid<<endl;
+    date.textureid = rend->addTextureFromImage(new RECT(0,0,size,size), "imgs\\slider.png");
+    //cout << "Slider" << date.textureid<<endl;
     date.varible = varible;
     date.bgColor = bgColor;
     date.slideColor = slideColor;
@@ -348,6 +378,7 @@ bool MenuController::CreateSlider(string sliderName, string parent, RECT *pRect,
     date.rect = pRect;
     date.size = size;
     date.rectSlide = new RECT(pRect->left+5, pRect->top-(size/2), pRect->left+size+5, pRect->top-(size/2)+size);
+
     return _sliders.Add(sliderName, date);
 }
 

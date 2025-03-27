@@ -43,7 +43,8 @@ add_executable(${PROJECT_NAME} main.cpp
         wssrc/ConfController.h
         wssrc/map_and_keys.h
         wssrc/WRECT.h
-
+        #tests/RadarHack.h
+        #tests/RadarHack.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE

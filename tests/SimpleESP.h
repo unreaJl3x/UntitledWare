@@ -4,7 +4,7 @@
 #include <iostream>
 #include <windows.h>
 #include "csgo/AppCS.h"
-
-void SimpleESP(AppCS*);
+#include "wssrc/ConfController.h"
+void SimpleESP(AppCS*, ConfController*);
 
 #endif

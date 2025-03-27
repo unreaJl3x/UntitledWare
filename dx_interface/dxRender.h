@@ -8,6 +8,8 @@
 #include <d3dx9core.h>
 #include <windows.h>
 #include <vector>
+#include <thread>
+#include <chrono>
 #include <map>
 
 using namespace std;
@@ -41,14 +43,14 @@ public:
     HWND GetHW();
     HWND GetTHW();
 
-    static void CircleDrag(RECT* r,HWND hw,HWND thw,LONG s =0, bool verticalLock = false, bool horizontalLock = false, POINT *limits = new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT c = RECT(0,0,0,0)) {
+    static void CircleDrag(RECT* r,HWND hw,HWND thw,LONG s , float speeMod, bool verticalLock, bool horizontalLock , POINT *limits, RECT c ) {
         while (true) {
-            DragRect(r, hw, thw, s,verticalLock,horizontalLock,limits,c);
-            //cout << "1"<<endl;
+            DragRect(r, hw, thw, s, speeMod,verticalLock,horizontalLock,limits,c);
+            // cout << "1"<<endl;
         }
     }
-    static POINT DragRect ( RECT*,HWND hw,HWND thw,LONG =0, bool verticalLock = false, bool horizontalLock = false, POINT *limits = new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT = RECT(0,0,0,0));
-    bool Button         ( RECT*  );
+    static POINT DragRect ( RECT*,HWND hw,HWND thw,LONG =0, float = 1.f, bool verticalLock = false, bool horizontalLock = false, POINT *limits = new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT = RECT(0,0,0,0));
+    void Button         ( RECT* , bool*);
 
     static vector<int> GetARGBCode  ( D3DCOLOR );
     static RECT* GetWindowPos       ( HWND);
@@ -116,6 +118,7 @@ private:
     static VOID WINAPI ColorFill (D3DXVECTOR4* pOut, const D3DXVECTOR2* pTexCoord,const D3DXVECTOR2* pTexelSize, LPVOID pData);
 public:
     static bool WGetKeyState(int key) {
+        this_thread::sleep_for(chrono::milliseconds(10));
         return (GetKeyState(key)==-127||GetKeyState(key)==-128 );
     }
 };

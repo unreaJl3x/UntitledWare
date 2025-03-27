@@ -24,6 +24,7 @@ private:
     ConfController* cfc;
     dxOverlay* over;
     dxRender* rend;
+    bool* menuBool;
 
 public:
     bool AddParent          ( string key, bool* value );
@@ -45,7 +46,8 @@ public:
     bool CreateText         ( string name, string parent, string text, string color, RECT* pos, int size );
     bool RemoveText         ( string key );
     
-    bool CreateButton       ( string nameButton, string parent, RECT* pos, bool* varible, string colorName, vector<char>* pParams = new vector<char>{ DB_OUTLINE }, string labelOnButton = "", int size = 0 );
+    bool CreateButton       ( string nameButton, string parent, RECT* pos, bool* varible, string colorName, vector<char>* pParams = new vector<char>{ DB_FILLED, DB_OUTLINE }, string labelOnButton = "", int size = 0 );
+    bool CreateButton       ( string nameButton, string parent, RECT* pos, bool* varible, string colorName, string pathToImage,  vector<char>* pParams = new vector<char>{DB_FILLED});
     bool RemoveButton       ( string key );
 
     bool RemoveLine         ( string key );
@@ -133,6 +135,11 @@ private: // STRUCTS
         string bgColor, slideColor;
         LONG size;
         RECT* rectSlide;
+        void operator+(int a) {
+            if (*varible+a < max && *varible+a > min) {*varible+=a;}
+            else if (*varible+a > max) {*varible=max;}
+            else if (*varible+a <min) {*varible=min;}
+        }
     };
 
 private:

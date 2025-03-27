@@ -6,6 +6,7 @@
 #include <map>
 #include <vector>
 
+#include "map_and_keys.h"
 #include "ProcessManager.h"
 #include "csgo/hazedumper.h"
 #define DUMP hazedumper::netvars
@@ -14,7 +15,8 @@ using namespace std;
 class CBasePlayer {
 private:
     void addOffset(string, uintptr_t, BYTE);
-
+    uintptr_t addr;
+    HANDLE handle;
     template <typename T>
     class Date {
     public:
@@ -30,10 +32,12 @@ private:
 
 
 public:
-    vector<string> keys;
-    map<string, Date<int> > memory;
+    map_and_keys<string, Date<int>> memory;
+    void Load(vector<string>);
+    uintptr_t GetAddr();
 
-    CBasePlayer();
+    CBasePlayer(uintptr_t, HANDLE);
+    CBasePlayer() = default;
 };
 
 #endif //UNTITLEDWARE_CBASEPLAYER_H

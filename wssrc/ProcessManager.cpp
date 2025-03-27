@@ -11,26 +11,26 @@ using namespace std;
 int ProcessManager::ReadMemory(uintptr_t offset, int sizeMemory, HANDLE h) {
     int value;
     bool result = ReadProcessMemory(h, LPVOID(offset), &value, sizeMemory, NULL);
-    if (!result) { Output::print("Cannot read memory in point . " + (offset), result, "ProcessManager.Read"); }
+    //if (!result) { Output::print("Cannot read memory in point . " + (offset), result, "ProcessManager.Read"); }
     return value;
 }
 
 string ProcessManager::ReadMemoryA(uintptr_t offset, int sizeMemory, HANDLE h) {
     string value;
     bool result = ReadProcessMemory(h, LPVOID(offset), &value, sizeMemory, NULL);
-    if (!result) { Output::print("Cannot read memory in point . " + (offset), result, "ProcessManager.Read"); }
+    //if (!result) { Output::print("Cannot read memory in point . " + (offset), result, "ProcessManager.Read"); }
     return value;
 }
 
 bool ProcessManager::WriteMemory(uintptr_t addr, int sizeMemory, int *value, HANDLE h) {
     bool result = WriteProcessMemory(h, LPVOID(addr), value, sizeMemory, NULL);
-    if (!result) { Output::print("Cannot write to the point . " + addr, result, "ProcessManager.Write"); }
+    //if (!result) { Output::print("Cannot write to the point . " + addr, result, "ProcessManager.Write"); }
     return result;
 }
 
 bool ProcessManager::WriteMemoryA(uintptr_t addr, int sizeMemory, char *value, HANDLE h) {
     bool result = WriteProcessMemory(h, LPVOID(addr), value, sizeMemory, NULL);
-    if (!result) { Output::print("Cannot write to the point . " + addr, result, "ProcessManager.Write"); }
+    //if (!result) { Output::print("Cannot write to the point . " + addr, result, "ProcessManager.Write"); }
     return result;
 }
 
@@ -39,7 +39,7 @@ DWORD ProcessManager::GetPID(string *nameExe) {
     pEntry.dwSize = sizeof(PROCESSENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (snap == INVALID_HANDLE_VALUE) {
-        Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetPID");
+        //Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetPID");
         return NULL;
     }
 
@@ -69,7 +69,7 @@ uintptr_t ProcessManager::GetModuleAddr(string mName, DWORD id) {
     mEntry.dwSize = sizeof(MODULEENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPMODULE, id);
     if (snap == INVALID_HANDLE_VALUE) {
-        Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetModuleAddr");
+        //Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetModuleAddr");
         CloseHandle(snap);
         return NULL;
     }
@@ -100,7 +100,7 @@ vector<PROCESSENTRY32> ProcessManager::GetAllProcessEntry(std::string *nameExe) 
     pEntry.dwSize = sizeof(PROCESSENTRY32);
     HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
     if (snap == INVALID_HANDLE_VALUE) {
-        Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetAllProcessEntry");
+        //Output::print("INVALID HANDLE SNAP", false, "ProcessManager.GetAllProcessEntry");
         return pEntres;
     }
 

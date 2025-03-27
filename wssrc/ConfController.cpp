@@ -11,7 +11,6 @@ void GetKey(map_and_keys<int,string>* keyList, string* labelKey) {
         for (int keyL : keyList->_keys) {
             if (dxRender::WGetKeyState(keyL)) {
                 *labelKey = (*keyList)[keyL];
-                //cout << keyL<<endl;
                 return;
             } else if (dxRender::WGetKeyState(VK_ESCAPE)) {
                 *labelKey = oldStr;
@@ -68,6 +67,10 @@ bool* ConfController::GetLinkB(string key) {
         if (keyS=="active") {
             return &(date._map[KEY1].dateFov.active);
         }
+    } else if (keyF == date._map[KEY1].radarHack.dateIndf) {
+        if (keyS == "active") {
+            return &(date._map[KEY1].radarHack.active);
+        }
     }
 
     return nullptr;
@@ -83,6 +86,5 @@ int* ConfController::GetLinkI(string key) {
             return &(date._map[KEY1].dateFov.fovValue.dValue);
         }
     }
-
     return nullptr;
 }
