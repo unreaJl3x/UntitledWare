@@ -7,45 +7,61 @@
 #define place_misc "Place_Misc"
 bool placeMisc = false;
 
+void MenuController::MainWindow() { AddLabel( DEFAULT_TITLELABEL_ID, new string(DEFAULT_TITLEVALUE) ); // header
+    CreatePlace(MAIN_WINDOW_NAME,DEFAULT_WINDOWPARENT,&window,DEFAULT_WINDOWCOLOR_BACKGROUND,new vector<char>{DB_FILLED}); // main place
+    CreatePlace  ("Main.Menu.Outline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
+    CreatePlace  ("Main.Menu.Header", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom*10/100), "RAINBOW", new vector<char>{DB_FILLED});
+    CreateText   ("Main.MenuHeader.Title", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, new RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
+    CreateLine   ("Main.Menu.Line1", DEFAULT_WINDOWPARENT, new RECT((dxRender::width(&window)*15/100),window.top,(dxRender::width(&window)*15/100), window.bottom), "RAINBOW");
+}
+
+void MenuController::Miscellaneous() {
+    AddParent(place_misc, &placeMisc);
+    CreatePlace  ("Main.Menu.MiscPlace", place_misc, new RECT(dxRender::width(&window)*18/100, dxRender::height(&window)*15/100, dxRender::width(&window)*97/100,dxRender::height(&window)*95/100), "BLACK", new vector<char>{DB_FILLED});
+    CreateButton("Main.Menu.MiscPlace.Misc_button", DEFAULT_WINDOWPARENT, new RECT(5,45,40,80), &placeMisc,"WHITE", "imgs\\misc.png");
+
+    AddLabel( "Fov",         new string("Fov")  );
+    CreateText("Main.Menu.MiscPlace.fovChanger_text", place_misc, "Fov","WHITE", new RECT(25,10,0,0),5);
+    CreateCheckBox("Main.Menu.MiscPlace.FovButton", place_misc, "WHITE", new RECT(10,10,20,20), cfc->GetLinkB("FovChanger.active"));
+    CreateSlider("Main.Menu.MiscPlace.SliderFov", place_misc, new RECT(100,16,200,16), 25,"WHITE","WHITE", cfc->GetLinkI("FovChanger.fovValue"), 160,60);
+
+    CreateButton("Main.Menu.MiscPlace.esp_button", place_misc, new RECT(10,30,20,40), cfc->GetLinkB("RadarHack.active"), "WHITE");
+    AddLabel( "esp",         new string("ESP")  );
+    CreateText("Main.Menu.MiscPlace.esp_text", place_misc, "esp","WHITE", new RECT(25,30,0,0),5);
+}
+
 MenuController::MenuController(dxOverlay* overlay, dxRender* render, bool* menuBool, D3DCOLOR backgroundClor, ConfController* cfc) {
-    over = overlay;
-    rend = render;
+    over = overlay; rend = render;
     this->cfc = cfc;
     this->menuBool = menuBool;
 
     AddParent(DEFAULT_WINDOWPARENT,          menuBool           );
 
-    AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND, dxRender::COLOR::VERYBLACKGRAY);
-    AddColor( "RAINBOW",                     dxRender::COLOR::RED);
-    AddColor( "PINK",                     dxRender::COLOR::PINK);
-    AddColor( "WHITE",                     dxRender::COLOR::WHITE);
-    AddColor("BLACK", dxRender::COLOR::BLACK);
-
-    AddLabel( DEFAULT_TITLELABEL_ID,         new string(DEFAULT_TITLEVALUE)  );
-    CreatePlace(MAIN_WINDOW_NAME, DEFAULT_WINDOWPARENT, &window, DEFAULT_WINDOWCOLOR_BACKGROUND,  new vector<char>{DB_FILLED});
-
-    CreatePlace  ("Main.Menu.Outline", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom), "RAINBOW");
-    CreatePlace  ("Main.Menu.Header", DEFAULT_WINDOWPARENT, new RECT(0, 0, window.right, window.bottom*10/100), "RAINBOW", new vector<char>{DB_FILLED});
-    CreateText   ("Main.MenuHeader.Title", DEFAULT_WINDOWPARENT, DEFAULT_TITLELABEL_ID, DEFAULT_WINDOWCOLOR_BACKGROUND, new RECT(dxRender::width(&window)/3.f,dxRender::height(&window)*2/100,0,0), 25);
-    CreateLine   ("Main.Menu.Line1", DEFAULT_WINDOWPARENT, new RECT((dxRender::width(&window)*15/100),window.top,(dxRender::width(&window)*15/100), window.bottom), "RAINBOW");
-
-    AddParent(place_misc, &placeMisc);
-    CreatePlace  ("Main.Menu.Place1", place_misc, new RECT(dxRender::width(&window)*18/100, dxRender::height(&window)*15/100, dxRender::width(&window)*97/100,dxRender::height(&window)*95/100), "BLACK", new vector<char>{DB_FILLED});
-
-    //MISC
-    CreateButton("Misc_button", DEFAULT_WINDOWPARENT, new RECT(5,45,40,80), &placeMisc,"WHITE", "imgs\\misc.png");
-    // MISC | FOV
-    AddLabel( "Fov",         new string("Fov")  );
-    CreateText("fovChanger_text", place_misc, "Fov","WHITE", new RECT(25,10,0,0),5);
-    CreateCheckBox("FovButton", place_misc, "WHITE", new RECT(10,10,20,20), cfc->GetLinkB("FovChanger.active"));
-    CreateSlider("SliderFov", place_misc, new RECT(100,16,200,16), 25,"WHITE","WHITE", cfc->GetLinkI("FovChanger.fovValue"), 160,60);
-    //MISC | ESP
-    CreateButton("esp", place_misc, new RECT(10,30,20,40), cfc->GetLinkB("RadarHack.active"), "WHITE");
-    AddLabel( "esp",         new string("ESP")  );
-    CreateText("esp_text", place_misc, "esp","WHITE", new RECT(25,30,0,0),5);
+    CreateDefaultColorList();
+    MainWindow();
+    Miscellaneous();
 
     thread menuDrag(dxRender::CircleDrag, &window, rend->GetHW(), rend->GetTHW(),88,1.f,false,false, new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT(0,0,0,0));
     menuDrag.detach();
+}
+
+bool MenuController::CreateDefaultColorList() {
+    AddColor( DEFAULT_WINDOWCOLOR_BACKGROUND,   dxRender::COLOR::VERYBLACKGRAY);
+    AddColor( "RAINBOW",                        dxRender::COLOR::RED);
+    AddColor( "PINK",                           dxRender::COLOR::PINK);
+    AddColor( "WHITE",                          dxRender::COLOR::WHITE);
+    AddColor("RED",                             dxRender::COLOR::RED);
+    AddColor("GREEN",                           dxRender::COLOR::GREEN);
+    AddColor("YELLOW",                          dxRender::COLOR::YELLOW);
+    AddColor("WHITEBLUE",                       dxRender::COLOR::WHITEBLUE);
+    AddColor("ORANGE",                          dxRender::COLOR::ORANGE);
+    AddColor("PURPLE",                          dxRender::COLOR::PURPLE);
+    AddColor("GRAY",                            dxRender::COLOR::GRAY);
+    AddColor("BLACKGRAY",                       dxRender::COLOR::BLACKGRAY);
+    AddColor("VERYBLACKGRAY",                   dxRender::COLOR::VERYBLACKGRAY);
+    AddColor("BLUE",                            dxRender::COLOR::BLUE);
+    AddColor("BLACKBLUE",                       dxRender::COLOR::BLACKBLUE);
+    return true;
 }
 
 void MenuController::SetRect(LONG x, LONG y, LONG w, LONG h) {
@@ -93,10 +109,20 @@ bool MenuController::RemovePlace(string keyPlace) {
 void MenuController::Draw() {
     if (!*menuBool) {return;}
     for (string placesKeys : _places._keys) {
-
-        // PLACE
         string placeParent = _places._map[placesKeys].parent;
-        if (*(_parents._map[placeParent])==true) {
+
+        if (_parents.haveIs(placeParent)) {
+            // MENU
+            for (string key : _menus._keys) {
+                if (_menus[key].parent == "") {
+                    rend->DragRect();
+                }
+                else if (_menus[key].parent == placeParent) {
+                    rend->drawBox();
+                }
+            }
+            // \MENU
+            // PLACE
             WRECT placeRect;
             placeRect = _places._map[placesKeys].rect;
 
@@ -146,34 +172,12 @@ void MenuController::Draw() {
                     WRECT buttonRect;
                     buttonRect = _buttons._map[buttonKey].rect;
                     buttonRect += placeRect;
-
-                    if  (_buttons[buttonKey].pParams->size() == 1) {
-                        rend->drawBox(
-                                    &buttonRect,
-                                    _colors._map[_buttons._map[buttonKey].colorKey],
-                                    _buttons[buttonKey].pParams,
-                                    new vector<int>{ _buttons._map[buttonKey].textureId }
-                        );
-                    } else {
-                        rend->drawBox(
-                                    &buttonRect,
-                                    _colors._map[_buttons._map[buttonKey].colorKey],
-                                    *_buttons[buttonKey].varible ? new vector<char>{DB_FILLED}:new vector<char>{DB_OUTLINE},
-                                    new vector<int>{ _buttons._map[buttonKey].textureId }
-                        );
-                    }
-
-
-                    /*if (_buttons._map[buttonKey].labelKey != "") {
-                        POINT pos (buttonRect.left, buttonRect.top+dxRender::height(&buttonRect)/3.f);
-                        rend->drawText(
-                                &pos,
-                                *_labels._map[_buttons._map[buttonKey].labelKey],
+                    rend->drawBox(
+                                &buttonRect,
                                 _colors._map[_buttons._map[buttonKey].colorKey],
-                                _buttons._map[buttonKey].size
-                        );
-
-                    }*/
+                                _buttons[buttonKey].pParams,
+                                new vector<int>{ _buttons._map[buttonKey].textureId }
+                    );
                     rend->Button(&buttonRect,_buttons[buttonKey].varible);
                 }
             }
@@ -188,11 +192,10 @@ void MenuController::Draw() {
                     rend->Button(&rect, _checkboxes[key].varible);
                     rend->drawBox(
                         &rect,
-                        _colors["PINK"],
+                        _colors[_checkboxes[key].colorKey],
                         new vector<char>{(_checkboxes[key].GetVarible()==true) ? DB_FILLED : DB_OUTLINE },
                         new vector<int>{_checkboxes[key].textureId}
                     );
-
                 }
             }
             // \CHECKBOX
@@ -214,15 +217,6 @@ void MenuController::Draw() {
             }
             // \BINDBOX
             // INPUT PLACE
-            /*for (string key : _inputplaces._keys) {
-                if (_inputplaces[key].parent == placeParent) {
-                    WRECT rect;
-                    rect = _inputplaces[key].rect;
-                    rect+=placeRect;
-                    rend->drawBox(&rect, _colors[_inputplaces[key].colorKey]);
-                }
-            }*/
-            // \INPUT PLACE
             // SLIDER
             for (string key : _sliders._keys) {
                 if (_sliders[key].parent == placeParent) {
@@ -236,10 +230,8 @@ void MenuController::Draw() {
                     rectBox += placeRect;
                     rend->drawBox(&rectBox, _colors[_sliders[key].bgColor], new vector<char>{DB_FILLED}, new vector<int>{_sliders[key].textureid});
                     POINT delta = dxRender::DragRect( _sliders[key].rectSlide,rend->GetHW(),rend->GetTHW(),0, 2.f, true,false, new POINT[2]{POINT(_sliders[key].rect->left-1,0), POINT(_sliders[key].rect->right+1, 0)},placeRect);
-                    int a1 = (delta.x * 100) / (_sliders[key].rect->right);
-                    int a2 = a1 * _sliders[key].max / 100;
                     //cout << "delta"<<delta.x<<" ; a1->"<<a1<<" ; a2->"<<a2<<" ; current: "<< *_sliders[key].varible<<" ; max:"<<_sliders[key].max<<endl;;
-                    _sliders[key] + a1;
+                    _sliders[key] +=  (delta.x * _sliders[key].max ) / (_sliders[key].rect->right);
                 }
             }
             // \SLIDER
@@ -348,29 +340,11 @@ string MenuController::GetLable(string key) {
     return *_labels[key];
 }
 
-/*bool MenuController::CreateInputPlace() {
-    DateInputPlace dip;
-    dip.max = max;
-    dip.min = min;
-    dip.varible = varible;
-    dip.parent = parent;
-    dip.rect = pRect;
-    dip.colorKey = colorNameBG;
-    dip.textColor = colorNameText;
-    dip.textureId = rend->addTexture(pRect);
-    return _inputplaces.Add(inputName, dip);
-}
-
-bool MenuController::RemoveInputPlace(string key) {
-    return _inputplaces.Remove(key);
-}
-*/
 bool MenuController::CreateSlider(string sliderName, string parent, RECT *pRect, LONG size, string bgColor, string slideColor, int *varible, int max, int min) {
     DateSlider<int> date;
     date.max = max;
     date.min = min;
     date.textureid = rend->addTextureFromImage(new RECT(0,0,size,size), "imgs\\slider.png");
-    //cout << "Slider" << date.textureid<<endl;
     date.varible = varible;
     date.bgColor = bgColor;
     date.slideColor = slideColor;
@@ -384,4 +358,15 @@ bool MenuController::CreateSlider(string sliderName, string parent, RECT *pRect,
 
 bool MenuController::RemoveSlider(string k) {
     return _sliders.Remove(k);
+}
+
+bool MenuController::CreateMenu(string key, bool dragbble, string parent, string color, string header, string colorHeader, RECT* rect) {
+    DateMenu date;
+    date.pRect = rect;
+    date.header = header;
+    date.color = color;
+    date.draggble = dragbble;
+    date.parent = parent;
+    date.colorHeader = colorHeader;
+    return _menus.Add(key, date);
 }

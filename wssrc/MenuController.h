@@ -35,6 +35,7 @@ public:
     bool SetColor           ( string key, D3DCOLOR value );
     D3DCOLOR* GetColor      ( string key                 );
 
+
     bool AddLabel           ( string, string* );
     string GetLable         ( string );
     bool RemoveLabel        ( string               );
@@ -71,13 +72,19 @@ public:
     bool CreateInputPlace   (   );
     bool RemoveInputPlace   (  string );
 
+    bool CreateMenu(string key, bool dragbble, string parent, string color, string header, string colorHeader, RECT* rect);
+    bool RemoveMenu(string);
+
     void      SetRect   (LONG,LONG,LONG,LONG);
     static RECT* GetRect();
 
     void Draw();
 
     MenuController(dxOverlay*, dxRender*, bool*, D3DCOLOR, ConfController*);
-
+private:
+    void MainWindow();
+    void Miscellaneous();
+    bool CreateDefaultColorList();
 private: // STRUCTS
     struct Date {
         string colorKey;
@@ -87,7 +94,6 @@ private: // STRUCTS
     struct DatePlaces : Date {
         vector<char>* pParams;
         int textureId;
-        DatePlaces() : Date() {}
     };
     struct DateText : Date {
         string labelKey;
@@ -135,11 +141,21 @@ private: // STRUCTS
         string bgColor, slideColor;
         LONG size;
         RECT* rectSlide;
-        void operator+(int a) {
+        void operator+=(int a) {
             if (*varible+a < max && *varible+a > min) {*varible+=a;}
             else if (*varible+a > max) {*varible=max;}
             else if (*varible+a <min) {*varible=min;}
         }
+    };
+    struct DateMenu {
+        RECT* pRect;
+        bool draggble;
+        /// if gragbble is false;
+        string parent;
+        string header;
+        /// color header if header is not null;
+        string colorHeader;
+        string color;
     };
 
 private:
@@ -154,6 +170,7 @@ private:
     map_and_keys< string, DateKeyBind   > _keybinds;
     map_and_keys< string, DateInputPlace> _inputplaces;
     map_and_keys< string, DateSlider<int>> _sliders;
+    map_and_keys<string, DateMenu> _menus;
 };
 
 #endif

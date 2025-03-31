@@ -28,8 +28,8 @@ private:
     HWND hWindow;
 
 public:
-    dxRender            ( IDirect3DDevice9*, HWND,HWND );
-    ~dxRender           (   );
+         dxRender            ( IDirect3DDevice9*, HWND,HWND );
+         ~dxRender           (   );
 
     void beginRender    (   );
     void endRender      (   );
@@ -37,7 +37,8 @@ public:
     void drawLine       ( POINT*, POINT*, D3DCOLOR );
     void drawBox        ( RECT* rect, D3DCOLOR color, vector<char>* params = new vector{DB_OUTLINE}, vector<int>* texturesid= new vector{-1});
     int  addTexture     ( RECT* rect);
-    int addTextureFromImage (RECT*, string);
+    int  addTextureFromImage (RECT*, string);
+    bool CreateFont(string fontFamily, bool italic, int h, int w);
     void drawText       ( POINT*, std::string, D3DCOLOR, int);
 
     HWND GetHW();
@@ -46,7 +47,7 @@ public:
     static void CircleDrag(RECT* r,HWND hw,HWND thw,LONG s , float speeMod, bool verticalLock, bool horizontalLock , POINT *limits, RECT c ) {
         while (true) {
             DragRect(r, hw, thw, s, speeMod,verticalLock,horizontalLock,limits,c);
-            // cout << "1"<<endl;
+            this_thread::sleep_for(std::chrono::milliseconds(5));
         }
     }
     static POINT DragRect ( RECT*,HWND hw,HWND thw,LONG =0, float = 1.f, bool verticalLock = false, bool horizontalLock = false, POINT *limits = new POINT[2]{(INT_MAX, INT_MAX),(INT_MAX, INT_MAX)}, RECT = RECT(0,0,0,0));

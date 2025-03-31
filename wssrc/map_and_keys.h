@@ -45,9 +45,10 @@ public:
         }
         return false;
     };
-    bool IsNull() { return _keys.size()==0; }
-    int size() {
-        return _map.size();
+    bool IsNull() { return _keys.size() == 0; }
+    int size() { return _map.size(); }
+    bool haveIs(string key) {
+        return _map.find(key) != _map.end();
     }
 };
 #endif //MAP_AND_KEYS_H

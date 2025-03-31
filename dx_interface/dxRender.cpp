@@ -60,6 +60,21 @@ void dxRender::drawLine(POINT* start, POINT* end, D3DCOLOR color) {
     dxLine->Draw( new D3DXVECTOR2 [2]{ D3DXVECTOR2(start->x, start->y) ,D3DXVECTOR2(end->x, end->y)},2,color);
 }
 
+bool dxRender::CreateFont(string fontFamily, bool italic, int h, int w) {
+    return D3DXCreateFontA(device,
+                        dxRender::height(dxRender::GetWindowPos(hWindow))/40,
+                        dxRender::width(dxRender::GetWindowPos(hWindow))/80,
+                        FW_HEAVY,
+                        1,
+                        false,
+                        DEFAULT_CHARSET,
+                        OUT_TT_ONLY_PRECIS,
+                        ANTIALIASED_QUALITY,
+                        DEFAULT_PITCH | FF_DONTCARE,
+                        "Tahoma",
+                        &dxFont
+        ) == D3D_OK;
+};
 void dxRender::drawText(POINT* pos, std::string text, D3DCOLOR color, int size) {
     //cout << text.c_str()<<endl;
     dxFont->DrawTextA(NULL, text.c_str(), text.length(), new RECT(pos->x,pos->y,pos->x*size,pos->y*size), DT_LEFT|DT_NOCLIP, color);
@@ -98,7 +113,7 @@ void dxRender::drawBox(RECT* rect, D3DCOLOR color, vector<char>* gFlags, vector<
                     D3DXVECTOR2(rect->right,rect->bottom),
                     D3DXVECTOR2(rect->right,rect->top),
                     D3DXVECTOR2(rect->left,rect->top)
-                    };
+                };
                 dxLine->Draw(mergins, _size, color);
                 break;
             }
@@ -148,16 +163,15 @@ RECT* dxRender::GetWindowPos(HWND handle) {
 
 void dxRender::Button(RECT* rectButton, bool* var) {
     RECT window = *dxRender::GetWindowPos(hWindow);
-    RECT menu = *rectButton;
     POINT cursorePos;
     GetCursorPos(&cursorePos);
     static bool cannable;
 
     if (
-        cursorePos.x > menu.left + window.left &&
-        cursorePos.x < menu.right + window.left &&
-        cursorePos.y > menu.top + window.top &&
-        cursorePos.y < menu.bottom + window.top
+        cursorePos.x > rectButton->left + window.left &&
+        cursorePos.x < rectButton->right + window.left &&
+        cursorePos.y > rectButton->top + window.top &&
+        cursorePos.y < rectButton->bottom + window.top
     )
     {
         if (WGetKeyState(VK_LBUTTON) && cannable) {
@@ -173,20 +187,20 @@ void dxRender::Button(RECT* rectButton, bool* var) {
     return;
 }
 
-mutex _m;
-POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long prochent, float speed,  bool verticalLock, bool horizontalLock, POINT* limits, RECT dRect) {
-    _m.lock();
-    static POINT cursor(0,0);
-    RECT window = *GetWindowPos(hWindow);
-    RECT menuInWindow(
-                    objRect->left   + window.left + dRect.left,
-                    objRect->top    + window.top+ dRect.top,
-                   objRect->right  + window.left+ dRect.left,
-                    objRect->bottom + window.top+ dRect.bottom - (((objRect->bottom-objRect->top)*prochent)/100)
-    );
-    /*cout << "MENU: " << objRect->left << " " << objRect->right << " " << objRect->top << " " << objRect->bottom
-<< "menuInWindow: " << menuInWindow.left << " " << menuInWindow.right << " " << menuInWindow.top << " " << menuInWindow.bottom <<  "\r";*/
 
+
+
+mutex _m;
+POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long prochent, float cof,  bool verticalLock, bool horizontalLock, POINT* limits, RECT dRect) {
+    _m.lock();
+
+    static POINT cursor(0,0);
+    RECT menuInWindow(
+                    objRect->left   + GetWindowPos(hWindow)->left + dRect.left,
+                    objRect->top    + GetWindowPos(hWindow)->top+ dRect.top,
+                   objRect->right  + GetWindowPos(hWindow)->left+ dRect.left,
+                    objRect->bottom + GetWindowPos(hWindow)->top+ dRect.bottom - (((objRect->bottom-objRect->top)*prochent)/100)
+    );
     if  (   cursor.y > menuInWindow.top &&
             cursor.y < menuInWindow.bottom &&
             cursor.x > menuInWindow.left &&
@@ -197,36 +211,34 @@ POINT dxRender::DragRect(RECT* objRect, HWND hWindow, HWND thWindow, long proche
         POINT newCursorPos;
         GetCursorPos(&newCursorPos);
 
-        const float cof = 1.2f*speed;
         POINT DELTA(( newCursorPos.x - cursor.x ) * cof, ( newCursorPos.y - cursor.y ) * cof);
 
-        int victimW[2](dxRender::width(dxRender::GetWindowPos(thWindow))-dxRender::width(dxRender::GetWindowPos(thWindow))*2/100, dxRender::height(dxRender::GetWindowPos(thWindow))-dxRender::height(dxRender::GetWindowPos(thWindow))*7/100);
+        int victimW[2]( dxRender::width(dxRender::GetWindowPos(thWindow)) - dxRender::width(dxRender::GetWindowPos(thWindow)) *2/100, dxRender::height(dxRender::GetWindowPos(thWindow))-dxRender::height(dxRender::GetWindowPos(thWindow))*7/100);
 
-        if ((!(objRect->left + DELTA.x < 0 || objRect->right + DELTA.x> victimW[0])) && !horizontalLock) {
-            //
-            //cout <<limits[0].x<<endl;
-            if ((objRect->left+DELTA.x > limits[0].x && objRect->left+DELTA.x < limits[1].x)&& limits[0].x!=INT_MAX) {
-                objRect->left += DELTA.x;  objRect->right += DELTA.x;
-            }
-            else if (limits[0].x == INT_MAX) {
-                objRect->left += DELTA.x;  objRect->right += DELTA.x;
-            }
-
+        if ( ( !( objRect->left + DELTA.x < 0 || objRect->right + DELTA.x > victimW[0]))
+            && !horizontalLock
+            && (objRect->left+DELTA.x > limits[0].x && objRect->left+DELTA.x < limits[1].x)
+            && limits[0].x!=INT_MAX
+        ) {
+            objRect->left += DELTA.x;  objRect->right += DELTA.x;
         }
 
         if ((!(objRect->top + DELTA.y < 0 || objRect->bottom + DELTA.y > victimW[1])) && !verticalLock ) {  objRect->top += DELTA.y;  objRect->bottom += DELTA.y; }
-        else {}
 
         GetCursorPos(&cursor);
         _m.unlock();
         return DELTA;
     } else {
         GetCursorPos(&cursor);
-        //cout << "CURSORE: "<<cursor.x<< " , "<<cursor.y<<endl;
     }
     _m.unlock();
     return POINT(0,0);
 }
+
+
+
+
+
 
 string dxRender::ChangingString(string _text, int speed) {
     static string text = _text;
@@ -257,25 +269,11 @@ int dxRender::addTextureFromImage(RECT* rect, string path) {
     if (keys.size() !=0) {
         key = keys.back() + 1;
     } else { key = 0; }
-
     keys.push_back(key);
-    /*bool createTexture = device->CreateTexture(rect->right-rect->left,
-                         rect->bottom-rect->top,
-                         0,
-                         0,
-                         D3DFMT_A8R8G8B8 ,
-                         D3DPOOL_DEFAULT,
-                         &textures[key],
-                         NULL
-   ) == D3D_OK;*/
     bool createTexture = D3DXCreateTextureFromFileEx(device, path.c_str(), rect->right-rect->left,rect->bottom-rect->top, D3DX_DEFAULT,
                           0,
                           D3DFMT_UNKNOWN ,
                           D3DPOOL_MANAGED, D3DX_DEFAULT,D3DX_DEFAULT,0,NULL,NULL, &textures[key]
         ) == D3D_OK;
-
-    //D3DXFillTexture(textures[key], ColorFill, NULL);
-    //D3DXSaveTextureToFileA("1.png",D3DXIFF_PNG,textures[key],NULL);
-    //cout << createTexture <<endl;
     return key;
 }
